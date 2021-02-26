@@ -1,6 +1,6 @@
 angleMode(DEGREES);
-let scale = 1;
-let scaleSmoothnes=0;
+let scale = 1.2;
+let scaleSmoothnes=0.2;
 
 let longcane;
 
