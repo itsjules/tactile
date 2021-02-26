@@ -1,9 +1,9 @@
 html{
-  /* cursor: url(/assets/Blindenstock_1.png) 10 3,auto;  */
+  /* cursor: url(/assets/img/Blindenstock_1.png) 10 3,auto;  */
   overflow: hidden;
   margin: 0;
   padding: 0;
-  /* cursor: none; */
+  cursor: none;
 }
 
 body{
