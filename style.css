@@ -1,14 +1,17 @@
 html{
-  cursor: url(/assets/Blindenstock_1.png) 10 3,auto;
-  overflow: hidden;
+  /* cursor: url(/assets/Blindenstock_1.png) 10 3,auto; */
+  /* overflow: hidden; */
+  margin: 0;
+  padding: 0;
+  cursor: none;
 }
 
 body{
   background-color: gray;  
-  margin-bottom: 0;
+  margin: 0;
 }
 
-.leitlinie{
+/* .leitlinie{
   display: block;
   height: 100vh;
   margin-left: auto;
@@ -21,4 +24,11 @@ body{
 .leitlinie:hover{
   transform: scale(1.5);
   opacity: 100;
+} */
+
+.p5Canvas{
+  height: auto !important;
+  width: 100% !important;
+  position: fixed;
+
 }
