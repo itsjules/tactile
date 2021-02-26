@@ -1,22 +1,31 @@
 angleMode(DEGREES);
-let scale = 1;
-let scaleSmoothnes=0;
+let scale = 1.2;
+let scaleSmoothnes=0.3;
+let hitArea={};
+let fade=0;
+let hitCounter=0;
+let executed=false;
 
 let longcane;
+let footstep;
 
 function preload() {
-  longcane = loadImage("assets/blindenstock_P.png");
+  longcane = loadImage("assets/img/blindenstock_P.png");
+  footstep= loadSound("assets/sound/footstep.mp3");
 }
 window.preload = preload;
+
+function update(){
+  hitArea={left:window.width/2-window.width*0.05, right: window.width/2+window.width*0.05}
+}
+
 
 function longCaneHover() {
   push();
   // imageMode(CENTER);
   let cane = {
     xDown: -(longcane.width / 2) * scale,
-    yDown: -longcane.height * scale,
-    xUp: 0,
-    yUp: 0,
+    yDown: -longcane.height * scale
   };
   translate(window.width / 2, window.height);
   push();
@@ -66,18 +75,38 @@ function longCaneHover() {
   pop();
 }
 
+
 function hitDetection(){
-    if(mouseX>window.width/2-window.width*0.05 && mouseX<window.width/2+window.width*0.05){
-        console.log("wupwup");
-        rectMode(CENTER);
-        rect(window.width/2,longcane.height,window.width*0.1)
+    if (mouseX>hitArea.left && mouseX<hitArea.right){
+        (fade>=255)? fade=255 : fade+=20;
+        if(!executed){
+        hitCount(); 
+        executed=true;
+        }
+    } else{
+        (fade<=0)? fade=0 : fade-=10; 
+        executed=false;
     }
+    rectMode(CENTER);
+    noStroke();
+    fill(86,194,232,fade);
+    rect(window.width/2,longcane.height,longcane.height*0.3)
 }
+
+function hitCount(){
+   hitCounter+=1;
+   footstep.play();
+   return;
+}
+
+
 
 function draw() {
   background("grey");
+  update();
   hitDetection();
   longCaneHover();
+  console.log(hitCounter);
   
   // console.log(longcane);
   // console.log({mouseX,mouseY});
