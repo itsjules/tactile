@@ -1,17 +1,25 @@
 angleMode(DEGREES);
-let scale = 1.2;
+let scale=1.2;
 let scaleSmoothnes=0.3;
 let hitArea={};
-let fade=0;
 let hitCounter=0;
+let steps=5;
+
+let screenFreeze=false;
+let fade=255;
+let fadeSteps=3;
+
 let executed=false;
 let index=0;
 let animationPlay=false;
+
 let longcane;
 let leitlinienAnimation=[];
 let footstep;
 
 var start=false;
+
+let myVar;
 
 function preload() {
   longcane = loadImage("assets/img/blindenstock_P.png");
@@ -28,19 +36,20 @@ function preload() {
 window.preload = preload;
 
 function update(){
-  hitArea={left:window.width/2-window.width*0.05, right: window.width/2+window.width*0.05}
+  hitArea={left:window.width/2-window.width*0.05, right: window.width/2+window.width*0.05};
+ 
 }
 
 
 function longCaneHover() {
   push();
-  // imageMode(CENTER);
   let cane = {
     xDown: -(longcane.width / 2) * scale,
     yDown: -longcane.height * scale
   };
   translate(window.width / 2, window.height);
   push();
+  if(!screenFreeze){
   if (mouseX < window.width / 2 - longcane.height * scale) {
       rotate(-90);
     }
@@ -68,9 +77,13 @@ function longCaneHover() {
   }
   if (mouseX > window.width / 2 + longcane.height * scale) {
       rotate(90);
+  }
 }
-  // rotate(mouseX/2);
-
+ if(screenFreeze){
+   (fade<=0)? fade=0:fade-=fadeSteps;
+  //  console.log(fade);
+   tint(255,fade);
+ }
   image(
     longcane,
     cane.xDown,
@@ -108,14 +121,24 @@ function leitAnimation(){
   if(animationPlay){
   push();
   imageMode(CENTER);
-  
+  rectMode(CENTER);
   let animationSpeed=0.21;
   // (index>11.9)?index=0 : index;
   index += animationSpeed;
   let animation = floor(index);
   // scale(-1,1);
-  image(leitlinienAnimation[animation],window.width/2,longcane.height,leitlinienAnimation[animation].width*0.4,leitlinienAnimation[animation].height*0.4);
-  
+  if(hitCounter<steps){
+  image(leitlinienAnimation[animation],window.width/2,window.height-(longcane.height),leitlinienAnimation[animation].width*0.4,leitlinienAnimation[animation].height*0.4);
+  }
+  else if(hitCounter>=steps){
+  if(hitCounter===steps+1){
+    screenFreeze=true;
+  }
+  noStroke();
+  fill(255,221,44);
+  rect(window.width/2,window.height-longcane.height,window.width*0.1);
+
+  }
   pop();
   }
   if(index>11){
@@ -130,16 +153,41 @@ function hitCount(){
    return;
 }
 
+function freeze(){
+  push();
+  noStroke();
+  rectMode(CENTER);
+  fill(255,221,44,fade);
+  rect(window.width/2,window.height-longcane.height+(255-fade),window.width*(0.1+(255-fade)/200));
+  pop();
+  if(fade<=0){
+    myVar=setTimeout(redy2Go,1000);
+  }
+}
 
+function redy2Go(){
+  push();
+  rectMode(CENTER);
+  fill("white");
+  textSize(40);
+  text("Whuuu, dieser Moment muss iwie an HTML/CSS weitergegeben werden",window.width/2, window.height/2,window.width*3/5,window.height/2);
+  console.log("wuhu");
+  pop();
+  clearTimeout(myVar);
+}
 
 function draw() {
   if(start){
   background("grey");
   update();
+  if(screenFreeze){
+  freeze();
+  } else {
   hitDetection();
+  }
   longCaneHover();
   // console.log(hitCounter);
-  console.log(index, animationPlay);
+  // console.log(index, animationPlay);
   // console.log(longcane);
   // console.log({mouseX,mouseY});
   }
