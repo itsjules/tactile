@@ -1,9 +1,9 @@
 angleMode(DEGREES);
-let scale=1.2;
-let scaleSmoothnes=0.3;
+let scale=0;
+let scaleMax=0.2;
 let hitArea={};
 let hitCounter=0;
-let steps=5;
+let steps=40;
 
 let screenFreeze=false;
 let fade=255;
@@ -35,47 +35,59 @@ function preload() {
 }
 window.preload = preload;
 
+let longcaneHeight;
+let longcaneWidth;
+let animationScale=1;
+
 function update(){
   hitArea={left:window.width/2-window.width*0.05, right: window.width/2+window.width*0.05};
- 
+  if(window.width/2-longcaneHeight<0 && window.width/2+longcaneHeight>window.width){
+    scale=0;
+  }
+  longcaneHeight=window.height*(0.5+scale);
+  longcaneWidth=(longcane.width/longcane.height)*longcaneHeight;
 }
 
 
 function longCaneHover() {
   push();
   let cane = {
-    xDown: -(longcane.width / 2) * scale,
-    yDown: -longcane.height * scale
+    xDown: -(longcaneWidth / 2) ,
+    yDown: -longcaneHeight 
   };
   translate(window.width / 2, window.height);
   push();
   if(!screenFreeze){
-  if (mouseX < window.width / 2 - longcane.height * scale) {
+  if (mouseX < window.width / 2 - longcaneHeight) {
       rotate(-90);
     }
   if (
-    mouseX > window.width / 2 - longcane.height * scale &&
+    mouseX > window.width / 2 - longcaneHeight &&
     mouseX < window.width / 2
   ) {
-    let fullDistance = longcane.height * scale;
-    let mouseDistance = mouseX - (window.width / 2 - longcane.height * scale);
+    let fullDistance = longcaneHeight;
+    let mouseDistance = mouseX - (window.width / 2 - longcaneHeight);
     let distancePercentage = 1 - mouseDistance / fullDistance;
     rotate(-90 * distancePercentage);
-    scale=1+scaleSmoothnes*(distancePercentage);
-    // console.log(distancePercentage);
+    if(window.width/2-longcaneHeight>0){
+    console.log("jupjup");  
+    scale=scaleMax*(distancePercentage);
+    }
   }
   if (
-    mouseX < window.width / 2 + longcane.height * scale &&
+    mouseX < window.width / 2 + longcaneHeight &&
     mouseX > window.width / 2
   ) {
-    let fullDistance = longcane.height * scale;
+    let fullDistance = longcaneHeight;
     let mouseDistance = mouseX - (window.width / 2);
     let distancePercentage = mouseDistance / fullDistance;
     rotate(90 * distancePercentage);
-    scale=1+scaleSmoothnes*(distancePercentage);
-    // console.log(distancePercentage);
+    if(window.width/2+longcaneHeight<window.width){
+      console.log("jupjup");  
+      scale=scaleMax*(distancePercentage);
+      }
   }
-  if (mouseX > window.width / 2 + longcane.height * scale) {
+  if (mouseX > window.width / 2 + longcaneHeight) {
       rotate(90);
   }
 }
@@ -88,15 +100,15 @@ function longCaneHover() {
     longcane,
     cane.xDown,
     cane.yDown,
-    longcane.width * scale,
-    longcane.height * scale
+    longcaneWidth,
+    longcaneHeight
   );
   pop();
   fill("red");
   ellipse(0, 0, 10);
   fill("blue");
-  ellipse(-longcane.height * scale, 0, 10);
-  ellipse(+longcane.height * scale, 0, 10);
+  ellipse(-longcaneHeight, 0, 10);
+  ellipse(+longcaneHeight, 0, 10);
   pop();
 }
 
@@ -128,7 +140,15 @@ function leitAnimation(){
   let animation = floor(index);
   // scale(-1,1);
   if(hitCounter<steps){
-  image(leitlinienAnimation[animation],window.width/2,window.height-(longcane.height),leitlinienAnimation[animation].width*0.4,leitlinienAnimation[animation].height*0.4);
+    image(
+      leitlinienAnimation[animation],
+      window.width / 2,
+      window.height / 2,
+      (leitlinienAnimation[animation].width /
+        leitlinienAnimation[animation].height) *
+        (window.height * animationScale),
+      window.height * animationScale
+    );
   }
   else if(hitCounter>=steps){
   if(hitCounter===steps+1){
@@ -136,7 +156,7 @@ function leitAnimation(){
   }
   noStroke();
   fill(255,221,44);
-  rect(window.width/2,window.height-longcane.height,window.width*0.1);
+  rect(window.width/2,window.height/2,window.width*0.1);
 
   }
   pop();
@@ -158,7 +178,7 @@ function freeze(){
   noStroke();
   rectMode(CENTER);
   fill(255,221,44,fade);
-  rect(window.width/2,window.height-longcane.height+(255-fade),window.width*(0.1+(255-fade)/200));
+  rect(window.width/2,window.height/2+(255-fade),window.width*(0.1+(255-fade)/200));
   pop();
   if(fade<=0){
     myVar=setTimeout(redy2Go,1000);
@@ -188,7 +208,7 @@ function draw() {
   longCaneHover();
   // console.log(hitCounter);
   // console.log(index, animationPlay);
-  // console.log(longcane);
+  console.log(window.height);
   // console.log({mouseX,mouseY});
   }
 }
