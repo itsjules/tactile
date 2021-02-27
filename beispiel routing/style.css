@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
+@font-face { 
+    font-family: "Bakso"; 
+    src: url("../fonts/BaksoSapi.otf"); 
+    }
+
+
+    body::-webkit-scrollbar,
+    html::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::-moz-selection { 
+    color:#ffbc08; 
+    background:#000; 
+    text-shadow: none; 
+ }
+ 
+ ::selection { 
+    color:#ffbc08; 
+    background:#000; 
+    text-shadow: none; 
+ }
+
+ *  {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    
+}
+
+  body, html {
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+    height: auto;
+    top: 0;
+    width: 100%;
+  }
+
+h1 {
+    font-family: Bakso;
+    font-size: 4vw;
+    line-height: 0.6;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+a {
+    color: #ffbc08;
+    text-decoration: none;
+}
+
+p {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* .p5game {
+        width: 54vw;
+    background-color: #ffbc08;
+    height: 36vw;
+    top: 202px;
+    left: 23vw;
+    transform: rotate(-5deg);
+} */
+
+h1 > span {
+    font-size: 2.5vw;
+}
+
+.headline { display: inline-block;}
+
+.headline .square {
+    height: 3vh;
+    width: 16vw;
+    left: -10px;
+    top: 2.5vh;
+    transform: rotate(-4deg);
+}
+
+.content {
+    width: 40vw;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 5vh;
+}
+
+body.NavClosed .navigation {
+    top: -200px;
+    transition: top 0.5s ease;
+    -webkit-transition: top 0.5s ease;
+    -moz-transition: top 0.5s ease;
+    -ms-transition: top 0.5s ease;
+    -o-transition: top 0.5s ease;
+}
+
+.p5Canvas{
+    height: auto !important;
+    width: 50% !important;
+    position: fixed;
+    opacity: 0;
+    margin: 0 25vw 0 25vw;
+    display: none;
+    top: 25vh;
+}
+
+section {
+    opacity: 0;
+    display: none;
+    width: 100vw;
+    margin: 200px 0vw 0vw; /*normally 200 px 0vw 0vw*/
+    min-height: calc(100vh - 200px);
+}
+
+section.information {
+    margin: 300px 0vw 0 0vw;
+    min-height: calc(100vh - 300px);
+}
+
+body.home section.home {
+    opacity: 1;
+    display: block;
+}
+
+body.home .p5Canvas {
+    opacity: 1;
+    display: block;
+}
+
+body.about section.about {
+    opacity: 1;
+    display: block;
+    margin: 200px 0vw 0 0vw;
+}
+
+body.character section.character {
+    opacity: 1;
+    display: block;
+}
+
+body.thanks section.thanks {
+    opacity: 1;
+    display: block;
+    text-align: center;
+    margin: 200px 0vw 0 0vw;
+}
+
+body.info section.information {
+    opacity: 1;
+    display: block;
+}
+
+.input {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    cursor: pointer;
+}
+
+.image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+}
+
+/*********  Nav **********/
+
+.navigation {
+    width: 100vw;
+    height: 150px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    transition: top 0.5s ease;
+    -webkit-transition: top 0.5s ease;
+    -moz-transition: top 0.5s ease;
+    -ms-transition: top 0.5s ease;
+    -o-transition: top 0.5s ease;
+    left: 0;
+}
+
+.homeNav, 
+.thanksNav, 
+.aboutNav, 
+.characterNav, 
+.informationNav {
+    position: relative;
+}
+
+.homeNav .input {
+    background-image: url(../img/Website/home.svg);
+    height: 12vh;
+    width: 12vw;
+    margin: 20px;
+}
+
+.homeNav .square {
+    height: 4vh;
+    width: 17vw;
+    top: 6vh;
+    transform: rotate(-12deg);
+    left: -10px;
+    -webkit-transform: rotate(-12deg);
+    -moz-transform: rotate(-12deg);
+    -ms-transform: rotate(-12deg);
+    -o-transform: rotate(-12deg);
+}
+
+.smalls { display: flex; align-items: center;}
+
+.smalls .input {
+    height: 6vh;
+    width: 7.5vw;
+    margin: 10px;
+}
+
+ .square {
+    background-color: #ffbc08;
+    position:absolute;
+    z-index: 0;
+}
+
+.informationNav:hover .square,
+.homeNav:hover .square ,
+.characterNav:hover .square,
+.aboutNav:hover .square,
+.thanksNav:hover .square {
+    background-color: #00b7d9;
+}
+
+.smalls > div:hover {
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+}
+
+.smalls .square {
+    top: 3.5vh;
+    left: 2vw;
+    transform: rotate(-13deg);
+    height: 0.8vh;
+    width: 4vw;
+    -webkit-transform: rotate(-13deg);
+    -moz-transform: rotate(-13deg);
+    -ms-transform: rotate(-13deg);
+    -o-transform: rotate(-13deg);
+}
+
+.thanksNav .input {
+    background-image: url(../img/Website/thankyou.svg);
+}
+
+.aboutNav .input {
+    background-image: url(../img/Website/about.svg);
+}
+
+.characterNav .input {
+    background-image: url(../img/Website/character.svg);
+}
+
+.informationNav .input {
+    background-image: url(../img/Website/info.svg);
+    height: 12vh;
+    width: 12vw;
+    margin: 20px;
+}
+
+.informationNav .square {
+    height: 3vh;
+    width: 17vw;
+    top: 8vh;
+    transform: rotate(22deg);
+    right: -25px;
+    -webkit-transform: rotate(22deg);
+    -moz-transform: rotate(22deg);
+    -ms-transform: rotate(22deg);
+    -o-transform: rotate(22deg);
+}
+
+.homeNav:hover .input {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+}
+
+.homeNav:hover .square {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
+.informationNav:hover .input {
+    transform: rotate(-23deg);
+    -webkit-transform: rotate(-23deg);
+    -moz-transform: rotate(-23deg);
+    -ms-transform: rotate(-23deg);
+    -o-transform: rotate(-23deg);
+}
+
+.informationNav:hover .square {
+    transform: rotate(0deg);
+    top: 7vh;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
+.team {
+    background-image: url(../img/Website/Team.png);
+    height: 30vh;
+    width: 60vw;
+    position: fixed;
+    left: 20vw;
+    margin-top: 80px;
+}
+
+/*********  About **********/
+
+.elli {
+    position: fixed;
+    top: 54vh;
+    left: -10vw;
+    background-image: url(../img/Website/Elli.png);
+    height: 60vh;
+    width: 30vw;
+    transform: rotate(46deg);
+    -webkit-transform: rotate(46deg);
+    -moz-transform: rotate(46deg);
+    -ms-transform: rotate(46deg);
+    -o-transform: rotate(46deg);
+}     
+
+.vero {
+    position: fixed;
+    top: 11vh;
+    left: -7vw;
+    background-image: url(../img/Website/Vero.png);
+    height: 60vh;
+    width: 28vw;
+    transform: rotate(65deg);
+    -webkit-transform: rotate(65deg);
+    -moz-transform: rotate(65deg);
+    -ms-transform: rotate(65deg);
+    -o-transform: rotate(65deg);
+}
+
+.jules {
+    position: fixed;
+    top: 8vh;
+    right: -12vw;
+    background-image: url(../img/Website/Jules.png);
+    height: 60vh;
+    width: 30vw;
+    transform: rotate(-66deg);
+    -webkit-transform: rotate(-66deg);
+    -moz-transform: rotate(-66deg);
+    -ms-transform: rotate(-66deg);
+    -o-transform: rotate(-66deg);
+}  
+
+.nesrin {
+    position: fixed;
+    top: 50vh;
+    right: -8vw;
+    background-image: url(../img/Website/Nesrin.png);
+    height: 60vh;
+    width: 30vw;
+    transform: rotate(-51deg);
+    -webkit-transform: rotate(-51deg);
+    -moz-transform: rotate(-51deg);
+    -ms-transform: rotate(-51deg);
+    -o-transform: rotate(-51deg);
+}  
+
+/*********  Character **********/
+/* body.character {  overflow-x: hidden;} */
+section.character { margin: 300px 5vw 0 5vw;}
+
+.left,
+.right {
+    padding-bottom: 15vh;
+}
+
+.left {
+    padding-bottom: 24vh;
+    display: inline-block;
+    width: 90vw;
+}
+
+.left .content {
+    margin-left: 5vw;
+}
+
+.left .imageContent {
+    width: 46vw;
+    height: 47vh;
+    display: inline-block;
+    position: absolute;
+    right: -7vw;
+    background-color: #ffbc08;
+    top: -20px;
+    transform: rotate(5deg);
+}
+
+.right {
+    text-align: right;
+}
+
+.right .imageContent {
+    width: 49vw;
+    display: inline-block;
+    height: 86vh;
+    background-color: #ffbc08;
+    left: -141px;
+    top: 10px;
+    transform: rotate(-4deg);
+    vertical-align: top;
+}
+
+.right .content {
+    display: inline-block;
+    margin-right: 10vw;
+}
+
+.dragon {     
+    background-image: url(../img/Website/Drache.svg);
+    height: 73vh;
+    width: 71vw;
+    position: absolute;
+    left: -7vw;
+    top: -11vh;
+}
+
+.chanti {     
+    background-image: url(../img/Website/Chanti.png);
+    height: 40vh;
+    width: 14vw;
+    left: -36vw;
+    top: -9vh;
+    position: absolute;
+}
+
+.lena {     
+    background-image: url(../img/Website/Lena.png);
+    height: 48vh;
+    width: 20vw;
+    left: -63vw;
+    position: absolute;
+    top: -9vh;
+}
+
+.peter {     
+    background-image: url(../img/Website/Peter.png);
+    height: 48vh;
+    width: 20vw;
+    left: -50vw;
+    position: absolute;
+    top: 34vh;
+}
+
+.wolfi {     
+    background-image: url(../img/Website/Wolfgang.png);
+    height: 58vh;
+    width: 23vw;
+    left: -74vw;
+    position: absolute;
+    top: 40vh;
+}
+
+.moneyMoney {     
+    background-image: url(../img/Website/moneyMoney.svg);
+    height: 58vh;
+    width: 60vw;
+    left: -9vw;
+    position: absolute;
+    top: 0vh;
+}
+
+.gewinner {     
+    background-image: url(../img/Website/Modell.svg);
+    height: 97vh;
+    width: 38vw;
+    left: 3vw;
+    position: absolute;
+    top: -6vh;
+}
+
+section.information .right .imageContent {
+    height: 51vh;
+}
+
+section.information .left .imageContent {
+    width: 57vw;
+    height: 85vh;
+    right: -20vw;
+    top: 17vh;
+}
