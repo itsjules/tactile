@@ -3,7 +3,7 @@ html{
   overflow: hidden;
   margin: 0;
   padding: 0;
-  /* cursor: none; */
+  cursor: none;
 }
 
 body{
@@ -29,5 +29,23 @@ body{
 .p5Canvas{
   height: auto !important;
   width: 100% !important;
-  position: fixed;
+  position: absolute;
+  z-index: 1;
+}
+
+
+#transformationVideo{
+    width: 100vw;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+
+/* //event geht nicht */
+@media only screen and (max-width: 1100) {
+  #transformationVideo {
+    top:25vh;
+    bottom: 25vh;
+  }
 }
