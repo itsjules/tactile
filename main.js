@@ -3,6 +3,7 @@ let scales = 0;
 let scaleMax = 0.2;
 let hitArea = {};
 let hitCounter = 0;
+let counter=0;
 let steps = 40;
 
 let screenFreeze = false;
@@ -25,6 +26,9 @@ let button;
 
 var start = false;
 var storyPart;
+let i=0;
+let executeRestart=false;
+let letsStart=false;
 
 // let myVar;
 
@@ -44,7 +48,7 @@ function preload() {
   // transformation=createVideo(["assets/vid/Enchantix.mp4"], vidPlay);
   // transformation.position(0,0);
   // transformation.size(window.width,window.height);
-  footstep=loadSound("assets/sound/footstep.mp3");
+  // footstep=loadSound("assets/sound/footstep.mp3");
   start = true;
 }
 window.preload = preload;
@@ -62,16 +66,19 @@ function getStoryPart(part) {
     case 1:
       storyPart = 1;
       steps= 4;
+      reset();
       break;
     case 2:
-      storyPart = 3;
-      steps=40;
+      storyPart = 2;
+      steps=7;
       longcane=longcane2;
+      reset();
       break;
     case 3:
-      storyPart = 4;
+      storyPart = 3;
       steps=6;
       longcane=longcane2;
+      reset();
       break;
   }
   return storyPart;
@@ -90,7 +97,7 @@ function update() {
   }
   longcaneHeight = window.height * (0.5 + scales);
   longcaneWidth = (longcane.width / longcane.height) * longcaneHeight;
-  getStoryPart(2); // hier document.get blabala class aus html-body beziehen
+  getStoryPart(1+i); // hier document.get blabala class aus html-body beziehen
 }
 
 function longCaneHover() {
@@ -214,6 +221,7 @@ function hitCount() {
 function endSteps() {
   if (hitCounter === steps + 1) {
     screenFreeze = true;
+    
   }
 }
 
@@ -252,49 +260,68 @@ function freeze() {
     pop();
   }
   if (fade <= 0) {
-    // setTimeout(redy2Go,1000);
+    noLoop();
+    
+    executeRestart=true;
+    i+=1;
   }
 }
 
-function redy2Go() {
-  push();
-  rectMode(CENTER);
-  fill("white");
-  textSize(40);
-  text(
-    "Whuuu, dieser Moment muss iwie an HTML/CSS weitergegeben werden",
-    window.width / 2,
-    window.height / 2,
-    (window.width * 3) / 5,
-    window.height / 2
-  );
-  // console.log("wuhu");
-  pop();
-  // clearTimeout(myVar);
+function reset(){
+  if(executeRestart){
+  hitCounter = 0;
+  counter=0;
+  console.log("lalala");
+  executeRestart=false;
+  screenFreeze=false;
+}
 }
 
-function draw() {
+// function redy2Go() {
+//   push();
+//   rectMode(CENTER);
+//   fill("white");
+//   textSize(40);
+//   text(
+//     "Whuuu, dieser Moment muss iwie an HTML/CSS weitergegeben werden",
+//     window.width / 2,
+//     window.height / 2,
+//     (window.width * 3) / 5,
+//     window.height / 2
+//   );
+//   // console.log("wuhu");
+//   pop();
+//   // clearTimeout(myVar);
+// }
 
+function mouseClicked(){
+   if(screenFreeze && fade<=0){
+     loop();
+   }
+}
+window.mouseClicked=mouseClicked;
+
+function draw() {
   background("grey");
-  // // console.log(transformation);
-  // // console.log({storyPart});
+  counter+=1;
+  // console.log({storyPart});
   if (start) {
     update();
     if (screenFreeze) {
       freeze();
-    } else {
-      (millis()>2000)?hitDetection():null;
-      if (storyPart > 2) {
+    } else if(counter>120){
+      hitDetection();
+      if (storyPart > 1) {
         leitAnimation();
       }
     }
     endSteps();
     longCaneHover(); 
-
+    
     // console.log(mirrorPlay,mirrorImg);
     // console.log(index, animationPlay);
-    // console.log(hitCounter);
-    // console.log(steps);
+    console.log(hitCounter, executeRestart, storyPart);
+    // console.log(executeRestart);
     // console.log(millis());
     // console.log({storyPart});
   }
