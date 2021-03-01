@@ -338,10 +338,10 @@ function draw() {
 window.draw = draw;
 
 video.addEventListener('ended', (event) => {
-  video.style.display = 'none';
-  // audio.pause();
-  document.getElementById("showRoom").className = "afterTransformation";
   // video.style.display = 'none';
+  // // audio.pause();
+  document.getElementById("showRoom").className = "afterTransformation";
+  video.style.display = 'none';
   // audio.stop();
   loop();
   
