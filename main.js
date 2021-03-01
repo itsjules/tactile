@@ -22,16 +22,13 @@ let leitlinienAnimation = [];
 let footstep;
 let video = document.getElementById('transformationVideo')
 video.style.display = "none";
-let button;
 let audio= document.getElementById("transformationAudio");
+// let p5Canvas=select("");
 
 var start = false;
 var storyPart;
-let i=0;
 let executeRestart=false;
-let letsStart=false;
 
-// let myVar;
 
 function preload() {
   longcane = loadImage("assets/img/blindenstock_P.png");
@@ -46,12 +43,8 @@ function preload() {
     );
     leitlinienAnimation.push(leitlinie[FrameNumber]);
   }
-  // transformation=createVideo(["assets/vid/Enchantix.mp4"], vidPlay);
-  // transformation.position(0,0);
-  // transformation.size(window.width,window.height);
   footstep=loadSound("assets/sound/footstep.mp3");
-  start = true;
-  console.log(video);
+  // start = true;
 }
 window.preload = preload;
 
@@ -64,6 +57,7 @@ function getStoryPart(part) {
     case "beforeProblem":
       storyPart = 0;
       steps = 7;
+      reset();
       break;
     case "afterProblem":
       storyPart = 1;
@@ -123,7 +117,6 @@ function longCaneHover() {
       let distancePercentage = 1 - mouseDistance / fullDistance;
       rotate(-90 * distancePercentage);
       if (window.width / 2 - longcaneHeight > 0) {
-        // console.log("jupjup");
         scales = scaleMax * distancePercentage;
       }
     }
@@ -136,7 +129,6 @@ function longCaneHover() {
       let distancePercentage = mouseDistance / fullDistance;
       rotate(90 * distancePercentage);
       if (window.width / 2 + longcaneHeight < window.width) {
-        // console.log("jupjup");
         scales = scaleMax * distancePercentage;
       }
     }
@@ -146,7 +138,6 @@ function longCaneHover() {
   }
   if (screenFreeze) {
     fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
-    //  console.log(fade);
     tint(255, fade);
   }
   else{
@@ -223,30 +214,8 @@ function hitCount() {
 function endSteps() {
   if (hitCounter === steps + 1) {
     screenFreeze = true;
-    
   }
 }
-
-// function vidPlay(){
-//   console.log('vidplay',transformation)
-//   console.log(transformation.height);
-//   console.log(transformation.width)
-//   transformation.autoplay(true)
-//   transformation.elt.play();
-//   transformation.loop()
-//   image(transformation,0,0);
-//   console.log("lalalal");
-//   button = createButton('p5hurensohn')
-//   button.position(50,50);
-//   button.mousePressed(startDenShit);
-// }
-
-// function startDenShit() {
-//   video = document.getElementById('defaultCanvas0');
-//   video.style.display = 'none';
-//   video.style.display = 'none' ? 'block' : 'none';
-//   console.log(video);
-// }
 
 function freeze() {
   if (storyPart > 1) {
@@ -262,13 +231,26 @@ function freeze() {
     pop();
   }
   if (fade <= 0) {
+    if(document.body.className==="afterProblem"){
     document.getElementById("showRoom").className = "transformation";
-    document.getElementsByClassName("p5Canvas").display="none";
+    // document.getElementsByClassName("p5Canvas").display="none";
     video.style.display = 'block';
     video.playbackRate=0.9;
     video.play();
     audio.play();
     noLoop();
+    }
+    else if(document.body.className==="beforeProblem"){
+      document.getElementById("showRoom").className = "problem"; 
+    }
+    else if(document.body.className==="afterTransformation"){
+      document.getElementById("showRoom").className = "lösung"; 
+    }
+    else if(document.body.className==="afterLösung"){
+      document.getElementById("showRoom").className = "technik"; 
+    }
+
+    
     
     executeRestart=true;
     i+=1;
@@ -285,35 +267,32 @@ function reset(){
   }
 }
 
-// function redy2Go() {
-//   push();
-//   rectMode(CENTER);
-//   fill("white");
-//   textSize(40);
-//   text(
-//     "Whuuu, dieser Moment muss iwie an HTML/CSS weitergegeben werden",
-//     window.width / 2,
-//     window.height / 2,
-//     (window.width * 3) / 5,
-//     window.height / 2
-//   );
-//   // console.log("wuhu");
-//   pop();
-//   // clearTimeout(myVar);
-// }
-
-function mouseClicked(){
-   if(screenFreeze && fade<=0){
-     loop();
-   }
+function startCanvas(){
+  if(document.body.className==="beforeProblem" || document.body.className==="afterProblem" || document.body.className==="afterTransformation" || document.body.className==="afterLösung"){
+    start=true;
+  }
+  else{
+    start=false;
+    clear();
+  }
 }
-window.mouseClicked=mouseClicked;
+
+// function mouseClicked(){
+//    if(screenFreeze && fade<=0){
+//      loop();
+//    }
+// }
+// window.mouseClicked=mouseClicked;
 
 function draw() {
-  background("grey");
-  counter+=1;
-  // console.log({storyPart});
+  startCanvas();
+  console.log(document.body.className);
+  // console.log(start);
+
+  
   if (start) {
+    background("grey");
+    counter+=1;
     update();
     if (screenFreeze) {
       freeze();
@@ -325,24 +304,21 @@ function draw() {
     }
     endSteps();
     longCaneHover(); 
-    
     // console.log(mirrorPlay,mirrorImg);
     // console.log(index, animationPlay);
     // console.log(hitCounter, executeRestart, storyPart);
     // console.log(executeRestart);
     // console.log(millis());
     // console.log({storyPart});
-    console.log(document.body.className);
+    
+    // console.log(p5Canvas);
   }
 }
 window.draw = draw;
 
 video.addEventListener('ended', (event) => {
-  // video.style.display = 'none';
-  // // audio.pause();
   document.getElementById("showRoom").className = "afterTransformation";
   video.style.display = 'none';
-  // audio.stop();
+
   loop();
-  
 })

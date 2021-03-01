@@ -9,34 +9,118 @@
     <script type="module" src="p5setup.js"></script>
     <script type="module" src="main.js"></script>
     <script src="lib/jquery-3.5.1.min.js"></script>
-    <!-- <script src="funcs.js"></script> -->
+    <script src="funcs.js"></script>
 </head>
 
-<body class="afterProblem" id="showRoom">
-    <!-- <section class="beforeProblem">
-        <div class="p5Canvas" id="myCanvas">
-        </div>
-    </section> -->
-    <!-- <section class="afterProblem">
-        <div class="p5Canvas" id="myCanvas">
-        </div>
-    </section> -->
+<body class="intro" id="showRoom">
+
+    <section class="intro">
+        <p>Hallo</p>
+        <button onclick="sectionForward()">weiter</button>
+    </section>
+    <section class="leitlinie">
+        <p>Leitleit</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="gleishalle">
+        <p>laute Züge</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="nutzergruppe">
+        <p>Blindgänger</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="bahnhofshalle">
+        <p>Dreckiger Boden </p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="beforeProblem">
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section> 
+    <section class="problem">
+        <p>Problemus Apfelmus</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="afterProblem">
+        
+    </section>
     <section class="transformation">
         <video id="transformationVideo" src="/assets/vid/Believix.webm"></video>
         <audio id="transformationAudio" src="/assets/sound/harp-magic-dream-sound-effect.mp3"></audio>
     </section>
-    <!-- <section class="afterTransformation">
-        <div class="p5Canvas" id="myCanvas">
-        </div>
+    <section class="afterTransformation">
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="lösung">
+        <p>Kaufen Sie unser Produkt</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="afterLösung">
-        <div class="p5Canvas" id="myCanvas">
-        </div>
-    </section> -->
-
-    <!-- <div class="p5Canvas" id="myCanvas"></div> -->
-    <!-- <img class="leitlinie" src="/assets/leitlinie.png" alt=""> -->
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    
+    </section>
+    <section class="technik">
+        <p>404 brain not found</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="afterTechnik">
+        <p>needs Canvas case</p>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
+    <section class="skalierbarkeit">
+        <p>Wir sind krass</p>
+        <button onclick="sectionBackward()">zurück</button>
+    </section>
 
 </body>
 
+<script>
+    let sections;
+    function sectionList(){
+        sections=document.getElementsByTagName("section");
+        console.log(sections);
+        return sections;
+    }
+    window.onload=sectionList;
+
+    function sectionForward(){
+        let a;
+        for(i=0;i<sections.length;i++){
+            if(sections[i].className===document.body.className){
+              a=i;
+              console.log({a});
+              $("body").removeClass();
+              $("body").addClass(sections[a+1].className);
+              console.log(document.body.className); 
+              return ; 
+            } 
+        }
+    }
+
+    function sectionBackward(){
+        let b;
+        for(i=0;i<sections.length;i++){
+            if(sections[i].className===document.body.className){
+              b=i;
+              console.log({b});
+              $("body").removeClass();
+              $("body").addClass(sections[b-1].className);
+              console.log(document.body.className); 
+              return ; 
+            } 
+        }
+    }
+
+</script>
 </html>

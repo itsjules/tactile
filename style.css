@@ -3,7 +3,8 @@ html{
   overflow: hidden;
   margin: 0;
   padding: 0;
-  cursor: none;
+  /* cursor: none; */
+  font-family: monospace;
 }
 
 body{
@@ -11,20 +12,32 @@ body{
   margin: 0;
 }
 
-/* .leitlinie{
-  display: block;
-  height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  transition: transform  .2s;
-  opacity: 0;
-  transition: opacity .2s;
+p{
+  text-align: center; 
+  font-size: 20vh;
+  margin: 20vh 0;
 }
 
-.leitlinie:hover{
-  transform: scale(1.5);
-  opacity: 100;
-} */
+button{
+  display: block;
+  text-align: center;
+  font-size: 5vh;
+  margin: 0 auto;
+  padding: 1vh;
+  background-color: gray;
+  color:lemonchiffon ;
+  border: none;
+  border-radius: 20px;
+  transition-duration: 0.4s;
+}
+
+button:hover{
+  background-color: #9553c2;
+  color: orange;
+}
+
+
+
 
 .p5Canvas{
   height: auto !important;
@@ -39,13 +52,92 @@ body{
     height: auto;
     position: absolute;
     z-index: 2;
-}
-
-
-/* //event geht nicht */
-@media only screen and (max-width: 1100) {
-  #transformationVideo {
+    /* //event geht nicht */
+    @media screen and (max-width: 1100) {
     top:25vh;
     bottom: 25vh;
-  }
+    }
+}
+
+section {
+  opacity: 0;
+  display: none;
+  position: absolute;
+  width: 100vw;
+  z-index: 3;
+}
+
+body.intro section.intro {
+  opacity: 1;
+  display: block;
+}
+
+body.leitlinie section.leitlinie {
+  opacity: 1;
+  display: block;
+}
+
+body.gleishalle section.gleishalle {
+  opacity: 1;
+  display: block;
+}
+
+body.nutzergruppe section.nutzergruppe {
+  opacity: 1;
+  display: block;
+}
+
+body.bahnhofshalle section.bahnhofshalle {
+  opacity: 1;
+  display: block;
+}
+
+body.beforeProblem section.beforeProblem {
+  opacity: 1;
+  display: block;
+}
+
+body.problem section.problem {
+  opacity: 1;
+  display: block;
+}
+
+body.afterProblem section.afterProblem {
+  opacity: 1;
+  display: block;
+}
+
+body.transformation section.transformation {
+  opacity: 1;
+  display: block;
+}
+
+body.afterTransformation section.afterTransformation {
+  opacity: 1;
+  display: block;
+}
+
+body.lösung section.lösung {
+  opacity: 1;
+  display: block;
+}
+
+body.afterLösung section.afterLösung {
+  opacity: 1;
+  display: block;
+}
+
+body.technik section.technik {
+  opacity: 1;
+  display: block;
+}
+
+body.afterTechnik section.afterTechnik{
+  opacity: 1;
+  display: block;
+}
+
+body.skalierbarkeit section.skalierbarkeit {
+  opacity: 1;
+  display: block;
 }
