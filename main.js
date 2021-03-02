@@ -3,7 +3,7 @@ let scales = 0;
 let scaleMax = 0.2;
 let hitArea = {};
 let hitCounter = 0;
-let counter=0;
+let counter = 0;
 let steps = 40;
 
 let screenFreeze = false;
@@ -19,20 +19,21 @@ let mirrorPlay = false;
 let longcane;
 let longcane2;
 let leitlinienAnimation = [];
+let aufmerksamkeitAnimation = [];
+let aufmerksamkeitsFeld;
 let footstep;
-let video = document.getElementById('transformationVideo')
+let video = document.getElementById("transformationVideo");
 video.style.display = "none";
-let audio= document.getElementById("transformationAudio");
+let audio = document.getElementById("transformationAudio");
 // let p5Canvas=select("");
 
 var start = false;
 var storyPart;
-let executeRestart=false;
-
+let executeRestart = false;
 
 function preload() {
-  longcane = loadImage("assets/img/blindenstock_P.png");
-  longcane2 = loadImage("assets/img/Jules.png");
+  longcane = loadImage("assets/img/longcane.png");
+  longcane2 = loadImage("assets/img/longcane2.png");
   for (let i = 0; i < 12; i++) {
     let FrameNumber = "Frame" + nf(i, 2);
     let leitlinie = {};
@@ -43,14 +44,27 @@ function preload() {
     );
     leitlinienAnimation.push(leitlinie[FrameNumber]);
   }
-  footstep=loadSound("assets/sound/footstep.mp3");
+  for (let i = 0; i < 11; i++) {
+    let FrameNumber = "Frame" + nf(i, 2);
+    let aufmerksamkeit = {};
+    aufmerksamkeit[FrameNumber] = loadImage(
+      "assets/img/aufmerksamkeit_animation/Leitlinien png animation_000" +
+        nf(i, 2) +
+        ".png"
+    );
+    aufmerksamkeitAnimation.push(aufmerksamkeit[FrameNumber]);
+  }
+  aufmerksamkeitsFeld = loadImage("assets/img/aufmerksamkeitsfeld ohne rand.png");
+  footstep = loadSound("assets/sound/footstep.mp3");
   // start = true;
 }
 window.preload = preload;
 
 let longcaneHeight;
 let longcaneWidth;
-let animationScale = 1;
+let animationScaleLeit = 1;
+let animationScaleFeld = 0.8;
+let scaleFeld=0.2;
 
 function getStoryPart(part) {
   switch (part) {
@@ -61,19 +75,19 @@ function getStoryPart(part) {
       break;
     case "afterProblem":
       storyPart = 1;
-      steps= 4;
+      steps = 4;
       reset();
       break;
     case "afterTransformation":
       storyPart = 2;
-      steps=7;
-      longcane=longcane2;
+      steps = 7;
+      longcane = longcane2;
       reset();
       break;
     case "afterLösung":
       storyPart = 3;
-      steps=6;
-      longcane=longcane2;
+      steps = 6;
+      longcane = longcane2;
       reset();
       break;
   }
@@ -139,9 +153,8 @@ function longCaneHover() {
   if (screenFreeze) {
     fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
     tint(255, fade);
-  }
-  else{
-    (fade >=255)? fade=255 : (fade+=(fadeSteps-1));
+  } else {
+    fade >= 255 ? (fade = 255) : (fade += fadeSteps - 1);
     tint(255, fade);
   }
   image(longcane, cane.xDown, cane.yDown, longcaneWidth, longcaneHeight);
@@ -188,31 +201,43 @@ function leitAnimation() {
         window.height / 2,
         (leitlinienAnimation[animation].width /
           leitlinienAnimation[animation].height) *
-          (window.height * animationScale),
-        window.height * animationScale
+          (window.height * animationScaleLeit),
+        window.height * animationScaleLeit
       );
+      if (index > 11) {
+        index = 0;
+        animationPlay = false;
+        mirrorPlay = false;
+      }
     } else if (hitCounter >= steps) {
-      noStroke();
-      fill(255, 221, 44);
-      rect(window.width / 2, window.height / 2, window.width * 0.1);
+      scale(mirrorImg * 1, 1);
+      image(
+        aufmerksamkeitAnimation[animation],
+        (mirrorImg * window.width) / 2,
+        window.height / 2,
+        (aufmerksamkeitAnimation[animation].width /
+          aufmerksamkeitAnimation[animation].height) *
+          (window.height * animationScaleFeld),
+        window.height * animationScaleFeld
+      );
+      if (index > 10) {
+        index = 0;
+        animationPlay = false;
+        mirrorPlay = false;
+      }
     }
     pop();
-  }
-  if (index > 11) {
-    index = 0;
-    animationPlay = false;
-    mirrorPlay = false;
   }
 }
 
 function hitCount() {
   hitCounter += 1;
-   footstep.play();
+  footstep.play();
   return;
 }
 
 function endSteps() {
-  if (hitCounter === steps + 1) {
+  if (hitCounter === steps + 2) {
     screenFreeze = true;
   }
 }
@@ -220,59 +245,70 @@ function endSteps() {
 function freeze() {
   if (storyPart > 1) {
     push();
-    noStroke();
-    rectMode(CENTER);
-    fill(255, 221, 44, fade);
-    rect(
+    imageMode(CENTER);
+    // scale(255-fade,1);
+    tint(255, fade);
+    (fade<=0)?scaleFeld=0.2:scaleFeld+=0.02;
+    image(
+      aufmerksamkeitsFeld,
       window.width / 2,
-      window.height / 2 + (255 - fade),
-      window.width * (0.1 + (255 - fade) / 200)
+      window.height / 2,
+      (aufmerksamkeitsFeld.width / aufmerksamkeitsFeld.height) *
+        (window.height * scaleFeld),
+      window.height * scaleFeld
     );
+    // noStroke();
+    // rectMode(CENTER);
+    // fill(255, 221, 44, fade);
+    // rect(
+    //   window.width / 2,
+    //   window.height / 2 + (255 - fade),
+    //   window.width * (0.1 + (255 - fade) / 200)
+    // );
     pop();
   }
   if (fade <= 0) {
-    if(document.body.className==="afterProblem"){
-    document.getElementById("showRoom").className = "transformation";
-    // document.getElementsByClassName("p5Canvas").display="none";
-    video.style.display = 'block';
-    video.playbackRate=0.9;
-    video.play();
-    audio.play();
-    noLoop();
-    }
-    else if(document.body.className==="beforeProblem"){
-      document.getElementById("showRoom").className = "problem"; 
-    }
-    else if(document.body.className==="afterTransformation"){
-      document.getElementById("showRoom").className = "lösung"; 
-    }
-    else if(document.body.className==="afterLösung"){
-      document.getElementById("showRoom").className = "technik"; 
+    if (document.body.className === "afterProblem") {
+      document.getElementById("showRoom").className = "transformation";
+      // document.getElementsByClassName("p5Canvas").display="none";
+      video.style.display = "block";
+      video.playbackRate = 0.9;
+      video.play();
+      audio.play();
+      noLoop();
+    } else if (document.body.className === "beforeProblem") {
+      document.getElementById("showRoom").className = "problem";
+    } else if (document.body.className === "afterTransformation") {
+      document.getElementById("showRoom").className = "lösung";
+    } else if (document.body.className === "afterLösung") {
+      document.getElementById("showRoom").className = "technik";
     }
 
-    
-    
-    executeRestart=true;
-    i+=1;
+    executeRestart = true;
+    i += 1;
   }
 }
 
-function reset(){
-  if(executeRestart){
-  hitCounter = 0;
-  counter=0;
-  console.log("lalala");
-  executeRestart=false;
-  screenFreeze=false;
+function reset() {
+  if (executeRestart) {
+    hitCounter = 0;
+    counter = 0;
+    console.log("lalala");
+    executeRestart = false;
+    screenFreeze = false;
   }
 }
 
-function startCanvas(){
-  if(document.body.className==="beforeProblem" || document.body.className==="afterProblem" || document.body.className==="afterTransformation" || document.body.className==="afterLösung"){
-    start=true;
-  }
-  else{
-    start=false;
+function startCanvas() {
+  if (
+    document.body.className === "beforeProblem" ||
+    document.body.className === "afterProblem" ||
+    document.body.className === "afterTransformation" ||
+    document.body.className === "afterLösung"
+  ) {
+    start = true;
+  } else {
+    start = false;
     clear();
   }
 }
@@ -289,36 +325,35 @@ function draw() {
   console.log(document.body.className);
   // console.log(start);
 
-  
   if (start) {
     background("grey");
-    counter+=1;
+    counter += 1;
     update();
     if (screenFreeze) {
       freeze();
-    } else if(counter>140){
+    } else if (counter > 140) {
       hitDetection();
       if (storyPart > 1) {
         leitAnimation();
       }
     }
     endSteps();
-    longCaneHover(); 
+    longCaneHover();
     // console.log(mirrorPlay,mirrorImg);
     // console.log(index, animationPlay);
     // console.log(hitCounter, executeRestart, storyPart);
     // console.log(executeRestart);
     // console.log(millis());
     // console.log({storyPart});
-    
-    // console.log(p5Canvas);
+
+  
   }
 }
 window.draw = draw;
 
-video.addEventListener('ended', (event) => {
+video.addEventListener("ended", (event) => {
   document.getElementById("showRoom").className = "afterTransformation";
-  video.style.display = 'none';
+  video.style.display = "none";
 
   loop();
-})
+});

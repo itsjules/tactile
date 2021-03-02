@@ -65,16 +65,25 @@ section {
   position: absolute;
   width: 100vw;
   z-index: 3;
+  animation: fadeInOut 0.5s ease-in-out forwards;
+  
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 body.intro section.intro {
   opacity: 1;
   display: block;
+  
 }
 
 body.leitlinie section.leitlinie {
   opacity: 1;
   display: block;
+  
 }
 
 body.gleishalle section.gleishalle {
