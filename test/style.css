@@ -7,23 +7,24 @@
   padding: 0;
   position: relative;
 }
-/* #root {
-  display: flex;
-  flex-direction: row;
-} */
-.content {
+
+/* .content {
   display: flex;
   display: block;
   width: 1000px;
   height: 450px;
-  /* vertically centered text */
+
   line-height: 30px;
   border: 2px solid #555;
   margin: 32px;
   text-align: center;
-}
+} */
 
-#header {
+/* Navigation Boxen oben */
+h1 {
+  padding: 1em;
+}
+.nav-main {
   display: flex;
   flex-direction: row;
   padding: 60px;
@@ -33,7 +34,7 @@
   font-size: 30px;
 }
 
-#header .homeNav {
+.nav-main .homeNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -47,7 +48,7 @@
   margin: 16px;
 }
 
-#header .leitlinienNav {
+.nav-main .leitlinienNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -61,7 +62,7 @@
   margin: 16px;
 }
 
-#header .nutzergruppeNav {
+.nav-main .nutzergruppeNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -75,7 +76,7 @@
   margin: 16px;
 }
 
-#header .problemNav {
+.nav-main .problemNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -89,7 +90,7 @@
   margin: 16px;
 }
 
-#header .lösungNav {
+.nav-main .lösungNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -103,7 +104,7 @@
   margin: 16px;
 }
 
-#header .technikNav {
+.nav-main .technikNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -117,7 +118,7 @@
   margin: 16px;
 }
 
-#header .skalierbarNav {
+.nav-main .skalierbarNav {
   cursor: pointer;
   justify-content: center;
   width: 150px;
@@ -131,13 +132,13 @@
   margin: 16px;
 }
 
-#header .homeNav:hover,
-#header .leitlinienNav:hover,
-#header .nutzergruppeNav:hover,
-#header .problemNav:hover,
-#header .lösungNav:hover,
-#header .technikNav:hover,
-#header .skalierbarNav:hover {
+.nav-main .homeNav:hover,
+.nav-main .leitlinienNav:hover,
+.nav-main .nutzergruppeNav:hover,
+.nav-main .problemNav:hover,
+.nav-main .lösungNav:hover,
+.nav-main .technikNav:hover,
+.nav-main .skalierbarNav:hover {
   background: yellow;
 }
 
@@ -187,4 +188,68 @@ body.technik section.technik {
 body.skalierbarkeit section.skalierbarkeit {
   opacity: 1;
   display: block;
+}
+
+body {
+  background: #333;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.footer {
+  background: #353535;
+  color: white;
+}
+.container {
+  background: white;
+  margin: 0 auto;
+  /* padding: 1em; */
+  max-width: 60vw;
+}
+
+/* .container * {
+  padding: 1em;
+} */
+
+.content {
+  padding: 0;
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    margin: 1em;
+  }
+
+  .content {
+    display: flex;
+  }
+
+  .main {
+    flex: 3;
+    order: 2;
+  }
+}
+
+.flex-container {
+  display: flex;
+  padding: 1em;
+  flex-wrap: wrap; /* Standardwert = nowrap */
+}
+
+.flex-item {
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-top: 5vh;
+}
+
+.flex-item-image {
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-top: 5vh;
+}
+
+img {
+  max-width: 100%;
 }
