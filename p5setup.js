@@ -9,9 +9,9 @@ function setup() {
 }
 window.setup = setup;
 
-// function windowResized() {
-//   sketch.resizeCanvas(windowWidth, windowHeight);
-// }
-// window.addEventListener("resize", windowResized);
+function windowResized() {
+  sketch.resizeCanvas(windowWidth, windowHeight);
+}
+window.addEventListener("resize", windowResized);
 
 

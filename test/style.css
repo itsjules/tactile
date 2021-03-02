@@ -1,0 +1,190 @@
+* {
+  /* global font */
+  font-family: Verdana;
+  font-size: 18px;
+
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+/* #root {
+  display: flex;
+  flex-direction: row;
+} */
+.content {
+  display: flex;
+  display: block;
+  width: 1000px;
+  height: 450px;
+  /* vertically centered text */
+  line-height: 30px;
+  border: 2px solid #555;
+  margin: 32px;
+  text-align: center;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  padding: 5vh;
+  text-align: center;
+  background: #1abc9c;
+  color: black;
+  font-size: 30px;
+}
+
+#header .homeNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .leitlinienNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .nutzergruppeNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .problemNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .lösungNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .technikNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .skalierbarNav {
+  cursor: pointer;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  /* vertically centered text */
+  line-height: 50px;
+  position: relative;
+  border: 2px solid #555;
+  background: white;
+  text-align: center;
+  margin: 16px;
+}
+
+#header .homeNav:hover,
+#header .leitlinienNav:hover,
+#header .nutzergruppeNav:hover,
+#header .problemNav:hover,
+#header .lösungNav:hover,
+#header .technikNav:hover,
+#header .skalierbarNav:hover {
+  background: yellow;
+}
+
+section {
+  opacity: 0;
+  display: none;
+  width: 100vw;
+  margin: 200px 0vw 0vw; /*normally 200 px 0vw 0vw*/
+  min-height: calc(100vh - 200px);
+}
+
+/* section.information {
+  margin: 300px 0vw 0 0vw;
+  min-height: calc(100vh - 300px);
+} */
+
+body.home section.home {
+  opacity: 1;
+  display: block;
+}
+
+body.leitlinie section.leitlinien {
+  opacity: 1;
+  display: block;
+}
+
+body.nutzergruppe section.nutzergruppe {
+  opacity: 1;
+  display: block;
+}
+
+body.problem section.problem {
+  opacity: 1;
+  display: block;
+}
+
+body.lösung section.lösung {
+  opacity: 1;
+  display: block;
+}
+
+body.technik section.technik {
+  opacity: 1;
+  display: block;
+}
+
+body.skalierbarkeit section.skalierbarkeit {
+  opacity: 1;
+  display: block;
+}
