@@ -1,152 +1,118 @@
+@import url("https://use.typekit.net/knh1wns.css");
+
 * {
   /* global font */
-  font-family: Verdana;
-  font-size: 18px;
+  /* font-family: Verdana; */
+  /* font-size: 18px; */
 
   margin: 0;
   padding: 0;
   position: relative;
 }
-/* #root {
-  display: flex;
-  flex-direction: row;
-} */
-.content {
+
+/* .content {
   display: flex;
   display: block;
   width: 1000px;
   height: 450px;
-  /* vertically centered text */
+
   line-height: 30px;
   border: 2px solid #555;
   margin: 32px;
   text-align: center;
+} */
+header {
+  z-index: 2;
+  position: absolute;
+  font-size: 55;
+  color: white;
 }
-
-#header {
-  display: flex;
+/* Navigation Boxen oben */
+h1 {
+  padding: 1em;
+}
+.nav-main {
+  /* display: flex;
   flex-direction: row;
-  padding: 5vh;
+
+  padding: 10px;
+
   text-align: center;
   background: #1abc9c;
   color: black;
+  font-size: 30px; */
+
   font-size: 30px;
+  height: 100%;
+  width: 650px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #124d82;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
 }
 
-#header .homeNav {
+#homeNav,
+#leitlinienNav,
+#nutzergruppeNav,
+#problemNav,
+#lösungNav,
+#technikNav,
+#teamNav,
+#skalierbarNav {
+  display: block;
+}
+.nav-main .homeNav,
+.nav-main .leitlinienNav,
+.nav-main .nutzergruppeNav,
+.nav-main .problemNav,
+.nav-main .lösungNav,
+.nav-main .technikNav,
+.nav-main .teamNav,
+.nav-main .skalierbarNav {
+  font-family: "noto-sans", sans-serif;
+
+  font-weight: 700;
+
+  font-style: normal;
   cursor: pointer;
   justify-content: center;
-  width: 150px;
-  height: 50px;
+
+  width: 400px;
+  height: 125px;
   /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
+  /* line-height: 50px; */
+  /* position: relative; */
+  color: #f1f1f1;
+  background: #124d82;
+  float: left;
+  /* text-align: center; */
+  padding-top: 16%;
+  padding-left: 50%;
+  display: block;
 }
 
-#header .leitlinienNav {
-  cursor: pointer;
-  justify-content: center;
-  width: 150px;
-  height: 50px;
-  /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
-}
-
-#header .nutzergruppeNav {
-  cursor: pointer;
-  justify-content: center;
-  width: 150px;
-  height: 50px;
-  /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
-}
-
-#header .problemNav {
-  cursor: pointer;
-  justify-content: center;
-  width: 150px;
-  height: 50px;
-  /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
-}
-
-#header .lösungNav {
-  cursor: pointer;
-  justify-content: center;
-  width: 150px;
-  height: 50px;
-  /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
-}
-
-#header .technikNav {
-  cursor: pointer;
-  justify-content: center;
-  width: 150px;
-  height: 50px;
-  /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
-}
-
-#header .skalierbarNav {
-  cursor: pointer;
-  justify-content: center;
-  width: 150px;
-  height: 50px;
-  /* vertically centered text */
-  line-height: 50px;
-  position: relative;
-  border: 2px solid #555;
-  background: white;
-  text-align: center;
-  margin: 16px;
-}
-
-#header .homeNav:hover,
-#header .leitlinienNav:hover,
-#header .nutzergruppeNav:hover,
-#header .problemNav:hover,
-#header .lösungNav:hover,
-#header .technikNav:hover,
-#header .skalierbarNav:hover {
+.nav-main .homeNav:hover,
+.nav-main .leitlinienNav:hover,
+.nav-main .nutzergruppeNav:hover,
+.nav-main .problemNav:hover,
+.nav-main .lösungNav:hover,
+.nav-main .technikNav:hover,
+.nav-main .skalierbarNav:hover,
+.nav-main .teamNav:hover {
   background: yellow;
 }
 
 section {
+  background-color: teal;
   opacity: 0;
   display: none;
   width: 100vw;
-  margin: 200px 0vw 0vw; /*normally 200 px 0vw 0vw*/
-  min-height: calc(100vh - 200px);
+  margin: 20px 0vw 0vw;
+  min-height: calc(100vh - 150px);
 }
 
 /* section.information {
@@ -187,4 +153,238 @@ body.technik section.technik {
 body.skalierbarkeit section.skalierbarkeit {
   opacity: 1;
   display: block;
+}
+
+body.team section.team {
+  opacity: 1;
+  display: block;
+}
+
+body {
+  background: white;
+  margin: 0;
+  font-family: "source-sans-pro", sans-serif;
+
+  font-weight: 400;
+
+  font-style: normal;
+}
+
+.container {
+  background: white;
+  margin: 0 auto;
+
+  /* padding: 1em; */
+  max-width: 60vw;
+}
+
+/* .container * {
+  padding: 1em;
+} */
+
+.content {
+  padding: 0;
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    margin: 1em;
+  }
+
+  .content {
+    display: flex;
+  }
+
+  .main {
+    flex: 3;
+    order: 2;
+  }
+}
+
+.flex-container {
+  display: flex;
+  padding: 1em;
+  flex-wrap: wrap; /* Standardwert = nowrap */
+}
+
+.flex-item {
+  background-color: aliceblue;
+  font-size: 35;
+  flex-basis: 40%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 10vh;
+  margin-left: 10vh;
+}
+
+.headline {
+  background-color: white;
+  font-family: "noto-sans", sans-serif;
+
+  font-weight: 700;
+
+  font-style: normal;
+  font-size: 50;
+  text-align: center;
+  color: #124d82;
+}
+
+.flex-item-image {
+  top: 2.5vh;
+  background-color: aqua;
+  flex-basis: 40%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 5vh;
+  margin-left: 10vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* .sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+} */
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  z-index: 3;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+.closebtn {
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  z-index: 3;
+  margin-top: 100px;
+}
+
+.closebtn:hover {
+  background-color: #444;
+}
+
+/* 
+.progress {
+  position: relative;
+  display: flex;
+} */
+.progress .progress-track {
+  position: absolute;
+  top: 5px;
+  margin-left: 70px;
+  width: 30px;
+  height: 100%;
+  background-color: #dfe3e4;
+  z-index: 5;
+}
+.progress .progress-step {
+  position: relative;
+  width: 10%;
+  height: 7%;
+  font-size: 12px;
+  text-align: center;
+}
+.progress .progress-step:last-child:after {
+  display: none;
+}
+
+.progress .progress-step:before {
+  content: "";
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 100px;
+  margin-left: -10px;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border: 4px #fff;
+  border-radius: 100%;
+  color: transparent;
+}
+.progress .progress-step:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  margin-left: -2;
+  width: 30px;
+  transition: height 1s ease-in;
+  height: 5px;
+  background: #dfe3e4;
+  z-index: -1;
+}
+.progress .progress-step.is-active {
+  color: #2183dd;
+}
+.progress .progress-step.is-active:before {
+  margin-left: -18px;
+  border: 10px solid #56c2e8;
+  animation: pulse 2s infinite;
+}
+/* .progress .progress-step.is-complete {
+  color: #009900;
+} */
+.progress .progress-step.is-complete:before {
+  font-family: FontAwesome;
+  font-size: 10px;
+  color: #fff;
+  background: #56c2e8;
+  border: 4px solid transparent;
+}
+.progress .progress-step.is-complete:after {
+  background: #ffdd2c;
+  animation: nextStep 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #56c2e8;
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(33, 131, 221, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(33, 131, 221, 0);
+  }
+}
+@keyframes nextStep {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 200%;
+  }
 }
