@@ -168,12 +168,6 @@ body {
   font-style: normal;
 }
 
-.footer {
-  margin-top: 1.5%;
-  font-size: 30px;
-
-  color: #124d82;
-}
 .container {
   background: white;
   margin: 0 auto;
@@ -299,15 +293,11 @@ img {
   background-color: #444;
 }
 
-/* #content {
-  transition: margin-left 0.5s;
-  padding: 16px;
-} */
-
+/* 
 .progress {
   position: relative;
   display: flex;
-}
+} */
 .progress .progress-track {
   position: absolute;
   top: 5px;
