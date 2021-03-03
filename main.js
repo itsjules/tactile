@@ -100,8 +100,8 @@ function update() {
     right: window.width / 2 + window.width * 0.05,
   };
   if (
-    window.width / 2 - longcaneHeight < 0 &&
-    window.width / 2 + longcaneHeight > window.width
+    window.width / 2 - window.height*(0.5+scaleMax) < 0 &&
+    window.width / 2 + window.height*(0.5+scaleMax) > window.width
   ) {
     scales = 0;
   }
@@ -326,7 +326,7 @@ function startCanvas() {
 
 function draw() {
   startCanvas();
-  console.log(document.body.className);
+  // console.log(document.body.className);
   // console.log(start);
 
   if (start) {
