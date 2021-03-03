@@ -3,6 +3,7 @@
 
 <head>
     <title>sum trash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="lib/p5.min.js"></script>
     <script type="module" src="lib/p5.sound.min.js"></script>
@@ -12,7 +13,7 @@
     <script src="funcs.js"></script>
 </head>
 
-<body class="intro" id="showRoom">
+<body class="afterProblem" id="showRoom">
 
     <section class="intro">
         <p>Hallo</p>
@@ -92,7 +93,7 @@
     let sections;
     function sectionList(){
         sections=document.getElementsByTagName("section");
-        console.log(sections);
+        // console.log(sections);
         return sections;
     }
     window.onload=sectionList;
@@ -102,10 +103,10 @@
         for(i=0;i<sections.length;i++){
             if(sections[i].className===document.body.className){
               a=i;
-              console.log({a});
+            //   console.log({a});
               $("body").removeClass();
               $("body").addClass(sections[a+1].className);
-              console.log(document.body.className); 
+            //   console.log(document.body.className); 
               return ; 
             } 
         }
@@ -116,10 +117,10 @@
         for(i=0;i<sections.length;i++){
             if(sections[i].className===document.body.className){
               b=i;
-              console.log({b});
+            //   console.log({b});
               $("body").removeClass();
               $("body").addClass(sections[b-1].className);
-              console.log(document.body.className); 
+            //   console.log(document.body.className); 
               return ; 
             } 
         }

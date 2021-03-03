@@ -55,7 +55,7 @@ function preload() {
     aufmerksamkeitAnimation.push(aufmerksamkeit[FrameNumber]);
   }
   aufmerksamkeitsFeld = loadImage("assets/img/aufmerksamkeitsfeld ohne rand.png");
-  footstep = loadSound("assets/sound/footstep.mp3");
+  // footstep = loadSound("assets/sound/Footstep.mp3");
   // start = true;
 }
 window.preload = preload;
@@ -179,6 +179,7 @@ function hitDetection() {
     animationPlay = true;
   } else {
     executed = false;
+    
   }
 }
 
@@ -232,7 +233,7 @@ function leitAnimation() {
 
 function hitCount() {
   hitCounter += 1;
-  footstep.play();
+  // footstep.play();
   return;
 }
 
@@ -285,7 +286,7 @@ function freeze() {
     }
 
     executeRestart = true;
-    i += 1;
+  
   }
 }
 
@@ -307,9 +308,12 @@ function startCanvas() {
     document.body.className === "afterLösung"
   ) {
     start = true;
+    // loop();
   } else {
     start = false;
     clear();
+    // noLoop();
+
   }
 }
 
