@@ -1,47 +1,77 @@
 <html>
 <head>
-    <title>Hello</title>
+    <title>Interaktive Dokumentation von tactile</title>
+
+
 
               <link rel="stylesheet" type="text/css" href="style.css">
               <script src="jquery-3.5.1.min.js"></script>
 </head>
 
-<body class="home">   <header class ="header">
+<body class="home">   <header class ="headline">
         tactile
     </header>
 
+    <div class="progress">
+        <div class="progress-track">
+        <div id="step1" class="progress-step">
+          Step One
+        </div>
+        <div id="step2" class="progress-step">
+          Step Two
+        </div>
+        <div id="step3" class="progress-step">
+          Step Three
+        </div>
+        <div id="step4" class="progress-step">
+   Step Four
+        </div>
+        <div id="step5" class="progress-step">
+           Step 5
+          </div>
+          <div id="step6" class="progress-step">
+           Step 6
+          </div>
+          <div id="step7" class="progress-step">
+       Step 7
+          </div>
+          <div id="step8" class="progress-step">
+         Step 8
+          </div>
+      </div>
+    <nav id= "Sidebar" class="nav-main">
  
-    <nav class="nav-main">
-     <div class = "homeNav">Intro</div> 
+     <a id= "homeNav" class = "homeNav">Intro</a> 
 
-    <div class = "leitlinienNav">Leitlinien</div>
-    <div class = "nutzergruppeNav" >Nutzergruppe</div>
-    <div class = "problemNav" >Problem</div>
-    <div class = "lösungNav" >Lösung</div>
-    <div class = "technikNav" >Technik</div>
-    <div class = "skalierbarNav" >Skalierbarkeit</div>
+    <a id= "leitlinienNav" class = "leitlinienNav">Leitlinien</a>
+    <a id= "nutzergruppeNav" class = "nutzergruppeNav" >Nutzergruppe</a>
+    <a id= "problemNav" class = "problemNav" >Problem</a>
+    <a id= "lösungNav" class = "lösungNav" >Lösung</a>
+    <a id= "technikNav" class = "technikNav" >Technik</a>
+    <a id= "skalierbarNav" class = "skalierbarNav" >Skalierbarkeit</a>
+    <a id= "teamNav" class = "teamNav" >Team</a>
+
 </nav>
         <div class="container">
-
-<div class="content">
-
+            <button class ="nextStep" onClick=next()>Next Step</button>
+       <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+       <button class="closebtn" onclick="closeNav()">X close Sidebar</button>  
+<div class="content" id="content">
+ 
 <section class="home">
     <div class="headline">
-   
+
         <h1>Welcome</h1>
+    
 </section>
 <section class="leitlinien">
-    <div class="headline">
+       <div class="headline">
 
-        <h1>What are thoooooose?!?!?!??!</h1>
+        <h1>Leitlinien</h1>
     </div>
-    <!-- <div class="content">
-        <p>
-            L E I T L I N I E N <br>
-        taktile Leitsysteme oder ganz einfach Rillen/Rippen- und Noppenplatten kekekek</br>
-        </p>
-    </div> -->
-    <div class="flex-container">
+  
+    <div class="flex-container"> 
+    
     <div class="flex-item">Die gerippten Linien und genoppten Platten, 
         die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor 
         Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen. 
@@ -122,9 +152,24 @@
     </div> 
 </section>
 
+<section class="team">
+    <div class="headline">
+
+        <h1>together</h1>
+    </div>
+    <div class="content">
+        <p>
+            We are stromk)<br>
+      yeyeye</br>
+        </p>
+    </div> 
+</section>
+
+
 </div>
-<footer class="footer">byebye love ya</footer>
+<footer class="footer">Ein Semesterprojekt von Marie Backhaus, Kevin Liu, Julia Podlipensky und Afeni Sodatonou.</footer>
 <script src="funcs.js"></script>
+
 </body>
 
 </html>
