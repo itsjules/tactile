@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="lib/p5.min.js"></script>
-    <script type="module" src="lib/p5.sound.min.js"></script>
+    <!-- <script type="module" src="lib/p5.sound.min.js"></script> -->
     <script type="module" src="p5setup.js"></script>
     <script type="module" src="main.js"></script>
     <script src="lib/jquery-3.5.1.min.js"></script>
@@ -17,37 +17,45 @@
     <section class="intro">
         <p>Hallo</p>
         <button class="imgBtn">weiter</button>
+        <button class="audioBtn">muted</button>
+        <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
     <section class="leitlinie">
         <p>Leitleit</p>
 
         <button onclick="sectionForward(); imgChangeSection()">weiter</button>
         <button onclick="sectionBackward();imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="gleishalle">
         <p>laute Züge</p>
-       
+
         <button class="imgBtn">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="nutzergruppe">
         <p>Blindgänger</p>
         <button onclick="sectionForward(); imgChangeSection()">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="bahnhofshalle">
         <p>Dreckiger Boden </p>
         <button class="imgBtn">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="beforeProblem">
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="problem">
         <p>Problemus Apfelmus</p>
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="afterProblem">
         <button onclick="sectionForward()">weiter</button>
@@ -93,8 +101,14 @@
 <script>
     let s = 1;
     let sections;
-
     let imgButtons;
+    let audioBtn;
+
+    let ftStep;
+    let gleishalle;
+    let sfxVideo=document.getElementById("transformationAudio");
+
+    
     // console.log(imgButtons);
 
     // let weiterButton=document.getElementById("jumpSection");
@@ -103,23 +117,70 @@
     function onLoad() {
         sections = document.getElementsByTagName("section");
         imgButtons=document.getElementsByClassName("imgBtn");
+        ftStep= new Audio("assets/sound/footstep.mp3");
+        gleishalle=new Audio("assets/sound/gleishalle.mp3");
+        audioBtn=document.getElementsByClassName("audioBtn");
         for(i=0; i<imgButtons.length;i++){
             imgButtons[i].addEventListener("click",replace);
         }
-        // console.log(sections);
+        for (j=0;j<audioBtn.length;j++){
+            audioBtn[j].addEventListener("click",unmute);
+        }
         
+            if(document.body.className="intro"){
+            gleishalle.volume=0.2;
+            gleishalle.autoplay=true;
+            gleishalle.muted=true;
+            gleishalle.loop=true;
+            }
+        
+        
+            
+            ftStep.muted=true;
+            sfxVideo.muted=true;
+        
+        // console.log(sections);
+
     }
     window.onload = onLoad;
+
+    function mute(){
+        gleishalle.muted=true;
+        ftStep.muted=true;
+        sfxVideo.muted=true;
+        for (j=0;j<audioBtn.length;j++){
+            audioBtn[j].removeEventListener("click",mute);
+            audioBtn[j].addEventListener("click",unmute);
+            audioBtn[j].innerHTML="muted";
+        }
+    }
+
+    function unmute(){
+        gleishalle.muted=false;
+        ftStep.muted=false;
+        sfxVideo.muted=false;
+        for (j=0;j<audioBtn.length;j++){
+            audioBtn[j].removeEventListener("click",unmute);
+            audioBtn[j].addEventListener("click",mute);
+            audioBtn[j].innerHTML="unmuted";
+        }
+
+    }
+
 
     function sectionForward() {
         let a;
         for (i = 0; i < sections.length; i++) {
             if (sections[i].className === document.body.className) {
                 a = i;
+                if(document.body.className==="bahnhofshalle"){
+                 gleishalle.pause();
+                }
                 //   console.log({a});
                 $("body").removeClass();
+                ftStep.play();
                 $("body").addClass(sections[a + 1].className);
-                //   console.log(document.body.className); 
+                //   console.log(document.body.className);
                 return;
             }
         }
@@ -132,8 +193,9 @@
                 b = i;
                 //   console.log({b});
                 $("body").removeClass();
+                ftStep.play();
                 $("body").addClass(sections[b - 1].className);
-                //   console.log(document.body.className); 
+                //   console.log(document.body.className);
                 return;
             }
         }
@@ -148,6 +210,7 @@
             }
         }
         console.log(section);
+        ftStep.play();
         section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
         console.log("replace: "+s, document.body.className);
         if (s > 2) {
@@ -169,14 +232,59 @@
               section=sections[i];
             }
         }
+        ftStep.play();
+        
         section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
         for(i=0; i<imgButtons.length;i++){
             imgButtons[i].removeEventListener("click",sectionForward);
             imgButtons[i].addEventListener("click",replace);
-            
+
             }
         console.log("imgChangeSection: "+s,document.body.className);
     }
+
+
+//     function audioVolumeIn(q){
+//        q.muted=false; 
+       
+//        if(q.volume){
+//           var InT = 0;
+//           var setVolume = 0.1; // Target volume level for new song
+//           var speed = 0.001; // Rate of increase
+//           q.volume = InT;
+//           var eAudio = setInterval(function(){
+//               console.log(q.volume);
+//               InT += speed;
+//               q.volume = InT.toFixed(1);
+//               if(InT.toFixed(1) >= setVolume){
+//                  clearInterval(eAudio);
+//                  //alert('clearInterval eAudio'+ InT.toFixed(1));
+//               };
+//           },10);
+//        };
+//    };
+
+//    function audioVolumeOut(q){
+       
+//        if(q.volume){
+//           var InT = 0.1;
+//           var setVolume = 0;  // Target volume level for old song 
+//           var speed = 0.01;  // Rate of volume decrease
+//           q.volume = InT;
+//           var fAudio = setInterval(function(){
+//               console.log(q.volume);
+//               InT -= speed;
+//               q.volume = InT.toFixed(1);
+//               if(InT.toFixed(1) <= setVolume){
+//                   q.muted=true;
+//                  clearInterval(fAudio);
+                 
+//                  //alert('clearInterval fAudio'+ InT.toFixed(1));
+//               };
+//           },50);
+//        };
+//    };
+
 
 </script>
 

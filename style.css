@@ -82,7 +82,7 @@ section {
   height: 100%;
   z-index: 3;
   background-image: none;
-  animation: fadeInOut 0.5s ease-in-out forwards;
+  animation: fadeInOut 0.6s ease-in-out forwards;
 }
 
 @keyframes fadeInOut {
@@ -100,6 +100,7 @@ body.intro section.intro {
   display: block;
   
   background-image: url(assets/img/intro_1.jpg);
+  
   background-color: rgba(131, 131, 131, 0.1);  
   background-position: center center;
   background-repeat: no-repeat;
