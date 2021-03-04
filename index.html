@@ -14,17 +14,47 @@
 </head>
 
 <body class="leitlinie" id="showRoom">
+
     <section class="intro">
-        <p>Hallo</p>
+        <div class="headline">
+
+
+            <h1>Hallo</h1>
+    
+        </div>
+    
         <button class="imgBtn">weiter</button>
         <button class="audioBtn">muted</button>
         <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
     <section class="leitlinie">
-        <p>Leitleit</p>
+
+        <div class="headline">
+
+
+            <h1>Leitlinie</h1>
+    
+        </div>
+        <div class="flex-container"> 
+    
+            <div class="flex-item">Die gerippten Linien und genoppten Platten, 
+                die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor 
+                Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen. 
+                Man findet sie an Bahnhöfen, Straßenübergängen und Treppen im öffentlichen Raum, nicht nur in Deutschland, 
+                sondern auf der ganzen Welt.
+            </div>
+            <div class="flex-item-image"> <img src="/test/aufmerksamkeits tile.jpg"  width="460" height="345"></div>
+            <div class="flex-item-image"><img src="/test/Leitlinie Tile.jpg"  width="460" height="345"></div>
+            <div class="flex-item">Blinde Menschen erkennen die ertastbaren Muster des Systems in dem sie mit ihrem Blindenstock darüber gleiten. Dabei gelten die länglichen Rippenmuster als Richtungs- und Leitlinien und weisen auf eine barrierefreie Route hin. Die genoppten, größeren Felder warnen vor Gefahrenzonen wie zum Beispiel Straßenkreuzungen  oder weisen auf einen Richtungswechsel und Abzweigungen der Leitlinien hin.
+            </div>
+
+        </div>
+
+    
         <button onclick="sectionForward(); imgChangeSection()">weiter</button>
         <button onclick="sectionBackward();imgChangeSection()">zurück</button>
-        <button class="audioBtn">muted</button>
+        <button class="audioBtn">muted</button> 
+
     </section>
     <section class="gleishalle">
         <p>laute Züge</p>
@@ -93,7 +123,7 @@
         <p>Wir sind krass</p>
         <button onclick="sectionBackward()">zurück</button>
     </section>
-
+   
 </body>
 
 <script>
