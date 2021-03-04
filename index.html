@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="lib/p5.min.js"></script>
-    <!-- <script type="module" src="lib/p5.sound.min.js"></script> -->
+    <script type="module" src="lib/p5.sound.min.js"></script>
     <script type="module" src="p5setup.js"></script>
     <script type="module" src="main.js"></script>
     <script src="lib/jquery-3.5.1.min.js"></script>
     <script src="funcs.js"></script>
 </head>
 
+
 <body class="intro" id="showRoom">
+
 
     <section class="intro">
         <div class="headline">
@@ -263,8 +265,11 @@ laufend über Änderungen informiert zu werden.
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="afterTechnik">
-        <p>needs Canvas case</p>
-        <button class="forward"onclick="sectionForward()">weiter</button>
+
+        
+        <button onclick="sectionForward()">weiter</button>
+
+      
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="skalierbarkeit">
@@ -332,8 +337,8 @@ laufend über Änderungen informiert zu werden.
 
 
 
-        ftStep.muted = true;
-        sfxVideo.muted = true;
+        // ftStep.muted = true;
+        // sfxVideo.muted = true;
 
         // console.log(sections);
 
