@@ -3,56 +3,102 @@
 
 <head>
     <title>sum trash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="lib/p5.min.js"></script>
-    <script type="module" src="lib/p5.sound.min.js"></script>
+    <!-- <script type="module" src="lib/p5.sound.min.js"></script> -->
     <script type="module" src="p5setup.js"></script>
     <script type="module" src="main.js"></script>
     <script src="lib/jquery-3.5.1.min.js"></script>
     <script src="funcs.js"></script>
 </head>
 
-<body class="intro" id="showRoom">
+<body class="leitlinie" id="showRoom">
 
     <section class="intro">
-        <p>Hallo</p>
-        <button onclick="sectionForward()">weiter</button>
+        <div class="headline">
+
+
+            <h1>Hallo</h1>
+
+        </div>
+
+        <button class="imgBtn">weiter</button>
+        <button class="audioBtn">muted</button>
+        <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
     <section class="leitlinie">
-        <p>Leitleit</p>
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <div class="headline">
+
+
+            <h1>Leitlinie</h1>
+
+        </div>
+        <div class="flex-container">
+            <div class="flex-row">      <div class="flex-item-image"> <img src="/assets/img/bahnhofshalle_2.jpg"></div>
+                <div class="flex-item">Die gerippten Linien und genoppten Platten,
+                    die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor
+                    Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen.
+                    Man findet sie an Bahnhöfen, Straßenübergängen und Treppen im öffentlichen Raum, nicht nur in
+                    Deutschland,
+                    sondern auf der ganzen Welt.
+                </div>
+          
+            </div>
+            <div class="flex-row">
+                <div class="flex-item-image"><img src="/assets/img/Karte.png"></div>
+                <div class="flex-item">Blinde Menschen erkennen die ertastbaren Muster des Systems in dem sie mit ihrem
+                    Blindenstock darüber gleiten. Dabei gelten die länglichen Rippenmuster als Richtungs- und Leitlinien
+                    und weisen auf eine barrierefreie Route hin. Die genoppten, größeren Felder warnen vor Gefahrenzonen
+                    wie zum Beispiel Straßenkreuzungen oder weisen auf einen Richtungswechsel und Abzweigungen der
+                    Leitlinien hin.
+                </div>
+            </div>
+        </div>
+        <button onclick="sectionForward(); imgChangeSection()">weiter</button>
+        <button onclick="sectionBackward();imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
+
     </section>
     <section class="gleishalle">
         <p>laute Züge</p>
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+
+        <button class="imgBtn">weiter</button>
+        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="nutzergruppe">
         <p>Blindgänger</p>
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <button onclick="sectionForward(); imgChangeSection()">weiter</button>
+        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="bahnhofshalle">
         <p>Dreckiger Boden </p>
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <button class="imgBtn">weiter</button>
+        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="beforeProblem">
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
-    </section> 
+        <button class="audioBtn">muted</button>
+    </section>
     <section class="problem">
         <p>Problemus Apfelmus</p>
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
+        <button class="audioBtn">muted</button>
     </section>
     <section class="afterProblem">
-        
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="transformation">
         <video id="transformationVideo" src="/assets/vid/Believix.webm"></video>
         <audio id="transformationAudio" src="/assets/sound/harp-magic-dream-sound-effect.mp3"></audio>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="afterTransformation">
         <button onclick="sectionForward()">weiter</button>
@@ -66,7 +112,7 @@
     <section class="afterLösung">
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
-    
+
     </section>
     <section class="technik">
         <p>404 brain not found</p>
@@ -86,41 +132,193 @@
 </body>
 
 <script>
+    let s = 1;
     let sections;
-    function sectionList(){
-        sections=document.getElementsByTagName("section");
-        console.log(sections);
-        return sections;
-    }
-    window.onload=sectionList;
+    let imgButtons;
+    let audioBtn;
 
-    function sectionForward(){
+    let ftStep;
+    let gleishalle;
+    let sfxVideo = document.getElementById("transformationAudio");
+
+
+    // console.log(imgButtons);
+
+    // let weiterButton=document.getElementById("jumpSection");
+    // weiterButton.addEventListener("click",replace);
+
+    function onLoad() {
+        sections = document.getElementsByTagName("section");
+        imgButtons = document.getElementsByClassName("imgBtn");
+        ftStep = new Audio("assets/sound/footstep.mp3");
+        gleishalle = new Audio("assets/sound/gleishalle.mp3");
+        audioBtn = document.getElementsByClassName("audioBtn");
+        for (i = 0; i < imgButtons.length; i++) {
+            imgButtons[i].addEventListener("click", replace);
+        }
+        for (j = 0; j < audioBtn.length; j++) {
+            audioBtn[j].addEventListener("click", unmute);
+        }
+
+        if (document.body.className === "intro") {
+            gleishalle.volume = 0.2;
+            gleishalle.autoplay = true;
+            gleishalle.muted = true;
+            gleishalle.loop = true;
+        }
+
+
+
+        ftStep.muted = true;
+        sfxVideo.muted = true;
+
+        // console.log(sections);
+
+    }
+    window.onload = onLoad;
+
+    function mute() {
+        gleishalle.muted = true;
+        ftStep.muted = true;
+        sfxVideo.muted = true;
+        for (j = 0; j < audioBtn.length; j++) {
+            audioBtn[j].removeEventListener("click", mute);
+            audioBtn[j].addEventListener("click", unmute);
+            audioBtn[j].innerHTML = "muted";
+        }
+    }
+
+    function unmute() {
+        gleishalle.muted = false;
+        ftStep.muted = false;
+        sfxVideo.muted = false;
+        for (j = 0; j < audioBtn.length; j++) {
+            audioBtn[j].removeEventListener("click", unmute);
+            audioBtn[j].addEventListener("click", mute);
+            audioBtn[j].innerHTML = "unmuted";
+        }
+
+    }
+
+
+    function sectionForward() {
         let a;
-        for(i=0;i<sections.length;i++){
-            if(sections[i].className===document.body.className){
-              a=i;
-              console.log({a});
-              $("body").removeClass();
-              $("body").addClass(sections[a+1].className);
-              console.log(document.body.className); 
-              return ; 
-            } 
+        for (i = 0; i < sections.length; i++) {
+            if (sections[i].className === document.body.className) {
+                a = i;
+                if (document.body.className === "bahnhofshalle") {
+                    gleishalle.pause();
+                }
+                //   console.log({a});
+                $("body").removeClass();
+                ftStep.play();
+                $("body").addClass(sections[a + 1].className);
+                //   console.log(document.body.className);
+                return;
+            }
         }
     }
 
-    function sectionBackward(){
+    function sectionBackward() {
         let b;
-        for(i=0;i<sections.length;i++){
-            if(sections[i].className===document.body.className){
-              b=i;
-              console.log({b});
-              $("body").removeClass();
-              $("body").addClass(sections[b-1].className);
-              console.log(document.body.className); 
-              return ; 
-            } 
+        for (i = 0; i < sections.length; i++) {
+            if (sections[i].className === document.body.className) {
+                b = i;
+                //   console.log({b});
+                $("body").removeClass();
+                ftStep.play();
+                $("body").addClass(sections[b - 1].className);
+                //   console.log(document.body.className);
+                return;
+            }
         }
     }
+
+    function replace() {
+        s++;
+        let section;
+        for (i = 0; i < sections.length; i++) {
+            if (sections[i].className === document.body.className) {
+                section = sections[i];
+            }
+        }
+        console.log(section);
+        ftStep.play();
+        section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
+        console.log("replace: " + s, document.body.className);
+        if (s > 2) {
+            s = 0;
+            console.log("juhu");
+            for (i = 0; i < imgButtons.length; i++) {
+                imgButtons[i].removeEventListener("click", replace);
+                imgButtons[i].addEventListener("click", sectionForward);
+            }
+            return;
+        }
+    }
+
+    function imgChangeSection() {
+        s = 1;
+        let section;
+        for (i = 0; i < sections.length; i++) {
+            if (sections[i].className === document.body.className) {
+                section = sections[i];
+            }
+        }
+        ftStep.play();
+
+        section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
+        for (i = 0; i < imgButtons.length; i++) {
+            imgButtons[i].removeEventListener("click", sectionForward);
+            imgButtons[i].addEventListener("click", replace);
+
+        }
+        console.log("imgChangeSection: " + s, document.body.className);
+    }
+
+
+//     function audioVolumeIn(q){
+//        q.muted=false; 
+
+//        if(q.volume){
+//           var InT = 0;
+//           var setVolume = 0.1; // Target volume level for new song
+//           var speed = 0.001; // Rate of increase
+//           q.volume = InT;
+//           var eAudio = setInterval(function(){
+//               console.log(q.volume);
+//               InT += speed;
+//               q.volume = InT.toFixed(1);
+//               if(InT.toFixed(1) >= setVolume){
+//                  clearInterval(eAudio);
+//                  //alert('clearInterval eAudio'+ InT.toFixed(1));
+//               };
+//           },10);
+//        };
+//    };
+
+//    function audioVolumeOut(q){
+
+//        if(q.volume){
+//           var InT = 0.1;
+//           var setVolume = 0;  // Target volume level for old song 
+//           var speed = 0.01;  // Rate of volume decrease
+//           q.volume = InT;
+//           var fAudio = setInterval(function(){
+//               console.log(q.volume);
+//               InT -= speed;
+//               q.volume = InT.toFixed(1);
+//               if(InT.toFixed(1) <= setVolume){
+//                   q.muted=true;
+//                  clearInterval(fAudio);
+
+//                  //alert('clearInterval fAudio'+ InT.toFixed(1));
+//               };
+//           },50);
+//        };
+//    };
+
 
 </script>
+
 </html>
