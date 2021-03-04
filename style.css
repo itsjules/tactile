@@ -98,23 +98,19 @@ p {
 } */
 
 button {
-  position: absolute;
-  display: none;
+  display: block;
   text-align: center;
   font-size: 5vh;
-  /* margin-top: 50%; */
+ 
   margin: 0 auto;
+  
   padding: 1vh;
   background-color: gray;
   color: lemonchiffon;
   border: none;
   border-radius: 20px;
   transition-duration: 0.2s;
-  font-family: "noto-sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  cursor: pointer;
-  z-index: 10;
+  
 }
 
 button:hover {
@@ -305,4 +301,11 @@ body.afterTechnik section.afterTechnik {
 body.skalierbarkeit section.skalierbarkeit {
   opacity: 1;
   display: block;
+  background-image: url(assets/img/Karte.png);
+  background-color: rgba(131, 131, 131, 0.1);
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
