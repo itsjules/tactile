@@ -1,44 +1,92 @@
 <html>
 <head>
-    <title>Hello</title>
+    <title>Interaktive Dokumentation von tactile</title>
+
+
 
               <link rel="stylesheet" type="text/css" href="style.css">
               <script src="jquery-3.5.1.min.js"></script>
 </head>
 
-<body class="home">
-    <div id="header">
-     <div class = "homeNav">Intro</div> 
+<body class="home">   <header class ="headline">
+        tactile
+    </header>
 
-    <div class = "leitlinienNav">Leitlinien</div>
-    <div class = "nutzergruppeNav" >Nutzergruppe</div>
-    <div class = "problemNav" >Problem</div>
-    <div class = "lösungNav" >Lösung</div>
-    <div class = "technikNav" >Technik</div>
-    <div class = "skalierbarNav" >Skalierbarkeit</div>
-    </div> 
+    <div class="progress">
+        <div class="progress-track">
+        <div id="step1" class="progress-step">
+         
+        </div>
+        <div id="step2" class="progress-step">
+     
+        </div>
+        <div id="step3" class="progress-step">
+      
+        </div>
+        <div id="step4" class="progress-step">
 
+        </div>
+        <div id="step5" class="progress-step">
+      
+          </div>
+          <div id="step6" class="progress-step">
+    
+          </div>
+          <div id="step7" class="progress-step">
+   
+          </div>
+          <div id="step8" class="progress-step">
+     
+          </div>
+      </div>
+    <nav id= "Sidebar" class="nav-main">
+ 
+     <a id= "homeNav" class = "homeNav">Intro</a> 
 
-<!-- <main id = "content">Platzhalter...</main> -->
+    <a id= "leitlinienNav" class = "leitlinienNav">Leitlinien</a>
+    <a id= "nutzergruppeNav" class = "nutzergruppeNav" >Nutzergruppe</a>
+    <a id= "problemNav" class = "problemNav" >Problem</a>
+    <a id= "lösungNav" class = "lösungNav" >Lösung</a>
+    <a id= "technikNav" class = "technikNav" >Technik</a>
+    <a id= "skalierbarNav" class = "skalierbarNav" >Skalierbarkeit</a>
+    <a id= "teamNav" class = "teamNav" >Team</a>
 
+</nav>
+        <div class="container">
+            <button class ="nextStep" onClick=next()>Next Step</button>
+       <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+       <button class="closebtn" onclick="closeNav()">X close Sidebar</button>  
+<div class="content" id="content">
+ 
 <section class="home">
     <div class="headline">
-   
+
         <h1>Welcome</h1>
-    </div>
+
+    
+
 </section>
 <section class="leitlinien">
-    <div class="headline">
+       <div class="headline">
 
-        <h1>What are thoooooose?!?!?!??!</h1>
-    </div>
-    <div class="content">
-        <p>
-        L E I T L I N I E N <br>
-        taktile Leitsysteme oder ganz einfach Rillen/Rippen- und Noppenplatten kekekek</br>
-        </p>
+
+        <h1>Leitlinien</h1>
+
     </div>
   
+    <div class="flex-container"> 
+    
+    <div class="flex-item">Die gerippten Linien und genoppten Platten, 
+        die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor 
+        Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen. 
+        Man findet sie an Bahnhöfen, Straßenübergängen und Treppen im öffentlichen Raum, nicht nur in Deutschland, 
+        sondern auf der ganzen Welt.
+    </div>
+    <div class="flex-item-image"> <img src="aufmerksamkeits tile.jpg" alt="Flowers in Chania" width="460" height="345"></div>
+    <div class="flex-item-image"><img src="Leitlinie Tile.jpg" alt="Flowers in Chania" width="460" height="345"></div>
+    <div class="flex-item">Blinde Menschen erkennen die ertastbaren Muster des Systems in dem sie mit ihrem Blindenstock darüber gleiten. Dabei gelten die länglichen Rippenmuster als Richtungs- und Leitlinien und weisen auf eine barrierefreie Route hin. Die genoppten, größeren Felder warnen vor Gefahrenzonen wie zum Beispiel Straßenkreuzungen  oder weisen auf einen Richtungswechsel und Abzweigungen der Leitlinien hin.
+    </div>
+</div>
 </section>
 
 <section class="nutzergruppe">
@@ -107,8 +155,24 @@
     </div> 
 </section>
 
+<section class="team">
+    <div class="headline">
+
+        <h1>together</h1>
+    </div>
+    <div class="content">
+        <p>
+            We are stromk)<br>
+      yeyeye</br>
+        </p>
+    </div> 
+</section>
+
+
+</div>
 
 <script src="funcs.js"></script>
+
 </body>
 
 </html>
