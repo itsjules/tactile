@@ -308,6 +308,7 @@ function startCanvas() {
     document.body.className === "afterLösung"
   ) {
     start = true;
+    
     // loop();
   } else {
     start = false;
@@ -326,6 +327,7 @@ function startCanvas() {
 
 function draw() {
   startCanvas();
+  // console.log(document.getElementsByName("gleishalle"));
   // console.log(document.body.className);
   // console.log(start);
 
