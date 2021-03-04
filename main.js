@@ -7,7 +7,7 @@ let counter = 0;
 let steps = 40;
 
 let screenFreeze = false;
-let fade = 0;
+let fade = 255;
 let fadeSteps = 3;
 
 let executed = false;
@@ -107,11 +107,11 @@ function getStoryPart(part) {
 
 function update() {
   hitArea = {
-    left: window.width / 2 - window.width * 0.025,
-    right: window.width / 2 + window.width * 0.025,
+    left: window.width / 2 - window.width * 0.05,
+    right: window.width / 2 + window.width * 0.05,
   };
-  line(window.width / 2 - window.width * 0.025,0,window.width / 2 - window.width * 0.025,window.height);
-  line(window.width / 2 + window.width * 0.025,0,window.width / 2 + window.width * 0.025,window.height);
+  line(window.width / 2 - window.width * 0.05,0,window.width / 2 - window.width * 0.05,window.height);
+  line(window.width / 2 + window.width * 0.05,0,window.width / 2 + window.width * 0.05,window.height);
   if (
     window.width / 2 - window.height * (0.5 + scaleMax) < 0 &&
     window.width / 2 + window.height * (0.5 + scaleMax) > window.width
@@ -131,7 +131,7 @@ function longCaneHover() {
   };
   translate(window.width / 2, window.height);
   push();
-  if (!screenFreeze) {
+ 
     if (mouseX < window.width / 2 - longcaneHeight) {
       rotate(-90);
     }
@@ -162,13 +162,11 @@ function longCaneHover() {
     if (mouseX > window.width / 2 + longcaneHeight) {
       rotate(90);
     }
-  }
+  
   if (screenFreeze) {
-    fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
-    tint(255, fade);
+    fade >= 255 ? (fade = 255) : (fade += fadeSteps);
   } else {
-    fade >= 255 ? (fade = 255) : (fade += fadeSteps - 1);
-    tint(255, fade);
+    fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
   }
   image(longcane, cane.xDown, cane.yDown, longcaneWidth, longcaneHeight);
   pop();
@@ -192,9 +190,7 @@ function hitDetection() {
     }
     animationPlay = true;
   } else {
-    
     executed = false;
-
   }
 }
 
@@ -204,8 +200,6 @@ function leitAnimation() {
     push();
     imageMode(CENTER);
     rectMode(CENTER);
-
-    
 
     if (hitCounter < steps) {
     let animationSpeed = 0.21;
@@ -271,8 +265,7 @@ function freeze() {
   if (storyPart > 1) {
     push();
     imageMode(CENTER);
-    tint(255, fade);
-    fade <= 0 ? (scaleFeld = 0.2) : (scaleFeld += 0.02);
+    fade >= 255 ? (scaleFeld = 0.2) : (scaleFeld += 0.02);
     if(storyPart===4){
     image(
         kartePin,
@@ -291,11 +284,10 @@ function freeze() {
         (window.height * (scaleFeld)),
       window.height * (scaleFeld)
     );
-
     }
     pop();
   }
-  if (fade <= 0) {
+  if (fade >= 255) {
     if (document.body.className === "afterProblem") {
       document.getElementById("showRoom").className = "transformation";
       video.style.display = "block";
@@ -325,7 +317,6 @@ function reset() {
   if (executeRestart) {
     hitCounter = 0;
     counter = 0;
-    
     executeRestart = false;
     screenFreeze = false;
   }
@@ -352,6 +343,7 @@ function draw() {
   
 
   if (start) {
+    
     background("grey");
     counter += 1;
     update();
@@ -365,6 +357,10 @@ function draw() {
     }
     endSteps();
     longCaneHover();
+    push();
+    fill(color(128,fade));
+    rect(0,0,window.width,window.height);
+    pop();
   }
 }
 window.draw = draw;
