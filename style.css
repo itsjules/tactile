@@ -24,42 +24,68 @@ p {
 }
 
 .flex-container {
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   display: flex;
   padding: 1em;
   flex-wrap: wrap; /* Standardwert = nowrap */
   margin: 0 auto;
   max-width: 60vw;
+  height: 70vh;
+  justify-content: space-between;
 }
 
 .flex-item {
   /* background-color: aliceblue; */
-  font-size: 35px;
-  flex-basis: 40%;
+  font-size: 20px;
+  flex-basis: 50%;
   /* flex-grow: 1;
   flex-shrink: 1; */
-  margin-top: 10vh;
-  margin-left: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
 }
 
+.flex-item-image {
+  background-color: aqua;
+  /* für spezielle Größen von Bildern direkt definieren?*/
+  flex-basis: 50%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
+
+  display: flex;
+  justify-content: center;
+}
+.flex-item-image img {
+  max-width: 100%;
+  height: auto;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+  /* justify-content: space-between; */
+}
+
+/* img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+} */
 .headline {
   background-color: white;
   font-family: "noto-sans", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 50px;
+  font-size: 2vw;
   text-align: center;
   color: #124d82;
-}
-
-.flex-item-image {
-  top: 2.5vh;
-  background-color: aqua;
-  flex-basis: 40%;
-  /* flex-grow: 1;
-  flex-shrink: 1; */
-  margin-top: 5vh;
-  margin-left: 10vh;
 }
 
 /* .bg-img{
@@ -116,6 +142,32 @@ button:hover {
   #transformationVideo {
     top: 25vh;
     bottom: 25vh;
+  }
+  .headline {
+    font-size: 40px;
+  }
+  .flex-container {
+    max-width: 80vw;
+    max-height: 85vh;
+  }
+  .flex-item {
+    margin: 40px;
+    font-size: 20px;
+    flex-basis: 50%;
+  }
+  .flex-item-image {
+    max-width: 100%;
+
+    flex-basis: 50%;
+    margin-bottom: 5vh;
+    margin-top: 3.5vh;
+    margin-left: 3vh;
+    margin-right: 0vh;
+    display: block;
+  }
+  .flex-item-image img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
