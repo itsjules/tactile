@@ -1,21 +1,65 @@
-html{
+@import url("https://use.typekit.net/knh1wns.css");
+
+html {
   /* cursor: url(/assets/img/Blindenstock_1.png) 10 3,auto;  */
   overflow: hidden;
   margin: 0;
   padding: 0;
   /* cursor: none; */
-  font-family: monospace;
+  /* font-family: monospace; */
 }
 
-body{
+body {
   margin: 0;
   background-color: grey;
+  font-family: "source-sans-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-p{
-  text-align: center; 
+p {
+  text-align: center;
   font-size: 10rem;
   margin: 20vh 0;
+}
+
+.flex-container {
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  padding: 1em;
+  flex-wrap: wrap; /* Standardwert = nowrap */
+  margin: 0 auto;
+  max-width: 60vw;
+}
+
+.flex-item {
+  /* background-color: aliceblue; */
+  font-size: 35px;
+  flex-basis: 40%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 10vh;
+  margin-left: 10vh;
+}
+
+.headline {
+  background-color: white;
+  font-family: "noto-sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 50px;
+  text-align: center;
+  color: #124d82;
+}
+
+.flex-item-image {
+  top: 2.5vh;
+  background-color: aqua;
+  flex-basis: 40%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 5vh;
+  margin-left: 10vh;
 }
 
 /* .bg-img{
@@ -27,51 +71,52 @@ p{
   z-index: 1 !important;
 } */
 
-button{
-  display: block;
+button {
+  position: absolute;
+  display: none;
   text-align: center;
   font-size: 5vh;
+  /* margin-top: 50%; */
   margin: 0 auto;
   padding: 1vh;
   background-color: gray;
-  color:lemonchiffon ;
+  color: lemonchiffon;
   border: none;
   border-radius: 20px;
   transition-duration: 0.2s;
+  font-family: "noto-sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  cursor: pointer;
+  z-index: 10;
 }
 
-button:hover{
+button:hover {
   background-color: #9553c2;
   color: orange;
 }
 
-
-
-
-.p5Canvas{
+.p5Canvas {
   height: auto !important;
   width: 100% !important;
   position: absolute;
   z-index: 0;
 }
 
-
-#transformationVideo{
-    display: block;
-    width: 100vw;
-    height: auto;
-    position: absolute;
-    z-index: 2;
-    /* //event geht nicht */
-    
+#transformationVideo {
+  display: block;
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  /* //event geht nicht */
 }
 
-
 @media only screen and (max-width: 1100px) {
-    #transformationVideo{
-    top:25vh;
+  #transformationVideo {
+    top: 25vh;
     bottom: 25vh;
-    }
+  }
 }
 
 section {
@@ -86,8 +131,12 @@ section {
 }
 
 @keyframes fadeInOut {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* @keyframes fadeInOutBackground {
@@ -98,64 +147,62 @@ section {
 body.intro section.intro {
   opacity: 1;
   display: block;
-  
+
   background-image: url(assets/img/intro_1.jpg);
-  
-  background-color: rgba(131, 131, 131, 0.1);  
+
+  background-color: rgba(131, 131, 131, 0.1);
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
-
 
 body.leitlinie section.leitlinie {
   opacity: 1;
   display: block;
   background-image: url(assets/img/leitlinie_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
-  
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.gleishalle section.gleishalle {
   opacity: 1;
   display: block;
   background-image: url(assets/img/gleishalle_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.nutzergruppe section.nutzergruppe {
   opacity: 1;
   display: block;
   background-image: url(assets/img/nutzergruppe_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.bahnhofshalle section.bahnhofshalle {
   opacity: 1;
   display: block;
   background-image: url(assets/img/bahnhofshalle_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.beforeProblem section.beforeProblem {
@@ -198,7 +245,7 @@ body.technik section.technik {
   display: block;
 }
 
-body.afterTechnik section.afterTechnik{
+body.afterTechnik section.afterTechnik {
   opacity: 1;
   display: block;
 }
