@@ -117,15 +117,21 @@ button {
   display: block;
   text-align: center;
   font-size: 5vh;
- 
+  position:relative;
   margin: 0 auto;
-  
   padding: 1vh;
   background-color: gray;
   color: lemonchiffon;
   border: none;
   border-radius: 20px;
   transition-duration: 0.2s;
+  
+}
+
+#audioBtn {
+  position: absolute;
+  z-index: 5;
+  bottom: 10vh;
   
 }
 
@@ -154,6 +160,14 @@ button:hover {
   position: absolute;
   z-index: 2;
   /* //event geht nicht */
+}
+
+#goingBlindVideo{
+  position: center center;
+  /* right: 0;
+  bottom: 0; */
+  min-width: 100%;
+  min-height: 100%;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -247,6 +261,11 @@ body {
   100% {opacity: 1;}
 } */
 
+body.start section.start {
+  opacity: 1;
+  display: block;
+}
+
 body.intro section.intro {
   opacity: 1;
   display: block;
@@ -306,6 +325,11 @@ body.bahnhofshalle section.bahnhofshalle {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+body.goingBlind section.goingBlind {
+  opacity: 1;
+  display: block;
 }
 
 body.beforeProblem section.beforeProblem {

@@ -162,12 +162,7 @@ function longCaneHover() {
     if (mouseX > window.width / 2 + longcaneHeight) {
       rotate(90);
     }
-  
-  if (screenFreeze) {
-    fade >= 255 ? (fade = 255) : (fade += fadeSteps);
-  } else {
-    fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
-  }
+  fading();
   image(longcane, cane.xDown, cane.yDown, longcaneWidth, longcaneHeight);
   pop();
   fill("red");
@@ -176,6 +171,19 @@ function longCaneHover() {
   ellipse(-longcaneHeight, 0, 10);
   ellipse(+longcaneHeight, 0, 10);
   pop();
+}
+
+function fading(){
+  if (screenFreeze) {
+    fade >= 255 ? (fade = 255) : (fade += fadeSteps);
+  } else {
+    if(storyPart===0){
+      fade <= 0 ? (fade = 0) : (fade -= (fadeSteps-1.5));
+    }
+    else{
+      fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
+    }
+  }
 }
 
 function hitDetection() {
@@ -349,7 +357,7 @@ function draw() {
     update();
     if (screenFreeze) {
       freeze();
-    } else if (counter > 140) {
+    } else if (counter > 120) {
       hitDetection();
       if (storyPart > 1) {
         leitAnimation();
