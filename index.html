@@ -14,19 +14,28 @@
 </head>
 
 
-<body class="intro" id="showRoom">
+<body class="start" id="showRoom">
+
+<audio id="gleishalle" src="assets/sound/gleishalle.mp3" loop></audio>
+<audio id="knotenpunkt" src="assets/sound/busStation.mp3" loop></audio>
+<audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
+
+<section class="start">
+    <div class="headline">
 
 
-    <section class="intro">
-        <div class="headline">
+        <h1>Willkomen</h1>
 
+    </div>
 
-            <h1>Hallo</h1>
-
-        </div>
+    <button onclick="sectionForward();gleishalle.play();">weiter</button>
+    <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
+</section>
+<section class="intro">
+    
 
         <button class="imgBtn">weiter</button>
-        <button class="audioBtn">muted</button>
+        
         <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
     <section class="leitlinie">
@@ -58,16 +67,16 @@
                 </div>
             </div>
         </div>
-        <button class="forward" onclick="sectionForward(); imgChangeSection()">weiter</button>
-        <button class="back" onclick="sectionBackward();imgChangeSection()">zurück</button>
-        <button class="audioBtn">muted</button>
+        <button onclick="sectionForward(); imgChangeSection()">weiter</button>
+        <button onclick="sectionBackward();imgChangeSection()">zurück</button>
+       
 
     </section>
     <section class="gleishalle">
-        <p>laute Züge</p>
+       
         <button class="imgBtn">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
-        <button class="audioBtn">muted</button>
+       
     </section>
     <section class="nutzergruppe">
         <div class="headline">
@@ -100,18 +109,24 @@
         </div>
         <button class="forward"onclick="sectionForward(); imgChangeSection()">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
-        <button class="audioBtn">muted</button>
+    
     </section>
     <section class="bahnhofshalle">
-        <p>Dreckiger Boden </p>
+       
         <button class="imgBtn">weiter</button>
-        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
-        <button class="audioBtn">muted</button>
+        <button onclick="sectionBackward(); imgChangeSection();">zurück</button>
+        
+    </section>
+    <section class="goingBlind">
+        <video id="goingBlindVideo" src="/assets/vid/Transition Light.mp4" onmouseover="this.play()" onended="sectionForward();"></video>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward();">zurück</button>
+        
     </section>
     <section class="beforeProblem">
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
-        <button class="audioBtn">muted</button>
+        
     </section>
     <section class="problem">
         <div class="headline">
@@ -155,7 +170,7 @@
         </div>
         <button class="forward"onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
-        <button class="audioBtn">muted</button>
+      
     </section>
     <section class="afterProblem">
         <button class="forward" onclick="sectionForward()">weiter</button>
@@ -296,92 +311,62 @@ laufend über Änderungen informiert zu werden.
         </div>
         <button onclick="sectionBackward()">zurück</button>
     </section>
-
+    <button id="audioBtn" value="true" onclick="toggleMute()">unmuted</button>
 </body>
 
 <script>
     let s = 1;
     let sections;
     let imgButtons;
-    let audioBtn;
+    let audioBtn=document.getElementById("audioBtn");
 
-    let ftStep;
-    let gleishalle;
+    let ftStep=document.getElementById("ftStep");
+    let gleishalle=document.getElementById("gleishalle");
+    let knotenpunkt=document.getElementById("knotenpunkt");
     let sfxVideo = document.getElementById("transformationAudio");
-
-
-    // console.log(imgButtons);
-
-    // let weiterButton=document.getElementById("jumpSection");
-    // weiterButton.addEventListener("click",replace);
 
     function onLoad() {
         sections = document.getElementsByTagName("section");
         imgButtons = document.getElementsByClassName("imgBtn");
-        ftStep = new Audio("assets/sound/footstep.mp3");
-        gleishalle = new Audio("assets/sound/gleishalle.mp3");
-        audioBtn = document.getElementsByClassName("audioBtn");
         for (i = 0; i < imgButtons.length; i++) {
             imgButtons[i].addEventListener("click", replace);
         }
-        for (j = 0; j < audioBtn.length; j++) {
-            audioBtn[j].addEventListener("click", unmute);
-        }
-
-        if (document.body.className === "intro") {
-            gleishalle.volume = 0.2;
-            gleishalle.autoplay = true;
-            gleishalle.muted = true;
-            gleishalle.loop = true;
-        }
-
-
-
-        ftStep.muted = true;
-        sfxVideo.muted = true;
-
-        // console.log(sections);
-
+        gleishalle.volume = 0.1;
+        knotenpunkt.volume=0.1;
     }
     window.onload = onLoad;
 
-    function mute() {
-        gleishalle.muted = true;
-        ftStep.muted = true;
-        sfxVideo.muted = true;
-        for (j = 0; j < audioBtn.length; j++) {
-            audioBtn[j].removeEventListener("click", mute);
-            audioBtn[j].addEventListener("click", unmute);
-            audioBtn[j].innerHTML = "muted";
-        }
-    }
 
-    function unmute() {
-        gleishalle.muted = false;
-        ftStep.muted = false;
-        sfxVideo.muted = false;
-        for (j = 0; j < audioBtn.length; j++) {
-            audioBtn[j].removeEventListener("click", unmute);
-            audioBtn[j].addEventListener("click", mute);
-            audioBtn[j].innerHTML = "unmuted";
+    function toggleMute(){
+        if(audioBtn.value==="true"){
+            document.querySelectorAll("audio").forEach(e => e.muted=true);
+            audioBtn.value="false";
+            audioBtn.innerHTML = "muted";
+            console.log(audioBtn.innerHTML);
+            return
         }
-
+        if(audioBtn.value==="false"){
+            document.querySelectorAll("audio").forEach(e => e.muted=false);
+            audioBtn.value="true";
+            audioBtn.innerHTML = "unmuted";
+            console.log(audioBtn.innerHTML);
+            return
+        } 
     }
 
 
     function sectionForward() {
         let a;
         for (i = 0; i < sections.length; i++) {
-            if (sections[i].className === document.body.className) {
+            if (sections[i].className === document.body.className) { //kann man mit nem queryselect schreiben
                 a = i;
-                if (document.body.className === "bahnhofshalle") {
+                if (document.body.className === "goingBlind") {
                     gleishalle.pause();
+                    knotenpunkt.play();
                 }
-                //   console.log({a});
                 $("body").removeClass();
                 ftStep.play();
                 $("body").addClass(sections[a + 1].className);
-                //   console.log(document.body.className);
                 return;
             }
         }
@@ -392,11 +377,9 @@ laufend über Änderungen informiert zu werden.
         for (i = 0; i < sections.length; i++) {
             if (sections[i].className === document.body.className) {
                 b = i;
-                //   console.log({b});
                 $("body").removeClass();
                 ftStep.play();
                 $("body").addClass(sections[b - 1].className);
-                //   console.log(document.body.className);
                 return;
             }
         }
@@ -434,7 +417,6 @@ laufend über Änderungen informiert zu werden.
             }
         }
         ftStep.play();
-
         section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
         for (i = 0; i < imgButtons.length; i++) {
             imgButtons[i].removeEventListener("click", sectionForward);
@@ -443,7 +425,7 @@ laufend über Änderungen informiert zu werden.
         }
         console.log("imgChangeSection: " + s, document.body.className);
     }
-
+ 
 
 //     function audioVolumeIn(q){
 //        q.muted=false; 
