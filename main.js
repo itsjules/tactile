@@ -111,8 +111,7 @@ function update() {
     left: window.width / 2 - window.width * 0.05,
     right: window.width / 2 + window.width * 0.05,
   };
-  line(window.width / 2 - window.width * 0.05,0,window.width / 2 - window.width * 0.05,window.height);
-  line(window.width / 2 + window.width * 0.05,0,window.width / 2 + window.width * 0.05,window.height);
+
   if (
     window.width / 2 - window.height * (0.5 + scaleMax) < 0 &&
     window.width / 2 + window.height * (0.5 + scaleMax) > window.width
@@ -166,11 +165,6 @@ function longCaneHover() {
   fading();
   image(longcane, cane.xDown, cane.yDown, longcaneWidth, longcaneHeight);
   pop();
-  fill("red");
-  ellipse(0, 0, 10);
-  fill("blue");
-  ellipse(-longcaneHeight, 0, 10);
-  ellipse(+longcaneHeight, 0, 10);
   pop();
 }
 
