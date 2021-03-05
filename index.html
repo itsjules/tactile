@@ -16,29 +16,41 @@
 
 <body class="start" id="showRoom">
 
+    <div id="preload">
+        <img src="assets/img/intro_1.jpg"/>
+        <img src="assets/img/intro_2.jpg"/>
+        <img src="assets/img/intro_3.jpg"/>
+        <img src="assets/img/gleishalle_1.jpg"/>
+        <img src="assets/img/gleishalle_2.jpg"/>
+        <img src="assets/img/gleishalle_3.jpg"/>
+        <img src="assets/img/bahnhofshalle_1.jpg"/>
+        <img src="assets/img/bahnhofshalle_2.jpg"/>
+        <img src="assets/img/bahnhofshalle_3.jpg"/>
+        <img src="assets/img/Karte.png" alt="">
+        <video src="assets/vid/Transition Light.mp4"></video>
+       
+    </div>    
+
 <audio id="gleishalle" src="assets/sound/gleishalle.mp3" loop></audio>
 <audio id="knotenpunkt" src="assets/sound/busStation.mp3" loop></audio>
 <audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
 
-<section class="start">
+<section class="start" style="background-color: whitesmoke;">
     <div class="headline">
-
-
-        <h1>Willkomen</h1>
-
+        <h1>Willkommen</h1>
     </div>
 
     <button onclick="sectionForward();gleishalle.play();"><img src="/assets/img/p_weiter_gelb.png"></button>
     <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
 </section>
-<section class="intro">
+<section class="intro" onmouseover="gleishalle.play();gleishalle.volume=0.05">
     
 
         <button class="imgBtn"><img src="/assets/img/p_weiter_gelb.png"></button>
         
         <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
-    <section class="leitlinie">
+    <section class="leitlinie" onmouseover="gleishalle.play();gleishalle.volume=0.02">
         <div class="headline">
 
 
@@ -71,13 +83,13 @@
        
 
     </section>
-    <section class="gleishalle">
+    <section class="gleishalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
         <button class="imgBtn"><img src="/assets/img/p_weiter_gelb.png"></button>
         <!-- <button class="imgBtn"><a><img src="/assets/img/p_weiter_gelb.png"/><img src="/assets/img/p_weiter_weiß.png"/></a></button> -->
        
     </section>
-    <section class="nutzergruppe">
+    <section class="nutzergruppe" onmouseover="gleishalle.play();gleishalle.volume=0.02">
         <div class="headline">
 
 
@@ -109,21 +121,24 @@
         <button class="forward"onclick="sectionForward(); imgChangeSection()"><img src="/assets/img/p_weiter_gelb.png"></button>
     
     </section>
-    <section class="bahnhofshalle">
+    <section class="bahnhofshalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
         <button class="imgBtn"><img src="/assets/img/p_weiter_gelb.png"></button>
         
     </section>
-    <section class="goingBlind">
+    <section class="goingBlind" onmouseover="gleishalle.play();gleishalle.volume=0.05">
         <video id="goingBlindVideo" src="/assets/vid/Transition Light.mp4" onmouseover="this.play()" onended="sectionForward();"></video>
         <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
         
     </section>
-    <section class="beforeProblem">
-        <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+
+        
+
+    <section class="beforeProblem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
+    <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
         
     </section>
-    <section class="problem">
+    <section class="problem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
 
 
@@ -166,18 +181,23 @@
         <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
       
     </section>
-    <section class="afterProblem">
-        <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+    <section class="afterProblem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
+     <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
-    <section class="transformation">
+    <section class="transformation" onmouseover="knotenpunkt.pause()">
         <video id="transformationVideo" src="/assets/vid/Believix.webm"></video>
         <audio id="transformationAudio" src="/assets/sound/harp-magic-dream-sound-effect.mp3"></audio>
         <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
-    <section class="afterTransformation">
-        <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+
+
+        
+
+    <section class="afterTransformation" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
+     <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+
     </section>
-    <section class="lösung">
+    <section class="lösung" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
 
 
@@ -217,11 +237,15 @@
         </div>
         <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
-    <section class="afterLösung">
-        <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+
+        
+
+    <section class="afterLösung" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
+      <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+      
 
     </section>
-    <section class="technik">
+    <section class="technik" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
 
 
@@ -267,12 +291,12 @@
         </div>
         <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
-    <section class="afterTechnik">
+    <section class="afterTechnik" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
 
         
         <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
-    <section class="skalierbarkeit">
+    <section class="skalierbarkeit" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
 
 
@@ -316,7 +340,7 @@
         for (i = 0; i < imgButtons.length; i++) {
             imgButtons[i].addEventListener("click", replace);
         }
-        gleishalle.volume = 0.1;
+        gleishalle.volume = 0.05;
         knotenpunkt.volume=0.1;
     }
     window.onload = onLoad;
@@ -369,7 +393,6 @@ function stophover(){
                 a = i;
                 if (document.body.className === "goingBlind") {
                     gleishalle.pause();
-                    knotenpunkt.play();
                 }
                 $("body").removeClass();
                 ftStep.play();
@@ -384,9 +407,19 @@ function stophover(){
         for (i = 0; i < sections.length; i++) {
             if (sections[i].className === document.body.className) {
                 b = i;
+                
+                if (document.body.className === "beforeProblem") {
+                    $("body").removeClass();
+                    ftStep.play();
+                    knotenpunkt.pause();
+                    $("body").addClass(sections[b - 2].className);
+                    
+                }
+                else{
                 $("body").removeClass();
-                ftStep.play();
+                ftStep.play();    
                 $("body").addClass(sections[b - 1].className);
+                }
                 return;
             }
         }
@@ -457,14 +490,14 @@ function stophover(){
 //        if(q.volume){
 //           var InT = 0.1;
 //           var setVolume = 0;  // Target volume level for old song 
-//           var speed = 0.01;  // Rate of volume decrease
+//           var speed = 0.002  // Rate of volume decrease
 //           q.volume = InT;
 //           var fAudio = setInterval(function(){
 //               console.log(q.volume);
 //               InT -= speed;
 //               q.volume = InT.toFixed(1);
 //               if(InT.toFixed(1) <= setVolume){
-//                   q.muted=true;
+                  
 //                  clearInterval(fAudio);
 //                  //alert('clearInterval fAudio'+ InT.toFixed(1));
 //               };
