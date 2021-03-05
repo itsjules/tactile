@@ -113,26 +113,39 @@ p {
 } */
 
 button {
-
   display: block;
   text-align: center;
   font-size: 5vh;
-  position:relative;
+  position: relative;
   margin: 0 auto;
   padding: 1vh;
-  background-color: gray;
-  color: lemonchiffon;
+  background-color: transparent;
+  color: none;
   border: none;
   border-radius: 20px;
   transition-duration: 0.2s;
-  
+}
+
+#goback {
+  position: absolute;
+  z-index: 5;
+  bottom: 150px;
+}
+
+#goback img {
+  max-width: 60%;
+  height: auto;
 }
 
 #audioBtn {
   position: absolute;
   z-index: 5;
-  bottom: 10vh;
-  
+  bottom: 30px;
+}
+
+#audioBtn img {
+  width: 60%;
+  height: auto;
 }
 
 .forward {
@@ -141,9 +154,19 @@ button {
 .imgBtn {
   margin-left: 20vw;
 }
+
+/* a.imgBtn last-child {
+  display: none;
+}
+a:hover img:last-child {
+  display: block;
+}
+a:hover img:first-child {
+  display: none;
+} */
+
 button:hover {
-  background-color: #9553c2;
-  color: orange;
+  background-color: none;
 }
 
 .p5Canvas {
@@ -162,7 +185,7 @@ button:hover {
   /* //event geht nicht */
 }
 
-#goingBlindVideo{
+#goingBlindVideo {
   position: center center;
   /* right: 0;
   bottom: 0; */
