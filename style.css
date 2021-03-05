@@ -1,21 +1,106 @@
-html{
+@import url("https://use.typekit.net/knh1wns.css");
+
+html {
   /* cursor: url(/assets/img/Blindenstock_1.png) 10 3,auto;  */
   overflow: hidden;
   margin: 0;
   padding: 0;
   /* cursor: none; */
-  font-family: monospace;
+  /* font-family: monospace; */
 }
 
-body{
+body {
   margin: 0;
   background-color: grey;
+  font-family: "source-sans-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-p{
-  text-align: center; 
+p {
+  text-align: center;
   font-size: 10rem;
   margin: 20vh 0;
+}
+
+.flex-container {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  padding: 1em;
+  flex-wrap: wrap; /* Standardwert = nowrap */
+  margin: 0 auto;
+  max-width: 60vw;
+  height: 70vh;
+  justify-content: space-between;
+}
+
+.flex-item {
+  /* background-color: aliceblue; */
+  font-size: 20px;
+  flex-basis: 50%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
+.flex-item-image {
+  background-color: aqua;
+  /* für spezielle Größen von Bildern direkt definieren?*/
+  flex-basis: 50%;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
+
+  display: flex;
+  justify-content: center;
+}
+.flex-item-image img {
+  max-width: 100%;
+  height: auto;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+  /* justify-content: space-between; */
+}
+.problem .flex-row {
+  height: 60%;
+}
+.lösung .flex-item {
+  margin-top: 5vh;
+}
+
+.technik .flex-row {
+  height: 67%;
+}
+.skalierbarkeit .flex-row {
+  height: 100%;
+}
+.skalierbarkeit .flex-item {
+  margin-top: 5vh;
+}
+/* img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+} */
+.headline {
+  background-color: white;
+  font-family: "noto-sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2vw;
+  text-align: center;
+  color: #124d82;
 }
 
 /* .bg-img{
@@ -27,51 +112,93 @@ p{
   z-index: 1 !important;
 } */
 
-button{
+button {
+
   display: block;
   text-align: center;
   font-size: 5vh;
+  position:relative;
   margin: 0 auto;
   padding: 1vh;
   background-color: gray;
-  color:lemonchiffon ;
+  color: lemonchiffon;
   border: none;
   border-radius: 20px;
   transition-duration: 0.2s;
+  
 }
 
-button:hover{
+#audioBtn {
+  position: absolute;
+  z-index: 5;
+  bottom: 10vh;
+  
+}
+
+.forward {
+  margin-left: 10vw;
+}
+.imgBtn {
+  margin-left: 20vw;
+}
+button:hover {
   background-color: #9553c2;
   color: orange;
 }
 
-
-
-
-.p5Canvas{
+.p5Canvas {
   height: auto !important;
   width: 100% !important;
   position: absolute;
   z-index: 0;
 }
 
-
-#transformationVideo{
-    display: block;
-    width: 100vw;
-    height: auto;
-    position: absolute;
-    z-index: 2;
-    /* //event geht nicht */
-    
+#transformationVideo {
+  display: block;
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  /* //event geht nicht */
 }
 
+#goingBlindVideo{
+  position: center center;
+  /* right: 0;
+  bottom: 0; */
+  min-width: 100%;
+  min-height: 100%;
+}
 
-@media only screen and (max-width: 1100px) {
-    #transformationVideo{
-    top:25vh;
+@media only screen and (max-width: 1600px) {
+  #transformationVideo {
+    top: 25vh;
     bottom: 25vh;
-    }
+  }
+  .headline {
+    font-size: 40px;
+  }
+  .flex-container {
+    max-width: 70vw;
+    max-height: 85vh;
+  }
+  .flex-item {
+    margin: 50px;
+    font-size: 16px;
+    flex-basis: 50%;
+  }
+  .flex-item-image {
+    max-width: 80%;
+    flex-basis: 50%;
+    margin-bottom: 5vh;
+    margin-top: 3.5vh;
+    margin-left: 3vh;
+    margin-right: 0vh;
+  }
+  .flex-item-image img {
+    max-width: 80%;
+    height: auto;
+  }
 }
 
 section {
@@ -82,12 +209,51 @@ section {
   height: 100%;
   z-index: 3;
   background-image: none;
-  animation: fadeInOut 0.5s ease-in-out forwards;
+  animation: fadeInOut 0.6s ease-in-out forwards;
+}
+@media only screen and (max-width: 1100px) {
+  #transformationVideo {
+    top: 25vh;
+    bottom: 25vh;
+  }
+  .headline {
+    font-size: 40px;
+  }
+  .flex-container {
+    max-width: 80vw;
+    max-height: 85vh;
+  }
+  .flex-item {
+    margin: 40px;
+    font-size: 20px;
+    flex-basis: 50%;
+  }
+  .flex-item-image {
+    max-width: 100%;
+
+    flex-basis: 50%;
+    margin-bottom: 5vh;
+    margin-top: 3.5vh;
+    margin-left: 3vh;
+    margin-right: 0vh;
+    display: block;
+  }
+  .flex-item-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-@keyframes fadeInOut {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+body {
+  color: #124d82;
 }
 
 /* @keyframes fadeInOutBackground {
@@ -95,66 +261,75 @@ section {
   100% {opacity: 1;}
 } */
 
+body.start section.start {
+  opacity: 1;
+  display: block;
+}
+
 body.intro section.intro {
   opacity: 1;
   display: block;
-  
+
   background-image: url(assets/img/intro_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
+
+  background-color: rgba(131, 131, 131, 0.1);
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
-
 
 body.leitlinie section.leitlinie {
   opacity: 1;
   display: block;
   background-image: url(assets/img/leitlinie_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
-  
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.gleishalle section.gleishalle {
   opacity: 1;
   display: block;
   background-image: url(assets/img/gleishalle_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.nutzergruppe section.nutzergruppe {
   opacity: 1;
   display: block;
   background-image: url(assets/img/nutzergruppe_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.bahnhofshalle section.bahnhofshalle {
   opacity: 1;
   display: block;
   background-image: url(assets/img/bahnhofshalle_1.jpg);
-  background-color: rgba(131, 131, 131, 0.1);  
-  
+  background-color: rgba(131, 131, 131, 0.1);
+
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body.goingBlind section.goingBlind {
+  opacity: 1;
+  display: block;
 }
 
 body.beforeProblem section.beforeProblem {
@@ -197,7 +372,7 @@ body.technik section.technik {
   display: block;
 }
 
-body.afterTechnik section.afterTechnik{
+body.afterTechnik section.afterTechnik {
   opacity: 1;
   display: block;
 }
@@ -205,4 +380,11 @@ body.afterTechnik section.afterTechnik{
 body.skalierbarkeit section.skalierbarkeit {
   opacity: 1;
   display: block;
+  background-image: url(assets/img/Karte.png);
+  background-color: rgba(131, 131, 131, 0.1);
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

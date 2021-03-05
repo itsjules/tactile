@@ -13,59 +13,218 @@
     <script src="funcs.js"></script>
 </head>
 
-<body class="intro" id="showRoom">
-    <section class="intro">
-        <p>Hallo</p>
+
+<body class="start" id="showRoom">
+
+<audio id="gleishalle" src="assets/sound/gleishalle.mp3" loop></audio>
+<audio id="knotenpunkt" src="assets/sound/busStation.mp3" loop></audio>
+<audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
+
+<section class="start">
+    <div class="headline">
+
+
+        <h1>Willkomen</h1>
+
+    </div>
+
+    <button onclick="sectionForward();gleishalle.play();">weiter</button>
+    <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
+</section>
+<section class="intro">
+    
+
         <button class="imgBtn">weiter</button>
+        
+        <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
     <section class="leitlinie">
-        <p>Leitleit</p>
+        <div class="headline">
 
+
+            <h1>Leitlinie</h1>
+
+        </div>
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item-image"> <img src="/assets/img/bahnhofshalle_2.jpg"></div>
+                <div class="flex-item">Die gerippten Linien und genoppten Platten,
+                    die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor
+                    Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen.
+                    Man findet sie an Bahnhöfen, Straßenübergängen und Treppen im öffentlichen Raum, nicht nur in
+                    Deutschland,
+                    sondern auf der ganzen Welt.
+                </div>
+
+            </div>
+            <div class="flex-row">
+                <div class="flex-item-image"><img src="/assets/img/Karte.png"></div>
+                <div class="flex-item">Blinde Menschen erkennen die ertastbaren Muster des Systems in dem sie mit ihrem
+                    Blindenstock darüber gleiten. Dabei gelten die länglichen Rippenmuster als Richtungs- und Leitlinien
+                    und weisen auf eine barrierefreie Route hin. Die genoppten, größeren Felder warnen vor Gefahrenzonen
+                    wie zum Beispiel Straßenkreuzungen oder weisen auf einen Richtungswechsel und Abzweigungen der
+                    Leitlinien hin.
+                </div>
+            </div>
+        </div>
         <button onclick="sectionForward(); imgChangeSection()">weiter</button>
         <button onclick="sectionBackward();imgChangeSection()">zurück</button>
+       
+
     </section>
     <section class="gleishalle">
-        <p>laute Züge</p>
        
         <button class="imgBtn">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+       
     </section>
     <section class="nutzergruppe">
-        <p>Blindgänger</p>
-        <button onclick="sectionForward(); imgChangeSection()">weiter</button>
+        <div class="headline">
+
+
+            <h1>Nutzergruppe</h1>
+
+        </div>
+
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item-image"> <img src="/assets/img/bahnhofshalle_2.jpg"></div>
+                <div class="flex-item">Wir haben uns mit blinden Menschen auseinandergesetzt, die diese Leitsysteme
+                    nutzen. Das sind meist Menschen, die einen Blindenstock als Hilfsmittel nutzen. Dafür haben sie ein
+                    Orientierungs- und Mobilitätstraining abgeschlossen, in dem sie gelernt haben, mit ihrem
+                    Blindenstock umzugehen und Bodenleitsysteme richtig zu deuten und zu nutzen.
+                </div>
+
+            </div>
+            <div class="flex-row">
+                <div class="flex-item-image"><img src="/assets/img/Karte.png"></div>
+                <div class="flex-item">Trotz vieler Hilfsmittel fühlen sich blinde Menschen an unbekannten Orten oft
+                    unsicher und meiden es, außerhalb ihrer bekannten Umgebung unterwegs zu sein. Sie wollen sich dem
+                    Unbekannten nicht ohne Sicherheit stellen. Dabei sollen Apps und andere nützliche Technologien
+                    helfen. Doch unter den vielen technisch versierten Blinden gibt es auch solche, die sich mit dem
+                    Erlernen neuer Technik sehr schwer tun und sich deshalb lieber weiterhin auf ihren Blindenstock als
+                    einziges Hilfsmittel verlassen.
+                </div>
+            </div>
+        </div>
+        <button class="forward"onclick="sectionForward(); imgChangeSection()">weiter</button>
         <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+    
     </section>
     <section class="bahnhofshalle">
-        <p>Dreckiger Boden </p>
+       
         <button class="imgBtn">weiter</button>
-        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button onclick="sectionBackward(); imgChangeSection();">zurück</button>
+        
+    </section>
+    <section class="goingBlind">
+        <video id="goingBlindVideo" src="/assets/vid/Transition Light.mp4" onmouseover="this.play()" onended="sectionForward();"></video>
+        <button onclick="sectionForward()">weiter</button>
+        <button onclick="sectionBackward();">zurück</button>
+        
     </section>
     <section class="beforeProblem">
         <button onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
+        
     </section>
     <section class="problem">
-        <p>Problemus Apfelmus</p>
-        <button onclick="sectionForward()">weiter</button>
+        <div class="headline">
+
+
+            <h1>Problem</h1>
+
+        </div>
+
+        <div class="flex-container">
+
+            <div class="flex-row">
+                <div class="flex-item">Das Prinzip der Leitlinien und Aufmerksamkeitsfelder ist sehr nützlich, dennoch
+                    weist es einige Probleme auf. Hierfür haben wir uns den Umstiegsprozess vom Zug am Bahngleis zum Bus
+                    am Busbahnhof angeschaut. Dabei ist das erste Problem, dass blinde Personen nach dem Ausstieg zum
+                    Gleis an einem ihnen unbekannten Bahnhof zwar einen für sie markierten Weg erkennen, die Information
+                    über die richtige Richtung zu ihrem Ziel ist darin aber nicht enthalten. Finden sie dann trotzdem
+                    den richtigen Weg, stoßen sie spätestens am Ausgang des Bahnhofs auf das nächste Problem: Das
+                    Leitsystem endet und beginnt erst an den einzelnen Bussteigen des Busbahnhofes wieder.
+                </div>
+                <div class="flex-item">Diese Lücken in den Bodenleitsystemen entstehen, weil es für die verschiedenen
+                    Bereiche an Mobilitätsknotenpunkten verschiedene Verantwortliche gibt, wie die Stadt,
+                    Verkehrsunternehmen, Straßenbaulastträger und das Ministerium für Verkehr. <br> <br> Sie sind immer
+                    nur für die Barrierefreiheit in einem bestimmten Bereich
+                    verantwortlich, die Wege dazwischen werden vernachlässigt. Die verschiedenen verantwortlichen
+                    Parteien müssten also zusammenarbeiten, um nahtlos barrierefreie Wegeketten im öffentlichen Raum des
+                    ÖPNVs zu schaffen.
+                </div>
+            </div>
+            <div class="flex-row">
+                <div class="flex-item">
+                    Für blinde Menschen bedeutet das, auf die Weganweisungen von Passanten angewiesen
+                    zu sein. Sie erhalten keine sichere Leitung durch das hohe Verkehrsaufkommen an
+                    Mobilitätsknotenpunkten und werden nicht vor Gefahren wie beispielsweise Baustellen oder anderen
+                    größeren Hindernissen gewarnt.
+                </div>
+                <div class="flex-item">
+                    LEER / BILD?
+                </div>
+            </div>
+        </div>
+        <button class="forward"onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
+      
     </section>
     <section class="afterProblem">
-        <button onclick="sectionForward()">weiter</button>
+        <button class="forward" onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="transformation">
         <video id="transformationVideo" src="/assets/vid/Believix.webm"></video>
         <audio id="transformationAudio" src="/assets/sound/harp-magic-dream-sound-effect.mp3"></audio>
-        <button onclick="sectionForward()">weiter</button>
+        <button class="forward"onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="afterTransformation">
-        <button onclick="sectionForward()">weiter</button>
+        <button class="forward"onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="lösung">
-        <p>Kaufen Sie unser Produkt</p>
-        <button onclick="sectionForward()">weiter</button>
+        <div class="headline">
+
+
+            <h1>Lösung</h1>
+
+        </div>
+
+        <div class="flex-container">
+
+            <div class="flex-row">
+                <div class="flex-item">Unser Ziel in diesem Projekt war es, eine Möglichkeit zu finden, die Lücken im
+                    Leitsystem zu schließen und die Nutzenden sicher und barrierefrei zu ihrer entsprechenden
+                    Haltestelle zu leiten.<br> <br>Um im Gegensatz zu gängigen technischen Hilfsmitteln, den Hörsinn
+                    unserer
+                    Nutzenden nicht zusätzlich zu beanspruchen, haben wir uns für die Kommunikation über den Tastsinn
+                    entschieden.
+                </div>
+                <div class="flex-item-image">
+                    BILD von Blindenstock
+
+                </div>
+            </div>
+            <div class="flex-row">
+                <div class="flex-item">
+
+                    Wir haben also einen Aufsatz für den Blindenstock konzipiert, der über Vibrationssignale Leitlinien
+                    und Aufmerksamkeitsfelder simuliert und so die nutzende Person durch ihren individuellen Umstiegsweg
+                    leitet.
+                </div>
+                <div class="flex-item">
+                    Wir setzen unser simuliertes Feedback an derselben Stelle an, an der die Nutzenden auch physische
+                    Leitlinien fühlen: An der Hand, die die Schnittstelle der Person und ihrem Hilfsmittel darstellt.
+                    Durch das mit dem Blindenstock erfassbare virtuelle Leitliniensystem erweitern wir ein den Nutzenden
+                    schon bekanntes mentales Modell, welches zur leichten Erlernbarkeit der Anwendung beitragen soll.
+                </div>
+            </div>
+        </div>
+        <button class="forward" onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="afterLösung">
@@ -74,52 +233,140 @@
 
     </section>
     <section class="technik">
-        <p>404 brain not found</p>
-        <button onclick="sectionForward()">weiter</button>
+        <div class="headline">
+
+
+            <h1>Technik</h1>
+
+        </div>
+
+        <div class="flex-container">
+
+            <div class="flex-row">
+                <div class="flex-item">Um unsere Nutzenden navigieren zu können, müssen die bereits vorhandenen
+                    Leitsysteme an Mobilitätszentren in eine Karte auf unserer Plattform eingetragen werden. Dadurch
+                    werden Lücken ersichtlich, in denen wir dann unsere virtuellen Leitsysteme ergänzen können.<br><br>   
+                    Um unsere Nutzenden an ihr Ziel leiten zu können, muss die Position der Spitze des Blindenstockes
+                    zentimeter-genau erfasst werden und mit der gemappten Leitlinie abgeglichen werden. Dafür eignen
+                    sich Ultra-Wide-Band-Transmittermodule wegen ihrer schnellen Datenübertragung und präzisen
+                    Positionsbestimmung. Diese senden jedes Mal, wenn die Person mit dem Blindenstock über die virtuelle
+                    Leitlinie gleitet, ein Signal an den Griff und löst so die Leitlinienvibration aus.
+                </div>
+                <div class="flex-item">
+                    Zwischen der Positionserfassung und dem Senden des Vibrationssignals wird die erfasste Position an
+                    unseren Anwendungsserver gesendet und mit den Koordinaten der berechneten Route in unserer Datenbank
+                    abgeglichen. Diese Datenbank enthält detaillierte Karten der Knotenpunkte, bereits vorhandene
+                    Leitsysteme und Hindernispositionen.
+                    Wenn die nutzende Person eine Verbindung zu einem Verkehrsmittel als Ziel eingibt, kommuniziert
+                    unser Anwendungsserver mit der entsprechenden API des ÖPNVs, um anschließend den effizientesten und 
+                    sicheren Weg zum Anschlussfahrzeug aus der Datenbank zu beziehen.
+                </div>
+            </div>
+            <div class="flex-row">
+                <div class="flex-item">
+
+Als nächstes benötigen wir die genaue Position der Hindernisse. Dafür müssen wir mit den jeweiligen
+Verantwortlichen wie der Stadt, den Bauämter und den Verkehrsgesellschaften zusammenarbeiten, um
+laufend über Änderungen informiert zu werden.
+
+                </div>
+                <div class="flex-item-image">
+              LEER
+
+                </div>
+            </div>
+        </div>
+        <buttonclass="forward" onclick="sectionForward()">weiter</button>
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="afterTechnik">
-        <p>needs Canvas case</p>
+
+        
         <button onclick="sectionForward()">weiter</button>
+
+      
         <button onclick="sectionBackward()">zurück</button>
     </section>
     <section class="skalierbarkeit">
-        <p>Wir sind krass</p>
+        <div class="headline">
+
+
+            <h1>Skalierbarkeit</h1>
+
+        </div>
+
+        <div class="flex-container">
+
+            <div class="flex-row">
+                <div class="flex-item">Im Laufe des Projektes haben wir erkannt, dass unser Lösungsansatz theoretisch auf den gesamten öffentlichen Raum bis in
+                private Räume skalierbar ist. Mit der geeigneten Technik und der Bereitschaft der verantwortlichen Aufgabenträger an den
+                jeweiligen Orten, können diese Leitliniensysteme zu einem großen Mehrwert der Orientierung und Autonomie unserer
+                Nutzergruppe beitragen.
+                </div>
+                <div class="flex-item-image">
+              
+                </div>
+            </div>
+      
+        </div>
         <button onclick="sectionBackward()">zurück</button>
     </section>
-
+    <button id="audioBtn" value="true" onclick="toggleMute()">unmuted</button>
 </body>
 
 <script>
     let s = 1;
     let sections;
-
     let imgButtons;
-    // console.log(imgButtons);
+    let audioBtn=document.getElementById("audioBtn");
 
-    // let weiterButton=document.getElementById("jumpSection");
-    // weiterButton.addEventListener("click",replace);
+    let ftStep=document.getElementById("ftStep");
+    let gleishalle=document.getElementById("gleishalle");
+    let knotenpunkt=document.getElementById("knotenpunkt");
+    let sfxVideo = document.getElementById("transformationAudio");
 
     function onLoad() {
         sections = document.getElementsByTagName("section");
-        imgButtons=document.getElementsByClassName("imgBtn");
-        for(i=0; i<imgButtons.length;i++){
-            imgButtons[i].addEventListener("click",replace);
+        imgButtons = document.getElementsByClassName("imgBtn");
+        for (i = 0; i < imgButtons.length; i++) {
+            imgButtons[i].addEventListener("click", replace);
         }
-        // console.log(sections);
-        
+        gleishalle.volume = 0.1;
+        knotenpunkt.volume=0.1;
     }
     window.onload = onLoad;
+
+
+    function toggleMute(){
+        if(audioBtn.value==="true"){
+            document.querySelectorAll("audio").forEach(e => e.muted=true);
+            audioBtn.value="false";
+            audioBtn.innerHTML = "muted";
+            console.log(audioBtn.innerHTML);
+            return
+        }
+        if(audioBtn.value==="false"){
+            document.querySelectorAll("audio").forEach(e => e.muted=false);
+            audioBtn.value="true";
+            audioBtn.innerHTML = "unmuted";
+            console.log(audioBtn.innerHTML);
+            return
+        } 
+    }
+
 
     function sectionForward() {
         let a;
         for (i = 0; i < sections.length; i++) {
-            if (sections[i].className === document.body.className) {
+            if (sections[i].className === document.body.className) { //kann man mit nem queryselect schreiben
                 a = i;
-                //   console.log({a});
+                if (document.body.className === "goingBlind") {
+                    gleishalle.pause();
+                    knotenpunkt.play();
+                }
                 $("body").removeClass();
+                ftStep.play();
                 $("body").addClass(sections[a + 1].className);
-                //   console.log(document.body.className); 
                 return;
             }
         }
@@ -130,10 +377,9 @@
         for (i = 0; i < sections.length; i++) {
             if (sections[i].className === document.body.className) {
                 b = i;
-                //   console.log({b});
                 $("body").removeClass();
+                ftStep.play();
                 $("body").addClass(sections[b - 1].className);
-                //   console.log(document.body.className); 
                 return;
             }
         }
@@ -144,18 +390,19 @@
         let section;
         for (i = 0; i < sections.length; i++) {
             if (sections[i].className === document.body.className) {
-              section=sections[i];
+                section = sections[i];
             }
         }
         console.log(section);
+        ftStep.play();
         section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
-        console.log("replace: "+s, document.body.className);
+        console.log("replace: " + s, document.body.className);
         if (s > 2) {
             s = 0;
             console.log("juhu");
-            for(i=0; i<imgButtons.length;i++){
-            imgButtons[i].removeEventListener("click",replace);
-            imgButtons[i].addEventListener("click",sectionForward);
+            for (i = 0; i < imgButtons.length; i++) {
+                imgButtons[i].removeEventListener("click", replace);
+                imgButtons[i].addEventListener("click", sectionForward);
             }
             return;
         }
@@ -166,17 +413,58 @@
         let section;
         for (i = 0; i < sections.length; i++) {
             if (sections[i].className === document.body.className) {
-              section=sections[i];
+                section = sections[i];
             }
         }
+        ftStep.play();
         section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
-        for(i=0; i<imgButtons.length;i++){
-            imgButtons[i].removeEventListener("click",sectionForward);
-            imgButtons[i].addEventListener("click",replace);
-            
-            }
-        console.log("imgChangeSection: "+s,document.body.className);
+        for (i = 0; i < imgButtons.length; i++) {
+            imgButtons[i].removeEventListener("click", sectionForward);
+            imgButtons[i].addEventListener("click", replace);
+
+        }
+        console.log("imgChangeSection: " + s, document.body.className);
     }
+ 
+
+//     function audioVolumeIn(q){
+//        q.muted=false; 
+//        if(q.volume){
+//           var InT = 0;
+//           var setVolume = 0.1; // Target volume level for new song
+//           var speed = 0.001; // Rate of increase
+//           q.volume = InT;
+//           var eAudio = setInterval(function(){
+//               console.log(q.volume);
+//               InT += speed;
+//               q.volume = InT.toFixed(1);
+//               if(InT.toFixed(1) >= setVolume){
+//                  clearInterval(eAudio);
+//                  //alert('clearInterval eAudio'+ InT.toFixed(1));
+//               };
+//           },10);
+//        };
+//    };
+
+//    function audioVolumeOut(q){
+//        if(q.volume){
+//           var InT = 0.1;
+//           var setVolume = 0;  // Target volume level for old song 
+//           var speed = 0.01;  // Rate of volume decrease
+//           q.volume = InT;
+//           var fAudio = setInterval(function(){
+//               console.log(q.volume);
+//               InT -= speed;
+//               q.volume = InT.toFixed(1);
+//               if(InT.toFixed(1) <= setVolume){
+//                   q.muted=true;
+//                  clearInterval(fAudio);
+//                  //alert('clearInterval fAudio'+ InT.toFixed(1));
+//               };
+//           },50);
+//        };
+//    };
+
 
 </script>
 
