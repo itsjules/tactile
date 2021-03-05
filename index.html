@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>sum trash</title>
+    <title>tactile </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="lib/p5.min.js"></script>
@@ -40,13 +40,13 @@
         <h1>Willkommen</h1>
     </div>
 
-    <button onclick="sectionForward();gleishalle.play();">weiter</button>
+    <button onclick="sectionForward();gleishalle.play();"><img src="/assets/img/p_weiter_gelb.png"></button>
     <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
 </section>
 <section class="intro" onmouseover="gleishalle.play();gleishalle.volume=0.05">
     
 
-        <button class="imgBtn">weiter</button>
+        <button class="imgBtn"><img src="/assets/img/p_weiter_gelb.png"></button>
         
         <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
@@ -79,15 +79,14 @@
                 </div>
             </div>
         </div>
-        <button onclick="sectionForward(); imgChangeSection()">weiter</button>
-        <button onclick="sectionBackward();imgChangeSection()">zurück</button>
+        <button onclick="sectionForward(); imgChangeSection()"><img src="/assets/img/p_weiter_gelb.png"></button>
        
 
     </section>
     <section class="gleishalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
-        <button class="imgBtn">weiter</button>
-        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="imgBtn"><img src="/assets/img/p_weiter_gelb.png"></button>
+        <!-- <button class="imgBtn"><a><img src="/assets/img/p_weiter_gelb.png"/><img src="/assets/img/p_weiter_weiß.png"/></a></button> -->
        
     </section>
     <section class="nutzergruppe" onmouseover="gleishalle.play();gleishalle.volume=0.02">
@@ -119,25 +118,24 @@
                 </div>
             </div>
         </div>
-        <button class="forward"onclick="sectionForward(); imgChangeSection()">weiter</button>
-        <button onclick="sectionBackward(); imgChangeSection()">zurück</button>
+        <button class="forward"onclick="sectionForward(); imgChangeSection()"><img src="/assets/img/p_weiter_gelb.png"></button>
     
     </section>
     <section class="bahnhofshalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
-        <button class="imgBtn">weiter</button>
-        <button onclick="sectionBackward(); imgChangeSection();">zurück</button>
+        <button class="imgBtn"><img src="/assets/img/p_weiter_gelb.png"></button>
         
     </section>
     <section class="goingBlind" onmouseover="gleishalle.play();gleishalle.volume=0.05">
         <video id="goingBlindVideo" src="/assets/vid/Transition Light.mp4" onmouseover="this.play()" onended="sectionForward();"></video>
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward();">zurück</button>
+        <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
         
     </section>
+
+        
+
     <section class="beforeProblem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+    <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
         
     </section>
     <section class="problem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
@@ -180,23 +178,24 @@
                 </div>
             </div>
         </div>
-        <button class="forward"onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
       
     </section>
     <section class="afterProblem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-        <button class="forward" onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+     <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
     <section class="transformation" onmouseover="knotenpunkt.pause()">
         <video id="transformationVideo" src="/assets/vid/Believix.webm"></video>
         <audio id="transformationAudio" src="/assets/sound/harp-magic-dream-sound-effect.mp3"></audio>
-        <button class="forward"onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
+
+
+        
+
     <section class="afterTransformation" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-        <button class="forward"onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+     <button class="forward"onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+
     </section>
     <section class="lösung" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
@@ -236,12 +235,14 @@
                 </div>
             </div>
         </div>
-        <button class="forward" onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
+
+        
+
     <section class="afterLösung" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-        <button onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+      <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
+      
 
     </section>
     <section class="technik" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
@@ -277,9 +278,9 @@
             <div class="flex-row">
                 <div class="flex-item">
 
-Als nächstes benötigen wir die genaue Position der Hindernisse. Dafür müssen wir mit den jeweiligen
-Verantwortlichen wie der Stadt, den Bauämter und den Verkehrsgesellschaften zusammenarbeiten, um
-laufend über Änderungen informiert zu werden.
+                    Als nächstes benötigen wir die genaue Position der Hindernisse. Dafür müssen wir mit den jeweiligen
+                    Verantwortlichen wie der Stadt, den Bauämter und den Verkehrsgesellschaften zusammenarbeiten, um
+                    laufend über Änderungen informiert zu werden.
 
                 </div>
                 <div class="flex-item-image">
@@ -288,16 +289,12 @@ laufend über Änderungen informiert zu werden.
                 </div>
             </div>
         </div>
-        <buttonclass="forward" onclick="sectionForward()">weiter</button>
-        <button onclick="sectionBackward()">zurück</button>
+        <button class="forward" onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
     <section class="afterTechnik" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
 
         
-        <button onclick="sectionForward()">weiter</button>
-
-      
-        <button onclick="sectionBackward()">zurück</button>
+        <button onclick="sectionForward()"><img src="/assets/img/p_weiter_gelb.png"></button>
     </section>
     <section class="skalierbarkeit" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
@@ -321,9 +318,9 @@ laufend über Änderungen informiert zu werden.
             </div>
       
         </div>
-        <button onclick="sectionBackward()">zurück</button>
-    </section>
-    <button id="audioBtn" value="true" onclick="toggleMute()">unmuted</button>
+    </section>       
+    <button id="goback" onclick="sectionBackward(); imgChangeSection()"><img src="/assets/img/zurück_weiß.png"></button>
+    <button id="audioBtn" value="true" onmouseover="hover()" onmouseout="stophover()" onclick="toggleMute()"><img src="/assets/img/unmute_weiß.png"></button>
 </body>
 
 <script>
@@ -348,20 +345,42 @@ laufend über Änderungen informiert zu werden.
     }
     window.onload = onLoad;
 
+function hover(){
+    if(audioBtn.value==="true"){
+            audioBtn.querySelector("img").src = "/assets/img/unmute_blau.png";
+            console.log(audioBtn.querySelector("img").src);
+            return
+        }
+        if(audioBtn.value==="false"){
+            audioBtn.querySelector("img").src = "/assets/img/mute_blau.png";
+            return
+        } 
+}
+
+function stophover(){
+    if(audioBtn.value==="true"){
+            audioBtn.querySelector("img").src = "/assets/img/unmute_weiß.png";
+            console.log(audioBtn.querySelector("img").src);
+            return
+        }
+        if(audioBtn.value==="false"){
+            audioBtn.querySelector("img").src = "/assets/img/mute_weiß.png";
+            return
+        } 
+}
 
     function toggleMute(){
         if(audioBtn.value==="true"){
             document.querySelectorAll("audio").forEach(e => e.muted=true);
             audioBtn.value="false";
-            audioBtn.innerHTML = "muted";
-            console.log(audioBtn.innerHTML);
+            audioBtn.querySelector("img").src = "/assets/img/mute_weiß.png";
+            console.log(audioBtn.querySelector("img").src);
             return
         }
         if(audioBtn.value==="false"){
             document.querySelectorAll("audio").forEach(e => e.muted=false);
             audioBtn.value="true";
-            audioBtn.innerHTML = "unmuted";
-            console.log(audioBtn.innerHTML);
+            audioBtn.querySelector("img").src = "/assets/img/unmute_weiß.png";
             return
         } 
     }
