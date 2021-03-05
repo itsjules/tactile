@@ -23,17 +23,17 @@ div#preload {
   display: none;
 }
 
-p {
+/* p {
   text-align: center;
   font-size: 10rem;
   margin: 20vh 0;
-}
+} */
 
 button {
   display: block;
  
-  font-size: 5vh;
-  /* position: relative; */
+  /* font-size: 5vh; */
+  position: relative;
   margin: 0 auto;
   padding: 1vh;
   background-color: transparent;
@@ -47,43 +47,114 @@ button {
   background-color: none;
 } */
 
-.forward {
+#tactile{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10vh;
+  max-width: 80vw;
+  max-height: 60vh;
+}
+
+.start div{
+  font-family: "noto-sans", sans-serif;
+  text-align: center;
+  font-size: 5vh;
+}
+
+
+
+.forwardText {
 position: absolute;
+background-image: url("assets/img/p_weiter_weiß.png");
+background-repeat: no-repeat;
+background-position: center center;
+background-size: contain;
 margin:10px auto;
-bottom: 60px;
-
+width: 20vw;
+height: 10vh;
+bottom: 10%;
 left: 50vw;
-
 }
 
-.imgBtn {
-  margin-left: 20vw;
+.forwardText:hover{
+  background-image: url("assets/img/p_weiter_gelb.png");
 }
+
+.imgBtn,
+.forward {
+  width: 20vw;
+  height: 10vh;
+  background-image: url("assets/img/p_weiter_weiß.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  position: absolute; 
+  left:50vw; 
+  bottom: 20%;
+}
+
+
+.forward:hover,
+.imgBtn:hover {
+  background-image: url("assets/img/p_weiter_gelb.png");
+}
+
+
 
 
 #goback {
   position: absolute;
+  width: 5vw;
+  height: 5vw;
   z-index: 5;
-  bottom: 160px;
-  left: 55px;
+  bottom: 22%;
+  left: 5%;
+  background-image: url("assets/img/zurück_weiß.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
-#goback img {
-  max-width: 60%;
-  height: auto;
+#goback:hover {
+  background-image: url("assets/img/zurück_blau.png");
 }
 
-#audioBtn {
+.unmuted#audioBtn {
   position: absolute;
+  width: 5vw;
+  height: 5vw;
   z-index: 5;
-  bottom: 50px;
-  left: 55px;
+  bottom: 10%;
+  left: 5%;
+  background-image: url("assets/img/unmute_weiß.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
-#audioBtn img {
-  width: 60%;
-  height: auto;
+.unmuted#audioBtn:hover {
+  background-image: url("assets/img/unmute_blau.png");
 }
+
+.muted#audioBtn {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  z-index: 5;
+  bottom: 10%;
+  left: 5%;
+  background-image: url("assets/img/mute_weiß.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.muted#audioBtn:hover{
+  background-image: url("assets/img/mute_blau.png");
+}
+
+
+
 
 .headline {
   background-color: white;
@@ -168,36 +239,10 @@ left: 50vw;
 .skalierbarkeit .flex-item {
   margin-top: 5vh;
 }
-/* img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-} */
-
-
-/* .bg-img{
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-size: cover; 
-  display: block;
-  z-index: 1 !important;
-} */
 
 
 
 
-
-
-/* a.imgBtn last-child {
-  display: none;
-}
-a:hover img:last-child {
-  display: block;
-}
-a:hover img:first-child {
-  display: none;
-} */
 
 
 
@@ -289,6 +334,13 @@ a:hover img:first-child {
     max-width: 100%;
     height: auto;
   }
+  #tactile{
+    margin-top: 25vh;
+  }
+  .imgBtn,
+.forward {
+  bottom: 30%;
+}
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -322,6 +374,13 @@ a:hover img:first-child {
     max-width: 100%;
     height: auto;
   }
+  #tactile{
+    margin-top: 25vh;
+  }
+.imgBtn,
+.forward {
+  bottom: 30%;
+}
 }
 
 

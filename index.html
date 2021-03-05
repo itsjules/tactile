@@ -35,16 +35,19 @@
 <audio id="knotenpunkt" src="assets/sound/busStation.mp3" loop></audio>
 <audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
 
-<section class="start" style="background-color: whitesmoke;">
+<section class="start" style="background-color: rgb(173, 184, 196);">
+    <img id="tactile" src="assets/img/tactile.png">
     
-
-    <button onclick="sectionForward();gleishalle.play();"><img src="assets/img/p_weiter_gelb.png"></button>
-    <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
+    <div class=startLeitung>
+    <button class="forward" onclick="sectionForward();gleishalle.play();"></button>
+    <p style="margin: 10px;">Leitung beginnen</p>
+    </div>
+    
 </section>
 <section class="intro" onmouseover="gleishalle.play();gleishalle.volume=0.05">
     
 
-        <button class="imgBtn"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="imgBtn"></button>
         
         <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
@@ -77,13 +80,13 @@
                 </div>
             </div>
         </div>
-        <button class="forward" onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forwardText" onclick="sectionForward(); imgChangeSection()"></button>
        
 
     </section>
     <section class="gleishalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
-        <button class="imgBtn"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="imgBtn"></button>
         <!-- <button class="imgBtn"><a><img src="/assets/img/p_weiter_gelb.png"/><img src="/assets/img/p_weiter_weiß.png"/></a></button> -->
        
     </section>
@@ -116,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <button class="forward"onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forwardText"onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
     </section>
     <section class="bahnhofshalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
@@ -318,8 +321,8 @@
       
         </div>
     </section>       
-    <button id="goback" onclick="sectionBackward(); imgChangeSection()"><img src="assets/img/zurück_weiß.png"></button>
-    <button id="audioBtn" value="true" onmouseover="hover()" onmouseout="stophover()" onclick="toggleMute()"><img src="assets/img/unmute_weiß.png"></button>
+    <button id="goback" onclick="sectionBackward(); imgChangeSection()"></button>
+    <button class="unmuted" id="audioBtn" value="true" onclick="toggleMute()"></button>
 </body>
 
 <script>
@@ -344,42 +347,47 @@
     }
     window.onload = onLoad;
 
-function hover(){
-    if(audioBtn.value==="true"){
-            audioBtn.querySelector("img").src = "assets/img/unmute_blau.png";
-            console.log(audioBtn.querySelector("img").src);
-            return
-        }
-        if(audioBtn.value==="false"){
-            audioBtn.querySelector("img").src = "assets/img/mute_blau.png";
-            return
-        } 
-}
+// function hover(){
+//     if(audioBtn.value==="true"){
+//             audioBtn.querySelector("img").src = "assets/img/unmute_blau.png";
+//             console.log(audioBtn.querySelector("img").src);
+//             return
+//         }
+//         if(audioBtn.value==="false"){
+//             audioBtn.querySelector("img").src = "assets/img/mute_blau.png";
+//             return
+//         } 
+// }
 
-function stophover(){
-    if(audioBtn.value==="true"){
-            audioBtn.querySelector("img").src = "assets/img/unmute_weiß.png";
-            console.log(audioBtn.querySelector("img").src);
-            return
-        }
-        if(audioBtn.value==="false"){
-            audioBtn.querySelector("img").src = "assets/img/mute_weiß.png";
-            return
-        } 
-}
+// function stophover(){
+//     if(audioBtn.value==="true"){
+//             audioBtn.querySelector("img").src = "assets/img/unmute_weiß.png";
+//             console.log(audioBtn.querySelector("img").src);
+//             return
+//         }
+//         if(audioBtn.value==="false"){
+//             audioBtn.querySelector("img").src = "assets/img/mute_weiß.png";
+//             return
+//         } 
+// }
 
     function toggleMute(){
         if(audioBtn.value==="true"){
             document.querySelectorAll("audio").forEach(e => e.muted=true);
             audioBtn.value="false";
-            audioBtn.querySelector("img").src = "assets/img/mute_weiß.png";
-            console.log(audioBtn.querySelector("img").src);
+            audioBtn.backgroundImage = "assets/img/mute_weiß.png";
+            audioBtn.className="muted"
+            // $("audioBtn").removeClass();
+            // $("audioBtn").addClass("mute");
+            console.log(audioBtn.className);
             return
         }
         if(audioBtn.value==="false"){
             document.querySelectorAll("audio").forEach(e => e.muted=false);
             audioBtn.value="true";
-            audioBtn.querySelector("img").src = "assets/img/unmute_weiß.png";
+            audioBtn.backgroundImage = "assets/img/unmute_weiß.png";
+            audioBtn.className="unmuted"
+            console.log(audioBtn.className);
             return
         } 
     }
@@ -464,45 +472,6 @@ function stophover(){
         }
         console.log("imgChangeSection: " + s, document.body.className);
     }
- 
-
-//     function audioVolumeIn(q){
-//        q.muted=false; 
-//        if(q.volume){
-//           var InT = 0;
-//           var setVolume = 0.1; // Target volume level for new song
-//           var speed = 0.001; // Rate of increase
-//           q.volume = InT;
-//           var eAudio = setInterval(function(){
-//               console.log(q.volume);
-//               InT += speed;
-//               q.volume = InT.toFixed(1);
-//               if(InT.toFixed(1) >= setVolume){
-//                  clearInterval(eAudio);
-//                  //alert('clearInterval eAudio'+ InT.toFixed(1));
-//               };
-//           },10);
-//        };
-//    };
-
-//    function audioVolumeOut(q){
-//        if(q.volume){
-//           var InT = 0.1;
-//           var setVolume = 0;  // Target volume level for old song 
-//           var speed = 0.002  // Rate of volume decrease
-//           q.volume = InT;
-//           var fAudio = setInterval(function(){
-//               console.log(q.volume);
-//               InT -= speed;
-//               q.volume = InT.toFixed(1);
-//               if(InT.toFixed(1) <= setVolume){
-                  
-//                  clearInterval(fAudio);
-//                  //alert('clearInterval fAudio'+ InT.toFixed(1));
-//               };
-//           },50);
-//        };
-//    };
 
 
 </script>
