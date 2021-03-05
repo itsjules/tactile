@@ -14,7 +14,7 @@
 </head>
 
 
-<body class="start" id="showRoom">
+<body class="leitlinie" id="showRoom">
 
     <div id="preload">
         <img src="assets/img/intro_1.jpg"/>
@@ -36,9 +36,7 @@
 <audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
 
 <section class="start" style="background-color: whitesmoke;">
-    <div class="headline">
-        <h1>Willkommen</h1>
-    </div>
+    
 
     <button onclick="sectionForward();gleishalle.play();"><img src="assets/img/p_weiter_gelb.png"></button>
     <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
@@ -59,7 +57,7 @@
         </div>
         <div class="flex-container">
             <div class="flex-row">
-                <div class="flex-item-image"> <img src="assets/img/bahnhofshalle_2.jpg"></div>
+                <!-- <div class="flex-item-image"> <img src="assets/img/bahnhofshalle_2.jpg"></div> -->
                 <div class="flex-item">Die gerippten Linien und genoppten Platten,
                     die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor
                     Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen.
@@ -70,7 +68,7 @@
 
             </div>
             <div class="flex-row">
-                <div class="flex-item-image"><img src="assets/img/Karte.png"></div>
+                <!-- <div class="flex-item-image"><img src="assets/img/Karte.png"></div> -->
                 <div class="flex-item">Blinde Menschen erkennen die ertastbaren Muster des Systems in dem sie mit ihrem
                     Blindenstock darüber gleiten. Dabei gelten die länglichen Rippenmuster als Richtungs- und Leitlinien
                     und weisen auf eine barrierefreie Route hin. Die genoppten, größeren Felder warnen vor Gefahrenzonen
@@ -79,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <button onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forward" onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
        
 
     </section>
@@ -119,7 +117,6 @@
             </div>
         </div>
         <button class="forward"onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
-    
     </section>
     <section class="bahnhofshalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
        
