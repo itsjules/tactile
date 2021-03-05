@@ -17,6 +17,10 @@ body {
   font-style: normal;
 }
 
+div#preload {
+  display: none;
+}
+
 p {
   text-align: center;
   font-size: 10rem;

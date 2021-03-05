@@ -24,6 +24,7 @@ let aufmerksamkeitAnimation = [];
 let aufmerksamkeitsFeld;
 let kartePin;
 let footstep;
+let audioBtn=document.getElementById("audioBtn");
 let video = document.getElementById("transformationVideo");
 video.style.display = "none";
 let audio = document.getElementById("transformationAudio");
@@ -58,7 +59,7 @@ function preload() {
   aufmerksamkeitsFeld = loadImage(
     "assets/img/aufmerksamkeitsfeld ohne rand.png"
   );
-  kartePin=loadImage("assets/img/weißer Pin Schatten.png");
+  kartePin=loadImage("assets/img/gelber Pin Schatten.png");
   footstep = loadSound("assets/sound/footstep.mp3");
 }
 window.preload = preload;
@@ -178,7 +179,7 @@ function fading(){
     fade >= 255 ? (fade = 255) : (fade += fadeSteps);
   } else {
     if(storyPart===0){
-      fade <= 0 ? (fade = 0) : (fade -= (fadeSteps-1.5));
+      fade <= 0 ? (fade = 0) : (fade -= (fadeSteps-2));
     }
     else{
       fade <= 0 ? (fade = 0) : (fade -= fadeSteps);
@@ -187,7 +188,6 @@ function fading(){
 }
 
 function hitDetection() {
-  
   if (mouseX > hitArea.left && mouseX < hitArea.right) {
     (mouseX > window.width / 2 && mouseX <= window.width && !animationPlay)
       ? (mirrorPlay = true)
@@ -256,6 +256,7 @@ function leitAnimation() {
 
 function hitCount() {
   hitCounter += 1;
+  (audioBtn.value==="false")?footstep.setVolume(0) : footstep.setVolume(1);
   footstep.play();
   return;
 }
@@ -348,7 +349,7 @@ function startCanvas() {
 
 function draw() {
   startCanvas();
-  
+ 
 
   if (start) {
     
