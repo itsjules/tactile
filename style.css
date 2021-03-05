@@ -15,14 +15,89 @@ body {
   font-family: "source-sans-pro", sans-serif;
   font-weight: 400;
   font-style: normal;
+<<<<<<< Updated upstream
+=======
+  color: #124d82;
+}
+
+div#preload {
+  display: none;
+>>>>>>> Stashed changes
 }
 
 p {
-  text-align: center;
+  /* text-align: center;
   font-size: 10rem;
-  margin: 20vh 0;
+  margin: 20vh 0; */
 }
 
+<<<<<<< Updated upstream
+=======
+button {
+  display: block;
+
+  font-size: 5vh;
+  /* position: relative; */
+  margin: 0 auto;
+  padding: 1vh;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transform: translate(-50%, 50%);
+  transition-duration: 0.2s;
+}
+
+/* button:hover {
+  background-color: none;
+} */
+
+.forward {
+  position: absolute;
+  margin: 10px auto;
+  bottom: 60px;
+
+  left: 50vw;
+}
+
+.imgBtn {
+  margin-left: 20vw;
+}
+
+#goback {
+  position: absolute;
+  z-index: 5;
+  bottom: 160px;
+  left: 55px;
+}
+
+#goback img {
+  max-width: 60%;
+  height: auto;
+}
+
+#audioBtn {
+  position: absolute;
+  z-index: 5;
+  bottom: 50px;
+  left: 55px;
+}
+
+#audioBtn img {
+  width: 60%;
+  height: auto;
+}
+
+.headline {
+  background-color: white;
+  font-family: "noto-sans", sans-serif;
+  /* font-weight: 700; */
+  font-style: normal;
+  font-size: 2vw;
+  text-align: center;
+  color: #124d82;
+}
+
+>>>>>>> Stashed changes
 .flex-container {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
@@ -48,7 +123,7 @@ p {
 }
 
 .flex-item-image {
-  background-color: aqua;
+  /* background-color: aqua; */
   /* für spezielle Größen von Bildern direkt definieren?*/
   flex-basis: 50%;
   /* flex-grow: 1;
@@ -65,6 +140,7 @@ p {
   max-width: 100%;
   height: auto;
 }
+<<<<<<< Updated upstream
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -73,11 +149,57 @@ p {
   /* justify-content: space-between; */
 }
 
+=======
+
+.leitlinie .flex-item {
+  flex-basis: 100%;
+}
+
+.problem .flex-row {
+  height: 60%;
+}
+.lösung .flex-item {
+  margin-top: 5vh;
+}
+
+.technik .flex-row {
+  height: 67%;
+}
+.skalierbarkeit .flex-row {
+  height: 100%;
+}
+.skalierbarkeit .flex-item {
+  margin-top: 5vh;
+}
+.team .flex-item-image img {
+  max-width: 60%;
+
+  margin-left: 20%;
+  margin-top: 2.5%;
+}
+
+.team .flex-item-image {
+  display: flex;
+  flex-direction: column; /* NEW */
+  justify-content: center;
+  vertical-align: top;
+  text-align: center;
+  margin: 0;
+}
+.team .flex-container {
+  margin-top: 10%;
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 90%;
+  max-height: fit-content;
+}
+
+>>>>>>> Stashed changes
 /* img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
 } */
+<<<<<<< Updated upstream
 .headline {
   background-color: white;
   font-family: "noto-sans", sans-serif;
@@ -87,6 +209,8 @@ p {
   text-align: center;
   color: #124d82;
 }
+=======
+>>>>>>> Stashed changes
 
 /* .bg-img{
   background-position: center center;
@@ -97,8 +221,12 @@ p {
   z-index: 1 !important;
 } */
 
+<<<<<<< Updated upstream
 button {
   position: absolute;
+=======
+/* a.imgBtn last-child {
+>>>>>>> Stashed changes
   display: none;
   text-align: center;
   font-size: 5vh;
@@ -116,11 +244,20 @@ button {
   cursor: pointer;
   z-index: 10;
 }
+<<<<<<< Updated upstream
 
 button:hover {
   background-color: #9553c2;
   color: orange;
 }
+=======
+a:hover img:last-child {
+  display: block;
+}
+a:hover img:first-child {
+  display: none;
+} */
+>>>>>>> Stashed changes
 
 .p5Canvas {
   height: auto !important;
@@ -138,7 +275,50 @@ button:hover {
   /* //event geht nicht */
 }
 
+<<<<<<< Updated upstream
 @media only screen and (max-width: 1100px) {
+=======
+#goingBlindVideo {
+  position: center center;
+  /* right: 0;
+  bottom: 0; */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  /* #transformationVideo {
+    top: 25vh;
+    bottom: 25vh;
+  } */
+  .headline {
+    font-size: 2vw;
+  }
+  .flex-container {
+    max-width: 70vw;
+    max-height: 85vh;
+  }
+  .flex-item {
+    margin: 2vw;
+    font-size: 22px;
+    flex-basis: 50%;
+  }
+  .flex-item-image {
+    max-width: 80%;
+    flex-basis: 50%;
+    margin-bottom: 5vh;
+    margin-top: 3.5vh;
+    margin-left: 3vh;
+    margin-right: 0vh;
+  }
+  .flex-item-image img {
+    max-width: 80%;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+>>>>>>> Stashed changes
   #transformationVideo {
     top: 25vh;
     bottom: 25vh;
@@ -171,6 +351,18 @@ button:hover {
   }
 }
 
+<<<<<<< Updated upstream
+=======
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+>>>>>>> Stashed changes
 section {
   opacity: 0;
   display: none;
@@ -182,6 +374,7 @@ section {
   animation: fadeInOut 0.6s ease-in-out forwards;
 }
 
+<<<<<<< Updated upstream
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -191,6 +384,8 @@ section {
   }
 }
 
+=======
+>>>>>>> Stashed changes
 /* @keyframes fadeInOutBackground {
   0% {background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)}
   100% {opacity: 1;}
@@ -303,6 +498,11 @@ body.afterTechnik section.afterTechnik {
 }
 
 body.skalierbarkeit section.skalierbarkeit {
+  opacity: 1;
+  display: block;
+}
+
+body.team section.team {
   opacity: 1;
   display: block;
 }
