@@ -17,6 +17,10 @@ body {
   font-style: normal;
 }
 
+div#preload {
+  display: none;
+}
+
 p {
   text-align: center;
   font-size: 10rem;
@@ -93,12 +97,6 @@ p {
   height: auto;
   object-fit: cover;
 } */
-
-#tactile img {
-  max-width: 50%;
-  height: auto;
-}
-
 .headline {
   background-color: white;
   font-family: "noto-sans", sans-serif;
