@@ -15,24 +15,13 @@ body {
   font-family: "source-sans-pro", sans-serif;
   font-weight: 400;
   font-style: normal;
-<<<<<<< Updated upstream
-=======
   color: #124d82;
 }
 
 div#preload {
   display: none;
->>>>>>> Stashed changes
 }
 
-p {
-  /* text-align: center;
-  font-size: 10rem;
-  margin: 20vh 0; */
-}
-
-<<<<<<< Updated upstream
-=======
 button {
   display: block;
 
@@ -97,7 +86,6 @@ button {
   color: #124d82;
 }
 
->>>>>>> Stashed changes
 .flex-container {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
@@ -140,16 +128,6 @@ button {
   max-width: 100%;
   height: auto;
 }
-<<<<<<< Updated upstream
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 50%;
-  /* justify-content: space-between; */
-}
-
-=======
 
 .leitlinie .flex-item {
   flex-basis: 100%;
@@ -193,24 +171,11 @@ button {
   max-height: fit-content;
 }
 
->>>>>>> Stashed changes
 /* img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
 } */
-<<<<<<< Updated upstream
-.headline {
-  background-color: white;
-  font-family: "noto-sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 2vw;
-  text-align: center;
-  color: #124d82;
-}
-=======
->>>>>>> Stashed changes
 
 /* .bg-img{
   background-position: center center;
@@ -221,45 +186,19 @@ button {
   z-index: 1 !important;
 } */
 
-<<<<<<< Updated upstream
-button {
-  position: absolute;
-=======
 /* a.imgBtn last-child {
->>>>>>> Stashed changes
   display: none;
   text-align: center;
   font-size: 5vh;
   /* margin-top: 50%; */
-  margin: 0 auto;
-  padding: 1vh;
-  background-color: gray;
-  color: lemonchiffon;
-  border: none;
-  border-radius: 20px;
-  transition-duration: 0.2s;
-  font-family: "noto-sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  cursor: pointer;
-  z-index: 10;
-}
-<<<<<<< Updated upstream
 
-button:hover {
-  background-color: #9553c2;
-  color: orange;
-}
-=======
 a:hover img:last-child {
   display: block;
 }
 a:hover img:first-child {
   display: none;
-} */
->>>>>>> Stashed changes
-
-.p5Canvas {
+}
+*/ .p5Canvas {
   height: auto !important;
   width: 100% !important;
   position: absolute;
@@ -275,9 +214,6 @@ a:hover img:first-child {
   /* //event geht nicht */
 }
 
-<<<<<<< Updated upstream
-@media only screen and (max-width: 1100px) {
-=======
 #goingBlindVideo {
   position: center center;
   /* right: 0;
@@ -318,7 +254,6 @@ a:hover img:first-child {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
->>>>>>> Stashed changes
   #transformationVideo {
     top: 25vh;
     bottom: 25vh;
@@ -351,8 +286,6 @@ a:hover img:first-child {
   }
 }
 
-<<<<<<< Updated upstream
-=======
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -362,7 +295,6 @@ a:hover img:first-child {
   }
 }
 
->>>>>>> Stashed changes
 section {
   opacity: 0;
   display: none;
@@ -374,18 +306,6 @@ section {
   animation: fadeInOut 0.6s ease-in-out forwards;
 }
 
-<<<<<<< Updated upstream
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-=======
->>>>>>> Stashed changes
 /* @keyframes fadeInOutBackground {
   0% {background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)}
   100% {opacity: 1;}
