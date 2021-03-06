@@ -35,7 +35,8 @@
 <audio id="knotenpunkt" src="assets/sound/busStation.mp3" loop></audio>
 <audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
 
-<section class="start" style="background-color: rgb(173, 184, 196);">
+<section class="start" style="background-color: rgb(173, 184, 196)";>
+    <!-- rgb(173, 184, 196) -->
     <img id="tactile" src="assets/img/tactile.png">
     
     <div class=startLeitung>
@@ -45,22 +46,15 @@
     
 </section>
 <section class="intro" onmouseover="gleishalle.play();gleishalle.volume=0.05">
-    
-
         <button class="imgBtn"></button>
-        
-        <!-- <audio loop autoplay preload="auto" onPlay="audioVolumeIn(this);" src="assets/sound/gleishalle.mp3" ></audio> -->
     </section>
     <section class="leitlinie" onmouseover="gleishalle.play();gleishalle.volume=0.02">
-        <div class="headline">
-
-
-            <h1>Leitlinie</h1>
-
+        <div ></div>
+        <div class="headline" style="background-color: rgba(255, 255, 255, 0.9);">
+            <h1 style="color:#124d82 ;">Leitlinie</h1>   
         </div>
         <div class="flex-container">
             <div class="flex-row">
-                <!-- <div class="flex-item-image"> <img src="assets/img/bahnhofshalle_2.jpg"></div> -->
                 <div class="flex-item">Die gerippten Linien und genoppten Platten,
                     die man an Bahnsteigen findet dienen in erster Linie nicht als Warnung vor
                     Gleisen für sehende Menschen, sondern als Leitsysteme zur Orientierung für blinde Menschen.
@@ -81,35 +75,23 @@
             </div>
         </div>
         <button class="forwardText" onclick="sectionForward(); imgChangeSection()"></button>
-       
-
     </section>
     <section class="gleishalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
-       
         <button class="imgBtn"></button>
-        <!-- <button class="imgBtn"><a><img src="/assets/img/p_weiter_gelb.png"/><img src="/assets/img/p_weiter_weiß.png"/></a></button> -->
-       
     </section>
     <section class="nutzergruppe" onmouseover="gleishalle.play();gleishalle.volume=0.02">
-        <div class="headline">
-
-
-            <h1>Nutzergruppe</h1>
-
+        <div class="headline" style="background-color: rgba(255, 255, 255, 0.9);">
+            <h1 style="color:#124d82 ;">Nutzergruppe</h1>
         </div>
-
         <div class="flex-container">
-            <div class="flex-row">
-                <div class="flex-item-image"> <img src="assets/img/bahnhofshalle_2.jpg"></div>
+            <div class="flex-row"> 
                 <div class="flex-item">Wir haben uns mit blinden Menschen auseinandergesetzt, die diese Leitsysteme
                     nutzen. Das sind meist Menschen, die einen Blindenstock als Hilfsmittel nutzen. Dafür haben sie ein
                     Orientierungs- und Mobilitätstraining abgeschlossen, in dem sie gelernt haben, mit ihrem
                     Blindenstock umzugehen und Bodenleitsysteme richtig zu deuten und zu nutzen.
                 </div>
-
             </div>
             <div class="flex-row">
-                <div class="flex-item-image"><img src="assets/img/Karte.png"></div>
                 <div class="flex-item">Trotz vieler Hilfsmittel fühlen sich blinde Menschen an unbekannten Orten oft
                     unsicher und meiden es, außerhalb ihrer bekannten Umgebung unterwegs zu sein. Sie wollen sich dem
                     Unbekannten nicht ohne Sicherheit stellen. Dabei sollen Apps und andere nützliche Technologien
@@ -119,35 +101,23 @@
                 </div>
             </div>
         </div>
-        <button class="forwardText"onclick="sectionForward(); imgChangeSection()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forwardText" onclick="sectionForward(); imgChangeSection()"></button>
     </section>
     <section class="bahnhofshalle" onmouseover="gleishalle.play();gleishalle.volume=0.05">
-       
-        <button class="imgBtn"><img src="assets/img/p_weiter_gelb.png"></button>
-        
+        <button class="imgBtn"></button>   
     </section>
     <section class="goingBlind" onmouseover="gleishalle.play();gleishalle.volume=0.05">
         <video id="goingBlindVideo" src="assets/vid/Transition Light.mp4" onmouseover="this.play()" onended="sectionForward();"></video>
-        <button onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
-        
+        <button onclick="sectionForward()"></button>  
     </section>
-
-        
-
     <section class="beforeProblem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-    <button onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
-        
+    <button onclick="sectionForward()"></button> 
     </section>
     <section class="problem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
-
-
             <h1>Problem</h1>
-
         </div>
-
         <div class="flex-container">
-
             <div class="flex-row">
                 <div class="flex-item">Das Prinzip der Leitlinien und Aufmerksamkeitsfelder ist sehr nützlich, dennoch
                     weist es einige Probleme auf. Hierfür haben wir uns den Umstiegsprozess vom Zug am Bahngleis zum Bus
@@ -167,46 +137,33 @@
                 </div>
             </div>
             <div class="flex-row">
-                <div class="flex-item">
+                <div class="flex-item" style="flex-basis: 100%">
                     Für blinde Menschen bedeutet das, auf die Weganweisungen von Passanten angewiesen
                     zu sein. Sie erhalten keine sichere Leitung durch das hohe Verkehrsaufkommen an
                     Mobilitätsknotenpunkten und werden nicht vor Gefahren wie beispielsweise Baustellen oder anderen
                     größeren Hindernissen gewarnt.
                 </div>
-                <div class="flex-item">
-                    LEER / BILD?
-                </div>
             </div>
         </div>
-        <button class="forward"onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forwardText"onclick="sectionForward()"></button>
       
     </section>
     <section class="afterProblem" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-     <button class="forward" onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
+     <button onclick="sectionForward()"></button>
     </section>
     <section class="transformation" onmouseover="knotenpunkt.pause()">
         <video id="transformationVideo" src="assets/vid/Believix.webm"></video>
         <audio id="transformationAudio" src="assets/sound/harp-magic-dream-sound-effect.mp3"></audio>
-        <button class="forward"onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button onclick="sectionForward()"></button>
     </section>
-
-
-        
-
     <section class="afterTransformation" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-     <button class="forward"onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
-
+     <!-- <button class="forward" onclick="sectionForward()"></button> -->
     </section>
     <section class="lösung" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
-
-
             <h1>Lösung</h1>
-
         </div>
-
         <div class="flex-container">
-
             <div class="flex-row">
                 <div class="flex-item">Unser Ziel in diesem Projekt war es, eine Möglichkeit zu finden, die Lücken im
                     Leitsystem zu schließen und die Nutzenden sicher und barrierefrei zu ihrer entsprechenden
@@ -216,13 +173,11 @@
                     entschieden.
                 </div>
                 <div class="flex-item-image">
-                    BILD von Blindenstock
-
+                    <img src="assets/img/lösung.png">
                 </div>
             </div>
             <div class="flex-row">
                 <div class="flex-item">
-
                     Wir haben also einen Aufsatz für den Blindenstock konzipiert, der über Vibrationssignale Leitlinien
                     und Aufmerksamkeitsfelder simuliert und so die nutzende Person durch ihren individuellen Umstiegsweg
                     leitet. Von außen sieht der Aufsatz sehr schlicht und wie ein "normaler" Blindenstockgriff aus, um
@@ -237,26 +192,16 @@
                 </div>
             </div>
         </div>
-        <button class="forward" onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forwardText" onclick="sectionForward()"></button>
     </section>
-
-        
-
     <section class="afterLösung" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
-      <button onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
-      
-
+      <button onclick="sectionForward()"></button>
     </section>
     <section class="technik" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
-
-
             <h1>Technik</h1>
-
         </div>
-
         <div class="flex-container">
-
             <div class="flex-row">
                 <div class="flex-item">Um unsere Nutzenden navigieren zu können, müssen die bereits vorhandenen
                     Leitsysteme an Mobilitätszentren in eine Karte auf unserer Plattform eingetragen werden. Dadurch
@@ -278,49 +223,70 @@
                 </div>
             </div>
             <div class="flex-row">
-                <div class="flex-item">
-
+                <div class="flex-item" style="flex-basis: 100%;">
                     Als nächstes benötigen wir die genaue Position der Hindernisse. Dafür müssen wir mit den jeweiligen
                     Verantwortlichen wie der Stadt, den Bauämter und den Verkehrsgesellschaften zusammenarbeiten, um
                     laufend über Änderungen informiert zu werden.
-
                 </div>
-                <div class="flex-item-image">
-              LEER
-
-                </div>
+                <!-- <div class="flex-item-image"> 
+                    <img src="assets/img/technik.png">
+                </div> -->
             </div>
         </div>
-        <button class="forward" onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button class="forwardText" onclick="sectionForward()"></button>
     </section>
     <section class="afterTechnik" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.1">
 
         
-        <button onclick="sectionForward()"><img src="assets/img/p_weiter_gelb.png"></button>
+        <button onclick="sectionForward()"></button>
     </section>
     <section class="skalierbarkeit" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
         <div class="headline">
-
-
-            <h1>Skalierbarkeit</h1>
-
+            <h1 style="color: #124d82;">Skalierbarkeit</h1>
+        </div>
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item" style="flex-basis: 100%;margin-top: 2vh;">Im Laufe des Projektes haben wir erkannt, dass unser Lösungsansatz theoretisch auf den gesamten öffentlichen Raum bis in
+                private Räume skalierbar ist. Mit der geeigneten Technik und der Bereitschaft der verantwortlichen Aufgabenträger an den
+                jeweiligen Orten, können diese Leitliniensysteme zu einem großen Mehrwert der Orientierung und Autonomie unserer
+                Nutzergruppe beitragen.
+                </div>
+            </div>
+        </div>
+        <button class="forwardText" onclick="sectionForward()"></button>
+    </section>       
+    <section class="team" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
+        <div class="headline">
+            <h1>Das Team</h1>
         </div>
 
         <div class="flex-container">
 
             <div class="flex-row">
-                <div class="flex-item">Im Laufe des Projektes haben wir erkannt, dass unser Lösungsansatz theoretisch auf den gesamten öffentlichen Raum bis in
-                private Räume skalierbar ist. Mit der geeigneten Technik und der Bereitschaft der verantwortlichen Aufgabenträger an den
-                jeweiligen Orten, können diese Leitliniensysteme zu einem großen Mehrwert der Orientierung und Autonomie unserer
-                Nutzergruppe beitragen.
+                <div class="flex-item-image"><img src="assets/img/Marie_final.png">
+                    <p>      Marie Backhaus</p> 
                 </div>
                 <div class="flex-item-image">
-              
+
+                    <img src="assets/img/Kevin_final.png">
+                    <p>     Kevin Liu</p> 
+                </div>
+
+ 
+                <div class="flex-item-image">
+                    <img src="assets/img/Jules-final.png">
+                    <p>    Julia Podlipensky </p> 
+
+                </div>
+                <div class="flex-item-image">
+
+                    <img src="assets/img/Feni_final.png">
+                 <p>  Afeni Sodatonou</p> 
                 </div>
             </div>
-      
         </div>
-    </section>       
+        <button id="reset" onClick="window.location.reload();"></button>
+    </section>
     <button id="goback" onclick="sectionBackward(); imgChangeSection()"></button>
     <button class="unmuted" id="audioBtn" value="true" onclick="toggleMute()"></button>
 </body>
@@ -370,6 +336,7 @@
 //             return
 //         } 
 // }
+    
 
     function toggleMute(){
         if(audioBtn.value==="true"){
@@ -420,7 +387,7 @@
                     ftStep.play();
                     knotenpunkt.pause();
                     $("body").addClass(sections[b - 2].className);
-                    
+
                 }
                 else{
                 $("body").removeClass();
