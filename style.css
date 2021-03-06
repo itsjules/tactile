@@ -9,9 +9,10 @@ html {
   /* font-family: monospace; */
 }
 
+/*#ffdd2c <---- DAS gelb*/
 body {
   margin: 0;
-  background-color: grey;
+  background-color:rgb(111, 116, 122);
   font-family: "source-sans-pro", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -153,17 +154,14 @@ left: 50vw;
   background-image: url("assets/img/mute_blau.png");
 }
 
-
-
-
 .headline {
-  background-color: white;
+  /* background-color: white; */
   font-family: "noto-sans", sans-serif;
   /* font-weight: 700; */
   font-style: normal;
   font-size: 2vw;
   text-align: center;
-  color: #124d82;
+  color: whitesmoke;
 }
 
 .flex-container {
@@ -201,7 +199,7 @@ left: 50vw;
 }
 
 .flex-item-image {
-  background-color: aqua;
+  /* background-color: aqua; */
   /* für spezielle Größen von Bildern direkt definieren?*/
   flex-basis: 50%;
   /* flex-grow: 1;
@@ -219,28 +217,114 @@ left: 50vw;
   height: auto;
 }
 
+
 .leitlinie .flex-item{
   flex-basis: 100%;
 }
 
+.nutzergruppe .flex-item{
+  flex-basis: 100%;
+}
+
+
+.problem .flex-container {
+  width: fit-content;
+  max-width: 80vw;
+  
+}
+.problem .flex-item{
+  font-size: 20px;
+  
+}
+.problem .flex-item-image {
+ height: 15vh;
+  
+}
+.problem .flex-item-image img {
+  height:15vh;
+  width: auto;
+  
+}
 .problem .flex-row {
   height: 60%;
 }
+
+.lösung .flex-container{
+  max-width: 70vw;
+}
 .lösung .flex-item {
-  margin-top: 5vh;
+  /* margin-top: 5vh; */
+  margin: 30px;
+  font-size: 20px;
+}
+.lösung .flex-item-image{
+  margin-top: 30px;
+  height: 25vh;
 }
 
 .technik .flex-row {
-  height: 67%;
+  height: 50%;
 }
+.technik .flex-container{
+  max-width: 70vw;
+}
+.technik .flex-item{
+  font-size: 19px;
+}
+
+
+
+
+
+
 .skalierbarkeit .flex-row {
   height: 100%;
 }
 .skalierbarkeit .flex-item {
   margin-top: 5vh;
 }
+.team .flex-item-image img {
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 2.5%;
+}
 
+.team .flex-item-image {
+  display: flex;
+  flex-direction: column; /* NEW */
+  justify-content: center;
+  vertical-align: top;
+  text-align: center;
+  margin: 0;
+}
+.team .flex-container {
+  margin-top: 6%;
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 90%;
+  max-height: fit-content;
+}
+.team p{
+  font-size: 1vw;
+  font-weight: bold;
+ 
+}
 
+#reset{
+  position: absolute;
+  background-image: url("assets/img/reload_weiß.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  margin:10px auto;
+  width: 25vw;
+  height: 25vh;
+  bottom: 15%;
+  left: 50vw;
+}
+
+#reset:hover{
+  background-image: url("assets/img/reload_gelb.png");
+}
 
 
 
@@ -270,6 +354,8 @@ left: 50vw;
   min-height: 100%;
 }
 
+
+/*MacBook 15,4 & Macbook 13,3 */
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   /* #transformationVideo {
     top: 25vh;
@@ -299,6 +385,19 @@ left: 50vw;
     max-width: 80%;
     height: auto;
   }
+  
+  .problem .flex-item{
+    font-size: 17px;
+  }
+  .lösung .flex-item {
+    /* margin-top: 5vh; */
+    font-size: 16px;
+  }
+  .technik .flex-item{
+    font-size: 16px;
+  }
+
+
 }
 
 
@@ -316,7 +415,7 @@ left: 50vw;
     max-height: 80vh;
   }
   .flex-item {
-    margin: 40px;
+    margin: 36px;
     font-size: 26px;
     flex-basis: 50%;
   }
@@ -333,6 +432,9 @@ left: 50vw;
   .flex-item-image img {
     max-width: 100%;
     height: auto;
+  }
+  .team .flex-container{
+    margin-top: 22%;
   }
   #tactile{
     margin-top: 25vh;
@@ -356,13 +458,12 @@ left: 50vw;
     max-height: 80vh;
   }
   .flex-item {
-    margin: 20px;
+    margin: 18px;
     font-size: 20px;
     flex-basis: 50%;
   }
   .flex-item-image {
     max-width: 100%;
-
     flex-basis: 50%;
     margin-bottom: 5vh;
     margin-top: 3.5vh;
@@ -374,8 +475,22 @@ left: 50vw;
     max-width: 100%;
     height: auto;
   }
+  .problem .flex-item{
+    font-size: 15px;
+  }
+  .lösung .flex-item {
+    /* margin-top: 5vh; */
+    font-size: 14px;
+    margin:15px;
+  }
+  .technik .flex-item{
+    font-size: 14px;
+  }
   #tactile{
     margin-top: 25vh;
+  }
+  .team .flex-container{
+    margin-top: 25%;
   }
 .imgBtn,
 .forward {
@@ -536,4 +651,9 @@ body.skalierbarkeit section.skalierbarkeit {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+body.team section.team {
+  opacity: 1;
+  display: block;
 }
