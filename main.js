@@ -347,7 +347,7 @@ function draw() {
 
   if (start) {
     
-    background("grey");
+    background(111, 116, 122);
     counter += 1;
     update();
     if (screenFreeze) {
@@ -361,7 +361,7 @@ function draw() {
     endSteps();
     longCaneHover();
     push();
-    fill(color(128,fade));
+    fill(color(173, 184, 196,fade));
     rect(0,0,window.width,window.height);
     pop();
   }
