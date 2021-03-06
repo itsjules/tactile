@@ -19,6 +19,7 @@ let mirrorPlay = false;
 
 let longcane;
 let longcane2;
+let longcane1;
 let leitlinienAnimation = [];
 let aufmerksamkeitAnimation = [];
 let aufmerksamkeitsFeld;
@@ -34,7 +35,7 @@ var storyPart;
 let executeRestart = false;
 
 function preload() {
-  longcane = loadImage("assets/img/longcane.png");
+  longcane1 = loadImage("assets/img/longcane.png");
   longcane2 = loadImage("assets/img/longcane2.png");
   for (let i = 0; i < 12; i++) {
     let FrameNumber = "Frame" + nf(i, 2);
@@ -75,13 +76,13 @@ function getStoryPart(part) {
     case "beforeProblem":
       storyPart = 0;
       steps = 7;
-      longcane = longcane;
+      longcane = longcane1;
       reset();
       break;
     case "afterProblem":
       storyPart = 1;
       steps = 4;
-      longcane = longcane;
+      longcane = longcane1;
       reset();
       break;
     case "afterTransformation":
@@ -107,6 +108,7 @@ function getStoryPart(part) {
 }
 
 function update() {
+  getStoryPart(document.body.className);
   hitArea = {
     left: window.width / 2 - window.width * 0.05,
     right: window.width / 2 + window.width * 0.05,
@@ -120,7 +122,7 @@ function update() {
   }
   longcaneHeight = window.height * (0.5 + scales);
   longcaneWidth = (longcane.width / longcane.height) * longcaneHeight;
-  getStoryPart(document.body.className); // 1+i      hier document.get blabala class aus html-body beziehen
+   // 1+i      hier document.get blabala class aus html-body beziehen
 }
 
 function longCaneHover() {
@@ -344,6 +346,7 @@ function startCanvas() {
 
 function draw() {
   startCanvas();
+  console.log(document.body.className);
   if (start) {
     background(111, 116, 122);
     counter += 1;

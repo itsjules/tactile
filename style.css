@@ -5,7 +5,7 @@ html {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  /* cursor: none; */
+  
   /* font-family: monospace; */
 }
 
@@ -232,10 +232,18 @@ left: 50vw;
   max-width: 80vw;
   
 }
+
+
+
 .problem .flex-item{
   font-size: 20px;
-  
+  filter: blur(8px);
+  transition-duration: 0.1s;
 }
+.problem .flex-item:hover {
+  filter: blur(0);
+}
+
 .problem .flex-item-image {
  height: 15vh;
   
@@ -256,10 +264,21 @@ left: 50vw;
   /* margin-top: 5vh; */
   margin: 30px;
   font-size: 20px;
+  filter: blur(8px);
+  transition-duration: 0.1s;
+}
+.lösung .flex-item:hover{
+  filter: blur(0);
 }
 .lösung .flex-item-image{
   margin-top: 30px;
   height: 25vh;
+  filter: blur(8px);
+  transition-duration: 0.1s;
+}
+
+.lösung .flex-item-image:hover{
+  filter: blur(0);
 }
 
 .technik .flex-row {
@@ -270,6 +289,12 @@ left: 50vw;
 }
 .technik .flex-item{
   font-size: 19px;
+  filter: blur(8px);
+  transition-duration: 0.1s;
+}
+
+.technik .flex-item:hover{
+  filter: blur(0);
 }
 
 
@@ -530,6 +555,7 @@ body.start section.start {
   display: block;
 }
 
+
 body.intro section.intro {
   opacity: 1;
   display: block;
@@ -599,6 +625,7 @@ body.goingBlind section.goingBlind {
 body.beforeProblem section.beforeProblem {
   opacity: 1;
   display: block;
+  cursor: none;
 }
 
 body.problem section.problem {
@@ -609,16 +636,19 @@ body.problem section.problem {
 body.afterProblem section.afterProblem {
   opacity: 1;
   display: block;
+  cursor: none;
 }
 
 body.transformation section.transformation {
   opacity: 1;
   display: block;
+  cursor: none;
 }
 
 body.afterTransformation section.afterTransformation {
   opacity: 1;
   display: block;
+  cursor: none;
 }
 
 body.lösung section.lösung {
@@ -629,6 +659,7 @@ body.lösung section.lösung {
 body.afterLösung section.afterLösung {
   opacity: 1;
   display: block;
+  cursor: none;
 }
 
 body.technik section.technik {
@@ -639,12 +670,13 @@ body.technik section.technik {
 body.afterTechnik section.afterTechnik {
   opacity: 1;
   display: block;
+  cursor: none;
 }
 
 body.skalierbarkeit section.skalierbarkeit {
   opacity: 1;
   display: block;
-  background-image: url(assets/img/Karte.png);
+  background-image: url(assets/img/skalierbarkeit_1.jpg);
   background-color: rgba(131, 131, 131, 0.1);
 
   background-position: center center;

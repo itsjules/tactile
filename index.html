@@ -35,7 +35,7 @@
 <audio id="knotenpunkt" src="assets/sound/busStation.mp3" loop></audio>
 <audio id="ftStep" src="assets/sound/footstep.mp3"></audio>
 
-<section class="start" style="background-color: rgb(173, 184, 196)";>
+<section class="start" style="background-color: rgb(173, 184, 196);" onmouseover="gleishalle.muted=true;">
     <!-- rgb(173, 184, 196) -->
     <img id="tactile" src="assets/img/tactile.png">
     
@@ -45,7 +45,7 @@
     </div>
     
 </section>
-<section class="intro" onmouseover="gleishalle.play();gleishalle.volume=0.05">
+<section class="intro" onmouseover="gleishalle.play();gleishalle.volume=0.05;">
         <button class="imgBtn"></button>
     </section>
     <section class="leitlinie" onmouseover="gleishalle.play();gleishalle.volume=0.02">
@@ -240,7 +240,7 @@
         
         <button onclick="sectionForward()"></button>
     </section>
-    <section class="skalierbarkeit" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
+    <section class="skalierbarkeit" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05;" >
         <div class="headline">
             <h1 style="color: #124d82;">Skalierbarkeit</h1>
         </div>
@@ -255,9 +255,9 @@
         </div>
         <button class="forwardText" onclick="sectionForward()"></button>
     </section>       
-    <section class="team" onmouseover="knotenpunkt.play();knotenpunkt.volume=0.05">
+    <section class="team" onmouseover="knotenpunkt.pause();knotenpunkt.volume=0.05" style="background-color: rgb(173, 184, 196);">
         <div class="headline">
-            <h1>Das Team</h1>
+            <h1 style="color: #124d82;">Das Team</h1>
         </div>
 
         <div class="flex-container">
@@ -310,6 +310,9 @@
         }
         gleishalle.volume = 0.05;
         knotenpunkt.volume=0.1;
+        if(document.body.className==="start"){
+            document.getElementById("goback").style.display="none";
+        }
     }
     window.onload = onLoad;
 
@@ -346,7 +349,7 @@
             audioBtn.className="muted"
             // $("audioBtn").removeClass();
             // $("audioBtn").addClass("mute");
-            console.log(audioBtn.className);
+         
             return
         }
         if(audioBtn.value==="false"){
@@ -354,7 +357,7 @@
             audioBtn.value="true";
             audioBtn.backgroundImage = "assets/img/unmute_weiß.png";
             audioBtn.className="unmuted"
-            console.log(audioBtn.className);
+       
             return
         } 
     }
@@ -367,6 +370,10 @@
                 a = i;
                 if (document.body.className === "goingBlind") {
                     gleishalle.pause();
+                }
+                if(document.body.className==="start"){
+            document.getElementById("goback").style.display="block";
+            gleishalle.muted=false;
                 }
                 $("body").removeClass();
                 ftStep.play();
@@ -382,14 +389,18 @@
             if (sections[i].className === document.body.className) {
                 b = i;
                 
-                if (document.body.className === "beforeProblem") {
-                    $("body").removeClass();
-                    ftStep.play();
-                    knotenpunkt.pause();
-                    $("body").addClass(sections[b - 2].className);
+                if (document.body.className === "beforeProblem" || document.body.className==="afterTransformation") {
+                $("body").removeClass();
+                ftStep.play();
+                knotenpunkt.pause();
+                $("body").addClass(sections[b - 2].className);
 
                 }
+                
                 else{
+                if(document.body.className==="intro"){
+                document.getElementById("goback").style.display="none";
+                }
                 $("body").removeClass();
                 ftStep.play();    
                 $("body").addClass(sections[b - 1].className);
@@ -407,13 +418,13 @@
                 section = sections[i];
             }
         }
-        console.log(section);
+
         ftStep.play();
         section.style.backgroundImage = `url(assets/img/${document.body.className}_${s}.jpg)`;
-        console.log("replace: " + s, document.body.className);
+ 
         if (s > 2) {
             s = 0;
-            console.log("juhu");
+         
             for (i = 0; i < imgButtons.length; i++) {
                 imgButtons[i].removeEventListener("click", replace);
                 imgButtons[i].addEventListener("click", sectionForward);
@@ -437,7 +448,7 @@
             imgButtons[i].addEventListener("click", replace);
 
         }
-        console.log("imgChangeSection: " + s, document.body.className);
+        
     }
 
 
