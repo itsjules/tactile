@@ -530,6 +530,7 @@ body.start section.start {
   display: block;
 }
 
+
 body.intro section.intro {
   opacity: 1;
   display: block;
@@ -644,7 +645,7 @@ body.afterTechnik section.afterTechnik {
 body.skalierbarkeit section.skalierbarkeit {
   opacity: 1;
   display: block;
-  background-image: url(assets/img/Karte.png);
+  background-image: url(assets/img/skalierbarkeit_1.jpg);
   background-color: rgba(131, 131, 131, 0.1);
 
   background-position: center center;
