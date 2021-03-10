@@ -35,6 +35,8 @@ var storyPart;
 let executeRestart = false;
 
 function preload() {
+  soundFormats('mp3');
+  footstep = loadSound("assets/sound/footstep");
   longcane1 = loadImage("assets/img/longcane.png");
   longcane2 = loadImage("assets/img/longcane2.png");
   for (let i = 0; i < 12; i++) {
@@ -61,7 +63,7 @@ function preload() {
     "assets/img/aufmerksamkeitsfeld ohne rand.png"
   );
   kartePin=loadImage("assets/img/gelber Pin ohne Schatten.png");
-  footstep = loadSound("assets/sound/footstep.mp3");
+  
 }
 window.preload = preload;
 
@@ -345,8 +347,9 @@ function startCanvas() {
 }
 
 function draw() {
+  // console.log(footstep);
   startCanvas();
-  console.log(document.body.className);
+  // console.log(document.body.className);
   if (start) {
     background(111, 116, 122);
     counter += 1;
